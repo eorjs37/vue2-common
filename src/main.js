@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { MyGlobal } from '@/plugins/myPlugin'
+import VideoPlugin from './plugins/VideoPlugin'
 
 Vue.config.productionTip = false
 
-Vue.use(MyGlobal)
-
+Vue.use(VideoPlugin);
 
 new Vue({
   render: h => h(App),

@@ -1,8 +1,10 @@
+import Hls from "hls.js";
 /**
  * @description 비디오 객체
  */
 const videoObject = {
   video: null,
+  hls: null,
   /**
    * @description 비디오 Element
    * @returns 비디오 element
@@ -56,6 +58,21 @@ const videoObject = {
    */
   pauseEvent(evt) {
     console.log("pause evt : ", evt);
+  },
+  /**
+   * @description Hls Init
+   * @author CHOI DAE GEON
+   * @param {*} videoSrc 비디오 URL
+   */
+  initHls(videoSrc) {
+    if (Hls.isSupported()) {
+      this.hls = new Hls();
+      this.hls.loadSource(videoSrc);
+      this.hls.attachMedia(this.video);
+    }
+    else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
+      this.video.src = videoSrc
+    }
   }
 }
 
