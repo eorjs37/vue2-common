@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <video id="video" controls autoplay playsinline></video>
+    <div class="container">
+      <video id="video" controls autoplay playsinline></video>
+    </div>
   </div>
 </template>
 
@@ -19,4 +21,15 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#video {
+  width: 100%;
+  height: 35px;
+}
+</style>
