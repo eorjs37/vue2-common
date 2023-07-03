@@ -15,5 +15,7 @@ module.exports = {
     "comma-dangle": "off",
     "indent": ["warn", 2],
     "no-nested-ternary": "warn",
+    "no-unused-vars": "warn",
+    "no-undef": "off"
   }
 }
