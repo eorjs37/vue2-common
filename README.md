@@ -3,6 +3,7 @@
 ## video 공통 기능 리스트
 * ~~Hls 초기화(ios/safari같은 경우 video에 세팅)~~
 * ~~자동재생(retry Count 3)~~
+* store 재생상태 연동
 * 음원 교체(광고 음악)
 * Hls 에러 처리(MEDIA ERROR,NETWORK ERROR)
 * 소리 조금씩 줄이기

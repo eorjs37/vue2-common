@@ -52,6 +52,15 @@ const videoObject = {
     this.video.pause();
   },
   /**
+   * @description 비디오 addEvent
+   * @author CHOI DAE GEON
+   */
+  addEvent() {
+    this.video.addEventListener("canplaythrough", this.canplaythroughEvent.bind(this));
+    this.video.addEventListener("play", this.playEvent);
+    this.video.addEventListener("pause", this.pauseEvent);
+  },
+  /**
    * @description 비디오 CanPlaythrough
    * @author CHOI DAE GEON
    */
@@ -69,15 +78,6 @@ const videoObject = {
         }
         console.error("videoPromiseRetry error : ", err.name);
       })
-  },
-  /**
-   * @description 비디오 addEvent
-   * @author CHOI DAE GEON
-   */
-  addEvent() {
-    this.video.addEventListener("canplaythrough", this.canplaythroughEvent.bind(this));
-    this.video.addEventListener("play", this.playEvent);
-    this.video.addEventListener("pause", this.pauseEvent);
   },
   /**
    * @description Play Event
