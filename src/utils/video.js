@@ -1,4 +1,5 @@
 import Hls from "hls.js";
+import { store } from "@/store";
 /**
  * @description 비디오 객체
  */
@@ -86,6 +87,7 @@ const videoObject = {
    */
   playEvent(evt) {
     console.log("play evt : ", evt);
+    store.commit("setPlay", true);
   },
   /**
    * @description Pause Event
@@ -94,6 +96,7 @@ const videoObject = {
    */
   pauseEvent(evt) {
     console.log("pause evt : ", evt);
+    store.commit("setPlay", false);
   },
   /**
    * @description Hls Init
