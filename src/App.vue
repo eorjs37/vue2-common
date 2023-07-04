@@ -13,7 +13,7 @@ export default {
   },
   mounted() {
     const ele = document.querySelector('#video')
-    const src = 'https://www.aplayz.co.kr/broadcast/c790db1be827f48f26cbdbfebb0db7ce.m3u8'
+    const src = 'https://www.aplayz.co.kr/broadcast/2b70edd060a0f3314645870c8718741a.m3u8'
     this.$VideoJS.setVideo(ele)
     this.$VideoJS.initHls(src)
     this.$VideoJS.addEvent()
