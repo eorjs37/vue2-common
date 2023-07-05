@@ -4,6 +4,7 @@
       <video id="video" controls autoplay playsinline></video>
       <div>
         <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
+
       </div>
     </div>
   </div>
@@ -12,7 +13,13 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+    }
+  },
+
   created() {
+    this.addCron();
   },
   mounted() {
     const ele = document.querySelector('#video')
@@ -21,8 +28,21 @@ export default {
     this.$VideoJS.setVideo(ele)
     this.$VideoJS.initHls(src);
     this.$VideoJS.addEvent();
-
-    console.log(this.$crontab);
+  },
+  methods: {
+    addCron() {
+      this.$crontab.addJob({
+        name: "tempCron",
+        interval: {
+          seconds: '0',
+          minutes: '45',
+          hours: '8'
+        },
+        job: () => {
+          alert("call temp Cron")
+        }
+      })
+    }
   }
 }
 </script>
