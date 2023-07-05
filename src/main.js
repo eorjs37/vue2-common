@@ -2,9 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import VideoPlugin from './plugins/VideoPlugin'
 import { store } from './store'
+import VueCrontab from 'vue-crontab'
+
 
 Vue.config.productionTip = false
 Vue.use(VideoPlugin);
+Vue.use(VueCrontab)
 
 new Vue({
   render: h => h(App),

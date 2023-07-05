@@ -16,12 +16,13 @@ export default {
   },
   mounted() {
     const ele = document.querySelector('#video')
-    const src = 'https://www.aplayz.co.kr/broadcast/2b70edd060a0f3314645870c8718741a.m3u8'
+    const src = 'https://www.aplayz.co.kr/broadcast/a44610765711c95e0fcd4274c93116ec.m3u8'
+    //const brandSrc = `https://dev.www.aplayz.co.kr/stream/getMusic?FKiZAhTfjsdKDegP/+OgRuzltdsGgCCuqMybPWuwNOphFTTIOSPvPr7iVx+3`;
     this.$VideoJS.setVideo(ele)
-    this.$VideoJS.initHls(src)
+    this.$VideoJS.initHls(src);
     this.$VideoJS.addEvent();
 
-    console.log('getters : ', this.$store.getters.getIsPlay);
+    console.log(this.$crontab);
   }
 }
 </script>
