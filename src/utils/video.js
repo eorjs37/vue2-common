@@ -16,11 +16,19 @@ const videoObject = {
   },
   /**
    * @description get mute(음소거)
-   * @author CHOI DAE GEON
    * @returns 음소거 상태
+   * @author CHOI DAE GEON
    */
   getMuted() {
     return this.video.muted
+  },
+  /**
+   * @description 볼륨 설정
+   * @param {*} volume 볼륨
+   * @author CHOI DAE GEON
+   */
+  setVolume(volume) {
+    this.video.volume = volume
   },
   /**
    * @description 비디오 재생상태 Return
@@ -147,6 +155,28 @@ const videoObject = {
       }
 
       retry(0)
+    })
+  },
+  /**
+   * @description 소리 조금씩 줄이기
+   */
+  fadeOutSound() {
+    const sound = this.video.volume;
+    return new Promise((resolve) => {
+      const fadeOut = (volume) => {
+        if (volume > 0.1) {
+          this.video.volume = volume - 0.1;
+          setTimeout(() => {
+            fadeOut(volume - 0.1)
+          }, 1000)
+
+        }
+        else {
+          resolve();
+        }
+      }
+
+      fadeOut(sound)
     })
   }
 }
