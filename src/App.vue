@@ -7,10 +7,8 @@
 </template>
 
 <script>
-import { mixin } from '@/mixin/mixin'
 export default {
   name: 'App',
-  mixins: [mixin],
   data() {
     return {
     }

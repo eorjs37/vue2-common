@@ -38,3 +38,4 @@ mounted(){
 ```
 
 ## vue - mixin
+> 여러컴퍼넌트에 공통에 들어가는 "로직" 기능들을 재사용하는 방법, mixin에는 data,methods,created 등과 같은 컴퍼넌트 옵션
