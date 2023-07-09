@@ -23,14 +23,14 @@ export default {
   },
   mounted() {
     const ele = document.querySelector('#video')
-    const src = 'https://www.aplayz.co.kr/broadcast/ac5bed707d5f4de278779ec83e4c72b6.m3u8'
+    const src = 'https://www.aplayz.co.kr/broadcast/94ee2de9742b5906c1c90d6e461b65b0.m3u8'
     const brandEle = document.querySelector('#brandvideo')
     this.$VideoJS.setVideo(ele)
     this.$VideoJS.initHls(src);
     this.$VideoJS.addEvent();
 
     this.$BrandVideoJS.setBrandVideo(brandEle)
-
+    this.$BrandVideoJS.addEvent();
   },
   methods: {
     addCron() {
@@ -38,8 +38,8 @@ export default {
         name: "tempCron",
         interval: {
           seconds: '0',
-          minutes: '57',
-          hours: '8'
+          minutes: '28',
+          hours: '12'
         },
         job: () => {
           console.log("start crontab : ", new Date());

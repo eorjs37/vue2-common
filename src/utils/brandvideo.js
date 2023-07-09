@@ -31,9 +31,8 @@ const brandVideoObject = {
   * @description 브랜드비디오 종료 이벤트
   * @author CHOI DAE GEON
   */
-  onEndedEvent(evt) {
-    console.log("end evt : ", evt);
-    videoObject.setVolume(1)
+  onEndedEvent() {
+    videoObject.setVolume(1.0)
   },
   /**
    * @description 브랜드비디오 Element 세팅
