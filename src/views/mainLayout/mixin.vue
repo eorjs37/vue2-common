@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <SelectModal></SelectModal>
-    mixin
+  <div class="container">
+    <SelectModal v-if="modalVisible" @onclose="closeEvent"></SelectModal>
+    <button id="modalbtn" @click="method1()">모달 클릭</button>
   </div>
 </template>
 
@@ -16,16 +16,16 @@ export default {
   mixins: [mixin],
   data() {
     return {
-
     };
   },
 
   mounted() {
-    this.method1();
   },
 
   methods: {
-
+    closeEvent() {
+      this.method2();
+    }
   },
 };
 </script>

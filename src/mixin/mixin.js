@@ -1,15 +1,18 @@
 const mixin = {
-  created: function () {
+  created: () => {
     console.log("mixin hook called");
   },
   data: () => {
     return {
-      globalVariable: ''
+      modalVisible: false
     }
   },
   methods: {
     method1() {
-      console.log(this.globalVariable);
+      this.modalVisible = true
+    },
+    method2() {
+      this.modalVisible = false;
     }
   }
 }
