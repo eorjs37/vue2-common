@@ -3,7 +3,6 @@
     <transition name="fade">
       <SelectModal v-if="modalVisible" @onclose="closeEvent"></SelectModal>
     </transition>
-
     <button id="modalbtn" @click="method1()">모달 클릭</button>
   </div>
 </template>
@@ -45,4 +44,5 @@ export default {
 /* .fade-leave-active below version 2.1.8 */
   {
   opacity: 0;
-}</style>
+}
+</style>

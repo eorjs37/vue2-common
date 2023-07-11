@@ -125,3 +125,6 @@ export default {
 
 ### mixin 단점
 > vue인스턴스의 data와 mixin의 data가 서로 겹칠수 있다.
+
+
+## vue transition

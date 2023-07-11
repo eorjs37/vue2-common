@@ -11,6 +11,10 @@ const routes = [
       {
         path: '/mixin',
         component: () => import('@/views/mainLayout/mixin.vue')
+      },
+      {
+        path: '/transition',
+        component: () => import('@/views/mainLayout/transition.vue')
       }
     ]
   }

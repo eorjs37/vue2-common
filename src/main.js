@@ -6,6 +6,9 @@ import { store } from './store'
 import VueCrontab from 'vue-crontab'
 import { router } from './router'
 
+// Importing the global css file
+import "@/assets/styles/reset.css"
+import "@/assets/styles/global.css"
 
 Vue.config.productionTip = false
 Vue.use(VideoPlugin);
