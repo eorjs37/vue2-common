@@ -6,15 +6,19 @@ const routes = [
     path: '/', component: () => import('@/layout/mainLayout.vue'), children: [
       {
         path: '/video',
-        component: () => import('@/views/mainLayout/video.vue')
+        component: () => import('@/views/mainLayout/videoView.vue')
       },
       {
         path: '/mixin',
-        component: () => import('@/views/mainLayout/mixin.vue')
+        component: () => import('@/views/mainLayout/mixinView.vue')
       },
       {
         path: '/transition',
-        component: () => import('@/views/mainLayout/transition.vue')
+        component: () => import('@/views/mainLayout/transitionView.vue')
+      },
+      {
+        path: '/canvas',
+        component: () => import('@/views/mainLayout/canvasView.vue')
       }
     ]
   }
