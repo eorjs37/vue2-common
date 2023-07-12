@@ -7,6 +7,7 @@ import VueCrontab from 'vue-crontab'
 import { router } from './router'
 
 // Importing the global css file
+import "@/assets/styles/_variables.css"
 import "@/assets/styles/reset.css"
 import "@/assets/styles/global.css"
 import 'animate.css';
