@@ -128,3 +128,19 @@ export default {
 
 
 ## vue transition
+
+### v-enter
+> enter의 시작 상태. 엘리먼트가 삽입되기 전에 적용되고 한 프레임 후에 제거됩니다
+### v-enter-active
+> enter에 대한 활성 및 종료 상태. 엘리먼트가 삽입되기 전에 적용됩니다. 트랜지션 / 애니메이션이 완료되면 제거됩니다.
+### v-enter-to
+> 진입상태가 완료 될때 사용
+
+
+### v-leave
+> leave를 위한 시작 상태. 진출 트랜지션이 트리거 될 때 적용되고 한 프레임 후에 제거됩니다.
+
+### v-leave-active
+> leave에 대한 활성 및 종료 상태.
+### v-leave-to
+> 진출 상태의 끝에서 실행됩니다
