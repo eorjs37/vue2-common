@@ -1,5 +1,6 @@
 import Hls from "hls.js";
 import { videoObject } from "./video";
+import VueCrontab from 'vue-crontab'
 /**
  * @description 브랜드 음원 비디오 객체
  */
@@ -50,6 +51,29 @@ const brandVideoObject = {
   getBrandVideoEle() {
     return this.brandvideo
   },
+  /**
+   * @description cronjob add
+   * @param {*} name 크론job name
+   * @author CHOI DAE GEON
+   */
+  addCronJob(name) {
+    VueCrontab.addJob({
+      name,
+      interval: {
+        seconds: '0',
+        minutes: '06',
+        hours: '7'
+      },
+      job: this.cronJob
+    })
+  },
+  /**
+   * @description cronjob event trigger 일어날때마다 동작하는 함수
+   * @author CHOI DAE GEON
+   */
+  cronJob() {
+    console.log("start crontab : ", new Date());
+  }
 }
 
 export { brandVideoObject }

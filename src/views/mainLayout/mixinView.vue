@@ -20,10 +20,11 @@ export default {
     return {
     };
   },
-
+  created() {
+    this.$BrandVideoJS.addCronJob('temp')
+  },
   mounted() {
   },
-
   methods: {
     closeEvent() {
       this.method2();
