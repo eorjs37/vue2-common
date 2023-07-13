@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .header {
-  position: fixed;
+  position: sticky;
   width: 100%;
   height: 70px;
   background-color: var(--black);

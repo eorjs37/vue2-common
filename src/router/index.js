@@ -3,7 +3,7 @@ import Vue from "vue";
 Vue.use(VueRouter)
 const routes = [
   {
-    path: '/', component: () => import('@/layout/mainLayout.vue'), children: [
+    path: '/', component: () => import('@/layout/mainLayout.vue'), redirect: '/mixin', children: [
       {
         path: '/video',
         component: () => import('@/views/mainLayout/videoView.vue')

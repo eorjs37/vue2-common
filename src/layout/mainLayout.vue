@@ -1,18 +1,21 @@
 <template>
   <div>
     <HeaderComponent />
-    <section class="section">
+    <main class="main">
       <router-view></router-view>
-    </section>
-
+    </main>
+    <FooterComponent />
+    <FloatingComponent />
   </div>
 </template>
 
 <script>
 import HeaderComponent from '@/components/HeaderComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
+import FloatingComponent from '@/components/FloatingComponent.vue'
 export default {
   name: 'mainLayout',
-  components: { HeaderComponent },
+  components: { HeaderComponent, FooterComponent, FloatingComponent },
   data() {
     return {
 
@@ -29,8 +32,4 @@ export default {
 };
 </script>
 
-<style  scoped>
-.section {
-  margin-top: 70px;
-}
-</style>
+<style  scoped></style>
