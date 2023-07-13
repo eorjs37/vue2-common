@@ -28,4 +28,12 @@ export default {
   height: 120px;
   border-radius: 50%;
 }
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+  .floating {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

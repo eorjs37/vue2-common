@@ -7,6 +7,8 @@ import VueCrontab from 'vue-crontab'
 const brandVideoObject = {
   brandvideo: null,
   hls: null,
+  brandVideoList: [],
+  brandActiveIndex: -1,
   /**
    * @description Hls Init
    * @param {*} videoSrc 비디오 URL
@@ -56,23 +58,29 @@ const brandVideoObject = {
    * @param {*} name 크론job name
    * @author CHOI DAE GEON
    */
-  addCronJob(name) {
+  addCronJob(name, interval, musicInfo) {
+    console.log("add cron job");
     VueCrontab.addJob({
       name,
-      interval: {
-        seconds: '0',
-        minutes: '06',
-        hours: '7'
-      },
-      job: this.cronJob
+      interval,
+      job: () => {
+        this.cronJob(name, interval, musicInfo)
+      }
     })
   },
   /**
    * @description cronjob event trigger 일어날때마다 동작하는 함수
    * @author CHOI DAE GEON
    */
-  cronJob() {
-    console.log("start crontab : ", new Date());
+  async cronJob(name, interval, musicInfo) {
+    console.log("name : ", name);
+    console.log("interval : ", interval);
+    console.log('musicInfo : ', musicInfo);
+    this.brandVideoList.push(musicInfo)
+    if (!videoObject.getMuted()) {
+      await videoObject.fadeOutSound();
+    }
+
   }
 }
 

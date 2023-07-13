@@ -5,7 +5,7 @@
         APLAYZ
       </h1>
       <div class="button_group">
-        <button class="header_btn">매장용 플레이어 다운로드</button>
+        <button class="header_btn" @click="goVideo">매장용 플레이어 다운로드</button>
         <button class="header_btn">로그인/회원가입</button>
       </div>
     </div>
@@ -27,7 +27,9 @@ export default {
   },
 
   methods: {
-
+    goVideo() {
+      this.$router.push({ name: 'video' }).catch(() => { })
+    }
   },
 };
 </script>
@@ -37,9 +39,7 @@ export default {
   position: sticky;
   width: 100%;
   height: 70px;
-  background-color: var(--black);
-  top: 0;
-  left: 0;
+  background: transparent;
   display: flex;
   justify-content: center;
   padding: 20px 0;
@@ -55,7 +55,7 @@ export default {
 }
 
 .header>.wrap>.title {
-  color: var(--white);
+  color: var(--black);
   line-height: 30px;
 }
 
@@ -69,5 +69,12 @@ export default {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+}
+
+/* 반응형 */
+@media screen and (max-width:1200px) {
+  .header>.wrap {
+    padding: 0 15px;
+  }
 }
 </style>

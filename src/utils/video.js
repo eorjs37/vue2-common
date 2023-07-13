@@ -80,6 +80,7 @@ const videoObject = {
       })
       .catch(err => {
         if (err.name === 'FailRetry') {
+
           alert("재생버튼을 클릭해주세요")
         }
         else {
