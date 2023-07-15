@@ -36,9 +36,8 @@ export default {
 
 <style scoped>
 .header {
-  position: sticky;
+  position: fixed;
   width: 100%;
-  height: 70px;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -49,14 +48,14 @@ export default {
 .header>.wrap {
   max-width: 1200px;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .header>.wrap>.title {
-  color: var(--black);
-  line-height: 30px;
+  color: var(--white);
+  font-size: 38px;
+  line-height: 38px;
 }
 
 .button_group {

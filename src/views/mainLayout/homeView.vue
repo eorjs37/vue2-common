@@ -28,11 +28,10 @@ export default {
 .introduce {
   width: 100%;
   background-color: aliceblue;
-  height: 830px;
 }
 
 .introducevideo {
-
-  height: inherit;
+  width: 100%;
+  height: 100%;
 }
 </style>
