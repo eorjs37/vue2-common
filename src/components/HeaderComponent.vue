@@ -43,6 +43,7 @@ export default {
   justify-content: center;
   padding: 20px 0;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .header>.wrap {

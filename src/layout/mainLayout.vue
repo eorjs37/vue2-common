@@ -57,10 +57,10 @@ export default {
 
 <style  scoped>
 #global_video {
-  visibility: hidden;
+  display: none;
 }
 
 #brand_video {
-  visibility: hidden;
+  display: none;
 }
 </style>
