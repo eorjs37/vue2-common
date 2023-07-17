@@ -28,10 +28,11 @@ export default {
   },
 
   mounted() {
-    const videoSrc = `https://stream.aplayz.co.kr/broadcast/24737233f34416a2891a731eca669c9a.m3u8`
+    const videoSrc = `https://stream.aplayz.co.kr/broadcast/de4ff9746cdd99e5138839bb8eb0aba7.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
     this.$VideoJS.initHls(videoSrc);
     this.$VideoJS.addEvent();
+    this.$BrandVideoJS.setBrandVideo(document.querySelector('#brand_video'))
 
     this.addJob();
   },

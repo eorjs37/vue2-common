@@ -1,14 +1,13 @@
 import Hls from "hls.js";
 import { videoObject } from "./video";
 import VueCrontab from 'vue-crontab'
+import { store } from "@/store";
 /**
  * @description 브랜드 음원 비디오 객체
  */
 const brandVideoObject = {
   brandvideo: null,
   hls: null,
-  brandVideoList: [],
-  brandActiveIndex: -1,
   /**
    * @description Hls Init
    * @param {*} videoSrc 비디오 URL
@@ -59,7 +58,6 @@ const brandVideoObject = {
    * @author CHOI DAE GEON
    */
   addCronJob(name, interval, musicInfo) {
-    console.log("add cron job");
     VueCrontab.addJob({
       name,
       interval,
@@ -73,15 +71,39 @@ const brandVideoObject = {
    * @author CHOI DAE GEON
    */
   async cronJob(name, interval, musicInfo) {
-    console.log("name : ", name);
-    console.log("interval : ", interval);
-    console.log('musicInfo : ', musicInfo);
-    this.brandVideoList.push(musicInfo)
+    store.commit("setBrandPlayList", musicInfo)
     if (!videoObject.getMuted()) {
       await videoObject.fadeOutSound();
     }
 
-  }
+    if (store.getters.getBrandActiveIndex < 0) {
+      console.log("First Brand music start");
+      const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
+      store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
+      this.playBrandPusic();
+    }
+  },
+  /**
+   * @description 브랜드음원 start
+   * @author CHOI DAE GEON
+   */
+  playBrandPusic() {
+    if (Hls.isSupported()) {
+      const current = store.getters.getCurrentBrandMusic;
+      this.hls = new Hls({
+        backBufferLength: 0,
+      });
+      this.hls.loadSource(current.src);
+      this.hls.attachMedia(this.brandvideo);
+
+      this.brandvideo.addEventListener("ended", (evt) => {
+        console.log("evt : ", evt);
+        const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
+        store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
+        this.playBrandPusic();
+      }, { once: true })
+    }
+  },
 }
 
 export { brandVideoObject }
