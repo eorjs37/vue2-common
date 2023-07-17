@@ -5,8 +5,8 @@
         APLAYZ
       </h1>
       <div class="button_group">
-        <button class="header_btn" @click="goVideo">매장용 플레이어 다운로드</button>
-        <button class="header_btn">로그인/회원가입</button>
+        <button class="header_btn btn1" @click="goVideo">매장용 플레이어 다운로드</button>
+        <button class="header_btn btn2">로그인/회원가입</button>
       </div>
     </div>
   </header>
@@ -62,13 +62,26 @@ export default {
 .button_group {
   display: flex;
   justify-content: space-between;
-  width: 250px;
+  width: 310px;
 }
 
 .header_btn {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  color: var(--white);
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.btn1 {
+  background: transparent;
+  border: 1px solid var(--white);
+}
+
+.btn2 {
+  background-color: var(--ff1150);
 }
 
 /* 반응형 */
@@ -76,5 +89,25 @@ export default {
   .header>.wrap {
     padding: 0 15px;
   }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+
+  /*스타일입력*/
+  .header>.wrap>.title {
+    font-size: 16px;
+  }
+
+  .button_group {
+    width: 260px;
+  }
+
+
+  .header_btn {
+    font-size: 14px;
+    padding: 5px;
+  }
+
 }
 </style>
