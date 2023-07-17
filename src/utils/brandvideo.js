@@ -100,7 +100,8 @@ const brandVideoObject = {
         console.log("evt : ", evt);
         const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
         store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
-        this.playBrandPusic();
+        console.log("nextBrandActiveIndex : ", nextBrandActiveIndex);
+        //this.playBrandPusic();
       }, { once: true })
     }
   },
