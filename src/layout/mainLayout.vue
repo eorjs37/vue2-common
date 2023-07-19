@@ -28,7 +28,7 @@ export default {
   },
 
   mounted() {
-    const videoSrc = `https://stream.aplayz.co.kr/broadcast/de4ff9746cdd99e5138839bb8eb0aba7.m3u8`
+    const videoSrc = `https://stream.aplayz.co.kr/broadcast/888011e6239381fa971e30724dbdcb05.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
     this.$VideoJS.initHls(videoSrc);
     this.$VideoJS.addEvent();
@@ -46,8 +46,7 @@ export default {
       setTimeout(() => {
         const { list } = crontab
         list.forEach((item, index) => {
-          //https://www.aplayz.co.kr/stream/getMusic?v92d2/GeNMAC21M72EWjsCrsUTmcjLRrs+bVWmXZUTVdF5QUNWxDeKGQOCq1
-          this.$BrandVideoJS.addCronJob(`item${index}`, item, { src: 'https://www.aplayz.co.kr/stream/getMusic?v92d2/GeNMAC21M72EWjsCrsUTmcjLRrs+bVWmXZUTVdF5QUNWxDeKGQOCq1' })
+          this.$BrandVideoJS.addCronJob(`item${index}`, item, { src: 'https://dev.www.aplayz.co.kr/stream/getMusic?lXvb/KejEEHJ/9Y87XL02hEivlQwdhz8HrqNjZMTPvDAOqvC231f2z+IqP0N' })
         });
       }, 2000)
 

@@ -96,15 +96,22 @@ const brandVideoObject = {
       this.hls.loadSource(current.src);
       this.hls.attachMedia(this.brandvideo);
 
-      this.brandvideo.addEventListener("ended", (evt) => {
-        console.log("evt : ", evt);
-        const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
-        store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
-        console.log("nextBrandActiveIndex : ", nextBrandActiveIndex);
-        //this.playBrandPusic();
-      }, { once: true })
+      this.brandvideo.addEventListener("ended", this.handleEnded.bind(this), { once: true })
     }
   },
+  /**
+   * @description 음원 종료 이벤트
+   * @author CHOI DAE GEON
+   */
+  handleEnded() {
+    this.hls.destroy();
+
+    const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
+    store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
+    console.log("nextBrandActiveIndex : ", nextBrandActiveIndex);
+    console.log("this : ", this);
+    this.playBrandPusic();
+  }
 }
 
 export { brandVideoObject }
