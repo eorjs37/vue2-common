@@ -5,7 +5,7 @@
         APLAYZ
       </h1>
       <div class="button_group">
-        <button class="header_btn btn1" @click="goVideo">매장용 플레이어 다운로드</button>
+        <button class="header_btn btn1" @click="goMixin">매장용 플레이어 다운로드</button>
         <button class="header_btn btn2">로그인/회원가입</button>
       </div>
     </div>
@@ -29,6 +29,9 @@ export default {
   methods: {
     goVideo() {
       this.$router.push({ name: 'video' }).catch(() => { })
+    },
+    goMixin() {
+      this.$router.push({ name: 'mixin' }).catch(() => { })
     }
   },
 
