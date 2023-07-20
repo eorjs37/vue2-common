@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="video_container">
     <div>
       <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
     </div>
@@ -28,4 +28,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.video_container {
+  background-color: var(--black);
+}
+</style>

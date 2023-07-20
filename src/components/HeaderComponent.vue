@@ -44,6 +44,9 @@ export default {
   padding: 20px 0;
   box-sizing: border-box;
   z-index: 1;
+  height: 80px;
+  top: 0;
+  left: 0;
 }
 
 .header>.wrap {

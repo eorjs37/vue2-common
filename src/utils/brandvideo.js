@@ -79,7 +79,7 @@ const brandVideoObject = {
     if (store.getters.getBrandActiveIndex < 0) {
       console.log("First Brand music start");
       const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
-      store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
+      store.commit("setBrandActiveIndex", nextBrandActiveIndex);
       this.playBrandPusic();
     }
   },
@@ -106,11 +106,17 @@ const brandVideoObject = {
   handleEnded() {
     this.hls.destroy();
 
-    const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
-    store.commit("setBrandActiveIndex", nextBrandActiveIndex + 1);
-    console.log("nextBrandActiveIndex : ", nextBrandActiveIndex);
-    console.log("this : ", this);
-    this.playBrandPusic();
+    this.hls = null
+    if (store.getters.getBrandActiveIndex < store.getters.getBrandListLength - 1) {
+      const nextBrandActiveIndex = store.getters.getBrandActiveIndex + 1
+      store.commit("setBrandActiveIndex", nextBrandActiveIndex);
+      this.playBrandPusic();
+    }
+    else {
+      store.commit("setBrandActiveIndex", -1);
+      videoObject.setVolume(1);
+    }
+
   }
 }
 

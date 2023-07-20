@@ -34,6 +34,9 @@ const store = new Vuex.Store({
     },
     getCurrentBrandMusic(state) {
       return state.brandPlayList[state.brandActiveIndex];
+    },
+    getBrandListLength(state) {
+      return state.brandPlayList.length;
     }
   }
 })

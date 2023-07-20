@@ -49,7 +49,7 @@ export default {
 </script>
 <style scoped>
 .introduce {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
 }
@@ -61,7 +61,7 @@ export default {
   left: 0;
   height: 100vh;
   z-index: -1;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .event {
