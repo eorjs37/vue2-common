@@ -30,6 +30,6 @@ export default {
 
 <style scoped>
 .video_container {
-  background-color: var(--black);
+  margin-top: 80px;
 }
 </style>

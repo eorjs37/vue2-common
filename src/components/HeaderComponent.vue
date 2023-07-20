@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="headerCss">
     <div class="wrap">
       <h1 class="title">
         APLAYZ
@@ -31,6 +31,27 @@ export default {
       this.$router.push({ name: 'video' }).catch(() => { })
     }
   },
+
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    },
+    headerCss() {
+      if (this.$route.name !== 'home') {
+        return 'bg_black'
+      }
+      else {
+        return '';
+      }
+    }
+  },
+
+  watch: {
+    $route(to, from) {
+      console.log('to : ', to);
+      console.log('from : ', from);
+    }
+  }
 };
 </script>
 
@@ -86,6 +107,11 @@ export default {
 .btn2 {
   background-color: var(--ff1150);
 }
+
+.bg_black {
+  background-color: var(--black);
+}
+
 
 /* 반응형 */
 @media screen and (max-width:1200px) {
