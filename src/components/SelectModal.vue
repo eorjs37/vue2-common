@@ -1,17 +1,17 @@
 <template>
   <div class="modal_container">
     <div class="modal_box">
-      <div class="modal_head">
-        <h1 class="title">모달 제목</h1>
+      <div class="modal_head" v-if="headtitle">
+        <h1 class="title">{{ headtitle }}</h1>
       </div>
-      <div class="modal_body">
+      <div class="modal_body" :class="headtitle ? 'has_title' : ''">
         <p class="desc">
-          본문 내용을 입력합니다.
+          {{ bodycontents }}
         </p>
       </div>
       <div class="modal_btn">
-        <button class="button" @click="close()">예</button>
-        <button class="button" @click="close()">아니오</button>
+        <button class="button" @click="close()">{{ leftbtnname }}</button>
+        <button class="button yes" @click="close()">{{ rightname }}</button>
       </div>
     </div>
   </div>
@@ -21,6 +21,30 @@
 export default {
   name: 'SelectModal',
   emits: ["onclose"],
+  props: {
+    headtitle: {
+      type: String,
+      default: ""
+    },
+    bodycontents: {
+      type: String,
+      default: "본문내용을 입력해주세요."
+    },
+    leftbtnname: {
+      type: String,
+      default: "아니오"
+    },
+    rightname: {
+      type: String,
+      default: "예"
+    },
+    closefunc: {
+      type: Function,
+      default() {
+        return 'Default function'
+      }
+    }
+  },
   data() {
     return {
 
@@ -33,7 +57,8 @@ export default {
 
   methods: {
     close() {
-      this.$emit("onclose")
+      this.$emit("onclose");
+      this.closefunc();
     }
   },
 };

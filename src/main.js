@@ -9,6 +9,7 @@ import Plugins from './plugins/Plugins'
 import "@/assets/styles/_variables.css"
 import "@/assets/styles/reset.css"
 import "@/assets/styles/global.css"
+import "@/assets/styles/common.css"
 import 'animate.css';
 
 Vue.config.productionTip = false

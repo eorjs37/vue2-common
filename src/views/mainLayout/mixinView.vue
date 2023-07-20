@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container mt_80px">
     <transition name="fade">
-      <SelectModal v-if="modalVisible" @onclose="closeEvent"></SelectModal>
+      <SelectModal v-if="modalVisible" :headtitle="modalData.title" :bodycontents="modalData.contents"
+        :closefunc="modalData.modalCallback" @onclose="closeEvent"></SelectModal>
     </transition>
-    <button id="modalbtn" @click="method1()">모달 클릭</button>
+    <button id="modalbtn" @click="modalClick1">모달 클릭</button>
+    <button id="modalbtn" @click="modalClick2">모달 클릭2</button>
   </div>
 </template>
 
@@ -18,6 +20,16 @@ export default {
   mixins: [mixin],
   data() {
     return {
+      modalCallback: () => {
+        console.log("default modalCallback");
+      },
+      modalData: {
+        title: "",
+        contents: "",
+        modalCallback: () => {
+          console.log("default modalCallback");
+        },
+      }
     };
   },
   created() {
@@ -27,20 +39,33 @@ export default {
   },
   methods: {
     closeEvent() {
-      this.method2();
+      this.modalVisible = false;
+    },
+    onCloseModal1() {
+      alert("onClose1")
+    },
+    onCloseModal2() {
+      alert("onClose2")
+    },
+    modalClick1() {
+      this.modalData = {
+        title: "제목1",
+        contents: "본문내용",
+        modalCallback: this.onCloseModal1
+      }
+
+      this.modalVisible = true;
+    },
+    modalClick2() {
+      this.modalData = {
+        title: "",
+        contents: "본문내용2",
+        modalCallback: this.onCloseModal2
+      }
+      this.modalVisible = true;
     }
   },
 };
 </script>
 
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
+<style scoped></style>
