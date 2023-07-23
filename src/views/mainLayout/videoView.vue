@@ -1,5 +1,5 @@
 <template>
-  <div class="video_container">
+  <div class="main_container">
     <div>
       <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
     </div>
