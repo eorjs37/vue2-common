@@ -58,7 +58,7 @@ export default {
     },
     modalClick2() {
       this.modalData = {
-        title: "",
+        title: "제목2",
         contents: "본문내용2",
         modalCallback: this.onCloseModal2
       }
