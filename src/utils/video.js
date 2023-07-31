@@ -15,6 +15,14 @@ const videoObject = {
     return this.video
   },
   /**
+   * @description Hls return
+   * @author CHOI DAE GEON
+   * @returns Hls
+   */
+  getHls() {
+    return this.hls
+  },
+  /**
    * @description get mute(음소거)
    * @returns 음소거 상태
    * @author CHOI DAE GEON
@@ -113,6 +121,7 @@ const videoObject = {
    * @author CHOI DAE GEON
    */
   initHls(videoSrc) {
+    console.log("initHls");
     if (Hls.isSupported()) {
       this.hls = new Hls({
         backBufferLength: 0,
@@ -179,6 +188,23 @@ const videoObject = {
 
       fadeOut(sound)
     })
+  },
+  /**
+   * @description Hls 이벤트 등록
+   */
+  addMediaAttached(fn) {
+    if (this.hls) {
+      this.hls.on(Hls.Events.MEDIA_ATTACHED, fn)
+    }
+  },
+  /**
+   *
+   * @param {*} fn 함수등록
+   */
+  addhlsErrorEvnet(fn) {
+    if (this.hls) {
+      console.log("Fn : ", fn);
+    }
   }
 }
 

@@ -28,9 +28,10 @@ export default {
   },
 
   mounted() {
-    const videoSrc = `https://dev.stream.aplayz.co.kr/broadcast/fd54c170f9741f4c1a5407f20870c52c.m3u8`
+    const videoSrc = `https://stream.aplayz.co.kr/broadcast/70d24b10aefa132d6ba87f20471d76dc.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
-    this.$VideoJS.initHls(videoSrc);
+    if (!this.$VideoJS.getHls()) this.$VideoJS.initHls(videoSrc);
+
     this.$VideoJS.addEvent();
     this.$BrandVideoJS.setBrandVideo(document.querySelector('#brand_video'))
 
