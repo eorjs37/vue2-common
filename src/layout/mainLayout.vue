@@ -25,17 +25,15 @@ export default {
     };
   },
   created() {
+
   },
 
   mounted() {
-    const videoSrc = `https://stream.aplayz.co.kr/broadcast/70d24b10aefa132d6ba87f20471d76dc.m3u8`
+    const videoSrc = `https://dev.stream.aplayz.co.kr/broadcast/8ad031da64ec767d8d973ccd25e09fa3.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
     if (!this.$VideoJS.getHls()) this.$VideoJS.initHls(videoSrc);
 
     this.$VideoJS.addEvent();
-    this.$BrandVideoJS.setBrandVideo(document.querySelector('#brand_video'))
-
-    this.addJob();
   },
 
   methods: {

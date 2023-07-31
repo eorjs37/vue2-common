@@ -13,7 +13,7 @@ module.exports = {
   ],
   "rules": {
     "comma-dangle": "off",
-    "indent": ["warn", 2],
+    "indent": "off",
     "no-nested-ternary": "warn",
     "no-unused-vars": "warn",
     "no-undef": "off"
