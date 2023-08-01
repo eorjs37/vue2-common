@@ -1,9 +1,12 @@
 <template>
   <div class="main_container">
-    <div>
+    <div class="video_container">
       <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
-      <button @click="playMusic">onPlay</button>
-      <button @click="pauseMusic">onPause</button>
+      <div class="control">
+        <button @click="playMusic">onPlay</button>
+        <button @click="pauseMusic">onPause</button>
+        <input type="range" min="0" max="10" @input="duratinonChange">
+      </div>
     </div>
   </div>
 </template>
@@ -42,6 +45,10 @@ export default {
     pauseMusic() {
       this.$VideoJS.onPause();
     },
+    duratinonChange(e) {
+      const { valueAsNumber } = e.target;
+      this.$VideoJS.setVolume(valueAsNumber * 0.1)
+    },
     errorHandle(_, data) {
       if (data.fatal) {
         switch (data.type) {
@@ -58,14 +65,21 @@ export default {
             break;
         }
       }
-
     },
   },
+
+  computed: {
+    getVolume() {
+      return this.$VideoJS.video ? this.$VideoJS.video.volume : 0;
+    }
+  }
 };
 </script>
 
 <style scoped>
 .video_container {
-  margin-top: 80px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 </style>

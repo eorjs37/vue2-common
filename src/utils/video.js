@@ -39,6 +39,14 @@ const videoObject = {
     this.video.volume = volume
   },
   /**
+   * @description 볼륨값
+   * @author CHOI DAE GEON
+   * @returns video volume
+   */
+  getVolume() {
+    return this.video ? this.video.volume * 0.1 : 0;
+  },
+  /**
   * @description 비디오 재생상태 Return
   * @returns 비디오 재생상태
   * @author CHOI DAE GEON
