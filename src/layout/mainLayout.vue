@@ -5,7 +5,7 @@
       <router-view></router-view>
     </main>
     <FooterComponent />
-    <FloatingComponent />
+    <FloatingComponent v-if="isShowFloating" />
     <video id="global_video" controls autoplay playsinline></video>
     <video id="brand_video" controls autoplay playsinline></video>
   </div>
@@ -21,7 +21,7 @@ export default {
   components: { HeaderComponent, FooterComponent, FloatingComponent },
   data() {
     return {
-
+      isShowFloating: true
     };
   },
   created() {
@@ -29,11 +29,19 @@ export default {
   },
 
   mounted() {
+    console.log("mainlayout mounted ");
     const videoSrc = `https://stream.aplayz.co.kr/broadcast/e6c9f6356e720782f75eeaeac4b0a892.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
-    if (!this.$VideoJS.getHls()) this.$VideoJS.initHls(videoSrc);
+
+    this.$VideoJS.initHls(videoSrc);
 
     this.$VideoJS.addEvent();
+
+    const { name } = this.$route;
+    if (name === 'video') {
+      this.isShowFloating = false;
+    }
+
   },
 
   methods: {
@@ -48,9 +56,18 @@ export default {
           this.$BrandVideoJS.addCronJob(`item${index}`, item, { src: 'https://dev.www.aplayz.co.kr/stream/getMusic?lXvb/KejEEHJ/9Y87XL02hEivlQwdhz8HrqNjZMTPvDAOqvC231f2z+IqP0N' })
         });
       }, 2000)
-
     }
   },
+  watch: {
+    $route(to) {
+      const { name } = to;
+      if (name === 'video') {
+        this.isShowFloating = false;
+      } else {
+        this.isShowFloating = true;
+      }
+    }
+  }
 };
 </script>
 

@@ -12,13 +12,18 @@ import "@/assets/styles/global.css"
 import "@/assets/styles/common.css"
 import 'animate.css';
 
+//global Component
+import LoadingComponent from '@/components/LoadingComponent.vue'
+
 Vue.config.productionTip = false
 Vue.use(VueCrontab);
 Vue.use(Plugins)
 Vue.use(router)
 
+//globalcomponent
+Vue.component('LoadingComponent', LoadingComponent)
 new Vue({
   render: h => h(App),
   router,
-  store
+  store,
 }).$mount('#app')

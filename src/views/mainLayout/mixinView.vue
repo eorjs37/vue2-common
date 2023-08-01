@@ -6,6 +6,8 @@
     </transition>
     <button id="modalbtn" @click="modalClick1">모달 클릭</button>
     <button id="modalbtn" @click="modalClick2">모달 클릭2</button>
+    <button @click="playMusic">play</button>
+    <button @click="pauseMusic">pause</button>
   </div>
 </template>
 
@@ -38,6 +40,12 @@ export default {
   mounted() {
   },
   methods: {
+    playMusic() {
+      this.$VideoJS.onPlay();
+    },
+    pauseMusic() {
+      this.$VideoJS.onPause();
+    },
     closeEvent() {
       this.modalVisible = false;
     },

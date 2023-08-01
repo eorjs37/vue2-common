@@ -2,10 +2,11 @@
   <div class="main_container">
     <div class="video_container">
       <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
+      <span>볼륨 : {{ getVolume }}</span>
       <div class="control">
         <button @click="playMusic">onPlay</button>
         <button @click="pauseMusic">onPause</button>
-        <input type="range" min="0" max="10" @input="duratinonChange">
+        <input type="range" min="0" max="10" :value="getVolume" @input="duratinonChange">
       </div>
     </div>
   </div>
@@ -17,7 +18,7 @@ export default {
   name: 'videoView',
   data() {
     return {
-
+      volume: 0
     };
   },
   created() {
@@ -27,6 +28,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$VideoJS.registerHlsErrorEvent(Hls.Events.ERROR, this.errorHandle)
+      this.$VideoJS.videoRegisterEvent('play', this.playEvent)
+      this.volume = this.$VideoJS.getVolume();
     })
   },
 
@@ -47,7 +50,8 @@ export default {
     },
     duratinonChange(e) {
       const { valueAsNumber } = e.target;
-      this.$VideoJS.setVolume(valueAsNumber * 0.1)
+      this.$VideoJS.setVolume(valueAsNumber * 0.1);
+      this.volume = this.$VideoJS.getVolume();
     },
     errorHandle(_, data) {
       if (data.fatal) {
@@ -66,12 +70,19 @@ export default {
         }
       }
     },
+    playEvent(evt) {
+      console.log('playEvent : ', evt);
+    }
   },
 
   computed: {
     getVolume() {
-      return this.$VideoJS.video ? this.$VideoJS.video.volume : 0;
+      return this.volume * 10;
     }
+  },
+
+  destroyed() {
+    this.$VideoJS.removeVideoEvent('play', this.playEvent)
   }
 };
 </script>

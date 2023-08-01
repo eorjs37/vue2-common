@@ -44,7 +44,7 @@ const videoObject = {
    * @returns video volume
    */
   getVolume() {
-    return this.video ? this.video.volume * 0.1 : 0;
+    return this.video ? parseFloat(this.video.volume).toFixed(1) : 0;
   },
   /**
   * @description 비디오 재생상태 Return
@@ -90,7 +90,9 @@ const videoObject = {
    * @author CHOI DAE GEON
    */
   videoRegisterEvent(type, fn) {
-    this.video.addEventListener(type, fn)
+    if (this.video) {
+      this.video.addEventListener(type, fn)
+    }
   },
   /**
   * @description 비디오 CanPlaythrough
@@ -133,20 +135,16 @@ const videoObject = {
   * @author CHOI DAE GEON
   */
   initHls(videoSrc) {
-    console.log("initHls");
-    if (!this.hls) {
-      if (Hls.isSupported()) {
-        this.hls = new Hls({
-          backBufferLength: 0,
-        });
-        this.hls.loadSource(videoSrc);
-        this.hls.attachMedia(this.video);
-      }
-      else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
-        this.video.src = videoSrc
-      }
+    if (Hls.isSupported()) {
+      this.hls = new Hls({
+        backBufferLength: 0,
+      });
+      this.hls.loadSource(videoSrc);
+      this.hls.attachMedia(this.video);
     }
-
+    else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
+      this.video.src = videoSrc
+    }
   },
   /**
   * @description 비디오 자동실행
@@ -221,6 +219,14 @@ const videoObject = {
    */
   destory() {
     this.hls.destroy();
+  },
+  /**
+   * @description 등록된 이벤트 제거
+   * @param {*} type 이벤트명
+   * @param {*} fn 함수
+   */
+  removeVideoEvent(type, fn) {
+    this.video.removeEventListener(type, fn)
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="floating">
+  <div class="floating" @click="goVideo">
     <img class="img" src="../../public/images/album.jpg" alt="album.jpg">
     <div class="equalizer" v-if="$store.getters.getIsPlay">
       <div class="bar"></div>
@@ -22,6 +22,11 @@ export default {
   },
   mounted() {
 
+  },
+  methods: {
+    goVideo() {
+      this.$router.push({ name: "video" }).catch(() => { })
+    }
   }
 }
 </script>
@@ -34,6 +39,7 @@ export default {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .floating .img {
@@ -155,6 +161,10 @@ export default {
   .floating {
     width: 60px;
     height: 60px;
+  }
+
+  .equalizer {
+    padding: 5px;
   }
 }
 </style>
