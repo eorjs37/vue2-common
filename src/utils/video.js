@@ -23,6 +23,13 @@ const videoObject = {
     return this.hls
   },
   /**
+   * @description 뮤트 설정
+   * @param {*} value 뮤트값
+   */
+  setMuted(value) {
+    this.video.muted = value
+  },
+  /**
   * @description get mute(음소거)
   * @returns 음소거 상태
   * @author CHOI DAE GEON
