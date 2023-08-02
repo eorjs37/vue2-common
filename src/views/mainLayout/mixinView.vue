@@ -8,6 +8,10 @@
     <button id="modalbtn" @click="modalClick2">모달 클릭2</button>
     <button @click="playMusic">play</button>
     <button @click="pauseMusic">pause</button>
+    <button @click="addCount">localvuex</button>
+    <span>
+      {{ $store.getters['userInfo/doubleCont'] }}
+    </span>
   </div>
 </template>
 
@@ -71,6 +75,9 @@ export default {
         modalCallback: this.onCloseModal2
       }
       this.modalVisible = true;
+    },
+    addCount() {
+      this.$store.commit('userInfo/increment')
     }
   },
 };

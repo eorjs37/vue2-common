@@ -28,6 +28,11 @@ const routes = [
         path: '/canvas',
         name: 'canvas',
         component: () => import('@/views/mainLayout/canvasView.vue')
+      },
+      {
+        path: '/car',
+        name: 'carpurpose',
+        component: () => import("@/views/mainLayout/carPurposeView.vue")
       }
     ]
   }

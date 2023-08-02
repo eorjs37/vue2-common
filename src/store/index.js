@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { userInfo } from './module/userInfo';
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
@@ -38,7 +39,12 @@ const store = new Vuex.Store({
     getBrandListLength(state) {
       return state.brandPlayList.length;
     }
+  },
+  modules: {
+    userInfo
   }
-})
+}
+
+)
 
 export { store }

@@ -9,7 +9,7 @@
 * ~~음원 교체(광고 음악)~~
 * ~~소리 조금씩 줄이기~~
 * cronTab 공통 처리 필요
-* Hls 에러 처리(MEDIA ERROR,NETWORK ERROR)
+* ~~Hls 에러 처리(MEDIA ERROR,NETWORK ERROR)~~
 * 자동재생(예약된 시간에 음원 on/off)
 
 ## vue - plugins

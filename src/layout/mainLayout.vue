@@ -8,6 +8,7 @@
     <FloatingComponent v-if="isShowFloating" />
     <video id="global_video" controls autoplay playsinline></video>
     <video id="brand_video" controls autoplay playsinline></video>
+    <video id="car_purpose" controls autoplay playsinline></video>
   </div>
 </template>
 
@@ -29,8 +30,7 @@ export default {
   },
 
   mounted() {
-    console.log("mainlayout mounted ");
-    const videoSrc = `https://stream.aplayz.co.kr/broadcast/e6c9f6356e720782f75eeaeac4b0a892.m3u8`
+    const videoSrc = `https://stream.aplayz.co.kr/broadcast/2dc10026c6d2455b2d8baa582ce2fca9.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
 
     this.$VideoJS.initHls(videoSrc);
@@ -38,7 +38,8 @@ export default {
     this.$VideoJS.addEvent();
 
     const { name } = this.$route;
-    if (name === 'video') {
+    console.log(name);
+    if (name === 'video' || name === 'carpurpose') {
       this.isShowFloating = false;
     }
 
@@ -61,7 +62,7 @@ export default {
   watch: {
     $route(to) {
       const { name } = to;
-      if (name === 'video') {
+      if (name === 'video' || name === 'carpurpose') {
         this.isShowFloating = false;
       } else {
         this.isShowFloating = true;
@@ -77,6 +78,10 @@ export default {
 }
 
 #brand_video {
+  display: none;
+}
+
+#car_purpose {
   display: none;
 }
 </style>

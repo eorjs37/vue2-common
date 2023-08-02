@@ -64,12 +64,12 @@ export default {
 .bar {
   background-color: red;
   width: 6px;
-  height: 0;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
 
 .bar:nth-child(1) {
+  height: 20px;
   animation: bnce .7s .1s infinite alternate;
 }
 
@@ -78,22 +78,23 @@ export default {
 */
 @keyframes bnce {
   30% {
-    height: 30px;
+    transform: scaleY(1);
     background-color: tomato;
   }
 
   60% {
-    height: 50px;
+    transform: scaleY(0.3);
     background-color: purple;
   }
 
   100% {
-    height: 20px;
+    transform: scaleY(1);
     background-color: red;
   }
 }
 
 .bar:nth-child(2) {
+  height: 30px;
   animation: bnce2 .5s .5s infinite alternate;
 }
 
