@@ -145,3 +145,14 @@ export default {
 > leave에 대한 활성 및 종료 상태.
 ### v-leave-to
 > 진출 상태의 끝에서 실행됩니다
+
+
+## Jest
+```bash
+vue add unit-jest
+npm install --save-dev @vue/test-utils@legacy
+//dom 테스팅 라이브러리
+npm install --save-dev @testing-library/vue@5
+
+npm install --save-dev babel-jest @babel/core @babel/preset-env babel-core@^7.0.0-bridge.0
+```
