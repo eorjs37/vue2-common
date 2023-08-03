@@ -29,6 +29,7 @@ export default {
     this.$nextTick(() => {
       this.$VideoJS.registerHlsErrorEvent(Hls.Events.ERROR, this.errorHandle)
       this.$VideoJS.videoRegisterEvent('play', this.playEvent)
+      this.$VideoJS.videoRegisterEvent('canplaythrough', this.canplaythroughEvent)
       this.volume = this.$VideoJS.getVolume();
     })
   },
@@ -72,6 +73,20 @@ export default {
     },
     playEvent(evt) {
       console.log('playEvent : ', evt);
+    },
+    canplaythroughEvent() {
+      this.$VideoJS.videoPromiseRetry()
+        .then(() => {
+        })
+        .catch(err => {
+          if (err.name === 'FailRetry') {
+            alert("재생버튼을 클릭해주세요")
+          }
+          else {
+            alert("관리자에게 문의해주세요")
+          }
+          console.error("videoPromiseRetry error : ", err.name);
+        })
     }
   },
 

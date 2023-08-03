@@ -1,7 +1,8 @@
 <template>
   <div class="main_container">
     <div class="car_container">
-      <button @click="playCarPurpose">차량 play</button>
+      <h1>차량</h1>
+      <button @click="playCarPurpose">차량play</button>
     </div>
   </div>
 </template>
@@ -38,6 +39,7 @@ export default {
     playEvent() {
       this.$VideoJS.setMuted(true)
       console.log("playEvent");
+
     },
     pauseEvent() {
       console.log("pauseEvent");
@@ -45,10 +47,10 @@ export default {
     endedEvent() {
       this.$VideoJS.setMuted(false)
       console.log("endedEvent");
+
     }
   },
   destroyed() {
-
   }
 };
 </script>

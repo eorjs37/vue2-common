@@ -88,7 +88,6 @@ const videoObject = {
   * @author CHOI DAE GEON
   */
   addEvent() {
-    this.video.addEventListener("canplaythrough", this.canplaythroughEvent.bind(this));
     this.video.addEventListener("play", this.playEvent);
     this.video.addEventListener("pause", this.pauseEvent);
   },

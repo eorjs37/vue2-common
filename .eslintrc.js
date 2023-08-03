@@ -16,6 +16,7 @@ module.exports = {
     "indent": "off",
     "no-nested-ternary": "warn",
     "no-unused-vars": "warn",
-    "no-undef": "off"
+    "no-undef": "off",
+    "vue/comment-directive": 0
   }
 }

@@ -30,7 +30,7 @@ export default {
   },
 
   mounted() {
-    const videoSrc = `https://stream.aplayz.co.kr/broadcast/2dc10026c6d2455b2d8baa582ce2fca9.m3u8`
+    const videoSrc = `https://stream.aplayz.co.kr/broadcast/f1a514485c5959926e302c7b76acb41a.m3u8`
     this.$VideoJS.setVideo(document.querySelector('#global_video'))
 
     this.$VideoJS.initHls(videoSrc);
@@ -38,7 +38,6 @@ export default {
     this.$VideoJS.addEvent();
 
     const { name } = this.$route;
-    console.log(name);
     if (name === 'video' || name === 'carpurpose') {
       this.isShowFloating = false;
     }
