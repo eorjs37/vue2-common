@@ -1,17 +1,28 @@
 <template>
   <div>
     <button @click="count++">Add up</button>
-    <p>Total clicks: {{ count }}</p>
+    <p class="count">Total clicks: {{ count }}</p>
+    <p class="foo">{{ foo }}</p>
+    <transition>
+      <p v-if="show">Foo</p>
+    </transition>
   </div>
 </template>
 <script>
 export default {
   emits: ["foo"],
   name: 'CounterComponent',
+  props: {
+    foo: {
+      tyoe: String,
+      default: ""
+    }
+  },
 
   data() {
     return {
-      count: 0
+      count: 0,
+      show: true
     };
   },
 

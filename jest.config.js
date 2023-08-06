@@ -14,5 +14,15 @@ module.exports = {
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1"
-  }
+  },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "**/*.{js,vue}",
+    "!**/node_modules/**",
+    "!.eslintrc.js",
+    "!babel.config.js",
+    "!jest.config.js",
+    "!vue.config.js",
+    "!**/coverage/**"
+  ]
 }
