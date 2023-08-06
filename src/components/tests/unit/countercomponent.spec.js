@@ -1,6 +1,6 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import CounterComponent from "@/components/CounterComponent.vue";
-
+import Plugins from "@/plugins/Plugins";
 describe('Name of the group', () => {
   const transitionStub = () => ({
     render: function (h) {
@@ -91,6 +91,13 @@ describe('Name of the group', () => {
   })
 
   test('custom global plugin', async () => {
-
+    const localVue = createLocalVue();
+    localVue.use(Plugins);
+    const wrapper = shallowMount(CounterComponent, {
+      localVue,
+      attachTo: document.body
+    });
+    await wrapper.vm.$TestPlugin.setEl();
+    wrapper.vm.$TestPlugin.getEl()
   });
 });
