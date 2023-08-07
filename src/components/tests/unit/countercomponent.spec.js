@@ -1,9 +1,11 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import CounterComponent from "@/components/CounterComponent.vue";
 import Plugins from "@/plugins/Plugins";
+
+
 describe('Name of the group', () => {
   const transitionStub = () => ({
-    render: function (h) {
+    render: function () {
       return this.$options._renderChildren
     }
   })
@@ -99,5 +101,17 @@ describe('Name of the group', () => {
     });
     await wrapper.vm.$TestPlugin.setEl();
     wrapper.vm.$TestPlugin.getEl()
+  });
+
+
+  test('test plugins', async () => {
+    const localVue = createLocalVue();
+    localVue.use(Plugins);
+    const wrapper = shallowMount(CounterComponent, {
+      localVue
+    });
+
+    const result = await wrapper.vm.$MyPlugins.getPrivateValue(1);
+    expect(result).toBe(1)
   });
 });
