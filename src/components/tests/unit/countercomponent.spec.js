@@ -2,7 +2,6 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import CounterComponent from "@/components/CounterComponent.vue";
 import Plugins from "@/plugins/Plugins";
 
-
 describe('Name of the group', () => {
   const transitionStub = () => ({
     render: function () {
@@ -111,7 +110,10 @@ describe('Name of the group', () => {
       localVue
     });
 
-    const result = await wrapper.vm.$MyPlugins.getPrivateValue(1);
-    expect(result).toBe(1)
+    const result = await wrapper.vm.$MyPlugins.getPrivateValue(4);
+    expect(result).toBe(4)
   });
+
+  //trigger events
+
 });

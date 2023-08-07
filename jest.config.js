@@ -4,7 +4,7 @@ module.exports = {
     "js",
     "json",
     // tell Jest to handle `*.vue` files
-    "vue"
+    "vue",
   ],
   transform: {
     // process `*.vue` files with `vue-jest`
@@ -13,7 +13,8 @@ module.exports = {
     ".*\\.(js)$": "babel-jest"
   },
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1"
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "axios": "axios/dist/node/axios.cjs"
   },
   collectCoverage: true,
   collectCoverageFrom: [
@@ -24,5 +25,6 @@ module.exports = {
     "!jest.config.js",
     "!vue.config.js",
     "!**/coverage/**"
-  ]
+  ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)']
 }

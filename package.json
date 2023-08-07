@@ -5,14 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:coverage": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "editorconfig": "^1.0.2",
     "hls.js": "^1.4.8",
+    "sinon": "^15.2.0",
     "vue": "^2.6.14",
     "vue-crontab": "^0.0.4",
     "vuex": "^3.5.1",
