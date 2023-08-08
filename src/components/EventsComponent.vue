@@ -9,7 +9,7 @@
 const KEY_DOWN = 40
 const KEY_UP = 38
 const ESCAPE = 27
-import axios from 'axios'
+//import axios from 'axios'
 export default {
   name: 'EventsComponent',
   props: {
@@ -23,6 +23,8 @@ export default {
       quantity: 0
     };
   },
+
+  created() { },
 
   mounted() {
 
@@ -59,8 +61,8 @@ export default {
       this.callMe('no')
     },
     async fetchResults() {
-      const response = await axios.get('mock/service')
-      this.value = response.data
+      //const response = await axios.get('mock/service')
+      //this.value = response.data
     }
   },
 };
