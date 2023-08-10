@@ -11,8 +11,6 @@ describe('Name of the group', () => {
 
   test('increments counter value on click', async () => {
     const wrapper = shallowMount(CounterComponent);
-
-    console.log(wrapper.vm.$options);
     const button = wrapper.find('button');
     const text = wrapper.find('p');
 
