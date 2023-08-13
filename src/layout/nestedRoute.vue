@@ -1,7 +1,5 @@
 <template>
-  <div>
-
-  </div>
+  <div>Nested Route</div>
 </template>
 <script>
 export default {
