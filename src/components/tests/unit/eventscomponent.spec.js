@@ -1,7 +1,18 @@
 import { shallowMount } from "@vue/test-utils";
 import EventsComponent from "@/components/EventsComponent.vue";
+import flushPromises from "flush-promises";
 
+jest.mock('axios', () => ({
+  get: () => {
+    return Promise.resolve({
+      data: {
+        value: "value"
+      }
+    })
+  }
+}))
 describe('키보드 이벤트 테스트', () => {
+
   test('Click on yes button calls our method with argument "yes"', async () => {
     const callMe = jest.fn();
     const wrapper = shallowMount(EventsComponent, {
@@ -52,5 +63,15 @@ describe('Key event tests', () => {
       key: 'a'
     });
     expect(wrapper.vm.quantity).toBe(13)
+  });
+
+  test('비동기 호출 테스트', async () => {
+
+
+    const wrapper = shallowMount(EventsComponent);
+    wrapper.find('#btn').trigger('click');
+    await flushPromises();
+    const result = wrapper.find('.result');
+    expect(result.text()).toBe('value');
   });
 });

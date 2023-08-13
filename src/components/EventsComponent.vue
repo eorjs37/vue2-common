@@ -3,12 +3,15 @@
     <button class="yes" @click="callYes">Yes</button>
     <button class="no" @click="callNo">No</button>
     <input type="text" @keydown.prevent="onKeydown" v-model="quantity" />
+    <button id="btn" @click="fetchResults">{{ value }}</button>
+    <p class="result">{{ value }}</p>
   </div>
 </template>
 <script>
 const KEY_DOWN = 40
 const KEY_UP = 38
 const ESCAPE = 27
+import axios from 'axios';
 export default {
   name: 'EventsComponent',
   props: {
@@ -19,7 +22,9 @@ export default {
 
   data() {
     return {
-      quantity: 0
+      quantity: 0,
+      value: null
+
     };
   },
 
@@ -59,6 +64,10 @@ export default {
     callNo() {
       this.callMe('no')
     },
+    async fetchResults() {
+      const response = await axios.get("mock/service");
+      this.value = response.data.value
+    }
   },
 };
 </script>

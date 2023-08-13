@@ -3,7 +3,10 @@ import Vue from "vue";
 Vue.use(VueRouter)
 const routes = [
   {
-    path: '/', component: () => import('@/layout/mainLayout.vue'), redirect: '/home', children: [
+    path: '/',
+    component: () => import('@/layout/mainLayout.vue'),
+    redirect: '/home',
+    children: [
       {
         path: '/home',
         name: 'home',
@@ -34,7 +37,11 @@ const routes = [
         name: 'carpurpose',
         component: () => import("@/views/mainLayout/carPurposeView.vue")
       }
-    ]
+    ],
+  },
+  {
+    path: '/nested',
+    component: () => import('@/layout/nestedRoute.vue')
   }
 ]
 
