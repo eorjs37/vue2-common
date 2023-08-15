@@ -68,11 +68,10 @@ const mixin = {
 }
 
 export { mixin }
-
 ```
-> mixin을 해당 vue에 import 한다
-method1,method2를 통해 모달을 open/close를 할 수 있다.
-```vue
+
+> mixin을 해당 vue에 import 한다 method1,method2를 통해 모달을 open/close를 할 수 있다.
+```html
 <template>
   <div class="container">
     <transition name="fade">
@@ -222,7 +221,152 @@ module.exports = {
 }
 ```
 
+### vue + jest 사용법
 
-### vue router jest
+#### describe
+> 단위테스트의 그룹을 묶어둔것. 여기서는 한개의 Component 단위로 묶어서 테스트를 실시하였다.
+```javascript
+describe('Helloworld.vue 테스트', () => {
+
+});
+```
+
+#### test
+> 단위테스트의 그룹에서, 최소 단위의 테스트를 작성
+```javascript
+describe('Helloworld.vue 테스트', () => {
+  test('테스트1', () => {
+
+  });
+});
+```
+
+#### shallMount, mount
+> shallMount는 하위 컴퍼넌트까지 렌더링 하지않는다. mount는 하위 컴퍼넌트까지 렌더링 한다.
+##### shallMount 결과
+```html
+<div>
+  <button>클릭</button>
+  <child-component-stub></child-component-stub>
+</div>
+```
+
+##### mount 결과
+```html
+<div>
+  <button>클릭</button>
+  <div>
+    childComponent
+  </div>
+</div>
+```
+
+#### emit 테스트 하기 (자식 컴퍼넌트)
+```html
+<template>
+  <div>
+    childComponent
+  </div>
+</template>
+<script>
+export default {
+  emits: ["callemit"],
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    method1() {
+      this.$emit('callemit', 123)
+    }
+  }
+}
+</script>
+<style scoped></style>
+```
+
+
+```javascript
+import { shallowMount } from "@vue/test-utils";
+import ChildComponent from "@/components/ChildComponent.vue";
+describe('ChildComponent Testing', () => {
+  test('Emit을 테스트한다.', () => {
+    const wrapper = shallowMount(ChildComponent);
+    wrapper.vm.$emit('callemit', 123);
+    // assert event has been emitted
+    expect(wrapper.emitted().callemit).toBeTruthy();
+    // assert event count
+    expect(wrapper.emitted().callemit.length).toBe(1)
+
+    // assert event payload
+    expect(wrapper.emitted().callemit[0]).toEqual([123]);
+  });
+});
+```
+
+#### emit 테스트 하기 (부모 컴퍼넌트)
+
+```html
+<template>
+  <div>
+    <button>클릭</button>
+    <child-component @callemit="onCallEmit" />
+    <p v-if="emitted">Emitted!</p>
+  </div>
+</template>
+<script>
+import ChildComponent from './ChildComponent.vue';
+export default {
+  components: {
+    'child-component': ChildComponent
+  },
+  data() {
+    return {
+      emitted: false
+    }
+  },
+  methods: {
+    onCallEmit() {
+      this.emitted = true;
+    }
+  }
+}
+</script>
+<style scoped></style>
+```
+
+```javascript
+import { mount, shallowMount } from "@vue/test-utils";
+import HelloWorld from "@/components/HelloWorld.vue";
+import ChildComponent from "@/components/ChildComponent.vue";
+describe('Helloworld.vue 테스트', () => {
+  test("ChildComponent으로부터 callemit 함수 받기", async () => {
+    const wrapper = mount(HelloWorld);
+    wrapper.findComponent(ChildComponent).vm.$emit('callemit');
+    await wrapper.vm.$nextTick()
+    expect(wrapper.html()).toContain('Emitted')
+  })
+});
+
+```
+
+#### trigger events
+
+##### click
+
+##### Keyboard:KEY_DOWN
+##### Keyboard:KEY_UP
+##### Keyboard:ESCAPE
+
+#### mock
+
+#### axios mock
+
+#### findComponent
+
+#### SpyOn
+
+#### vue router jest
 1. 실제 라우터 쓰는법
 2. $route,$router 글로벌 모킹 객체 만들기

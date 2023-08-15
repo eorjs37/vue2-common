@@ -1,14 +1,24 @@
 <template>
   <div>
-    <button @click="click()"></button>
+    <button>클릭</button>
+    <child-component @callemit="onCallEmit" />
+    <p v-if="emitted">Emitted!</p>
   </div>
 </template>
 <script>
+import ChildComponent from './ChildComponent.vue';
 export default {
-  emits: ["custom"],
+  components: {
+    'child-component': ChildComponent
+  },
+  data() {
+    return {
+      emitted: false
+    }
+  },
   methods: {
-    click() {
-      this.$emit("custom")
+    onCallEmit() {
+      this.emitted = true;
     }
   }
 }
