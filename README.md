@@ -221,3 +221,8 @@ module.exports = {
  }
 }
 ```
+
+
+### vue router jest
+1. 실제 라우터 쓰는법
+2. $route,$router 글로벌 모킹 객체 만들기

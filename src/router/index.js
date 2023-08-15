@@ -1,5 +1,6 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
+import NestedRouteVue from "@/layout/nestedRoute.vue";
 Vue.use(VueRouter)
 const routes = [
   {
@@ -41,7 +42,7 @@ const routes = [
   },
   {
     path: '/nested',
-    component: () => import('@/layout/nestedRoute.vue')
+    component: NestedRouteVue
   }
 ]
 
