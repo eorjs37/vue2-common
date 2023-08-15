@@ -352,12 +352,55 @@ describe('Helloworld.vue 테스트', () => {
 ```
 
 #### trigger events
-
+> 키보드 클릭이나 , 마우스 클릭 할 경우 발생시키는 이벤트이다.
+```javascript
+test('버튼을 클릭할 경우 2배를 곱한다.', async () => {
+    const wrapper = shallowMount(KeyDownComponent);
+    wrapper.vm.quantity = 4;
+    const btn = wrapper.find('#btn');
+    await btn.trigger('click'); //click말고 다양한 이벤트가 나올수 있다.
+    expect(wrapper.vm.quantity).toBe(8);
+  });
+```
 ##### click
-
+```javascript
+test('버튼을 클릭할 경우 2배를 곱한다.', async () => {
+    const wrapper = shallowMount(KeyDownComponent);
+    wrapper.vm.quantity = 4;
+    const btn = wrapper.find('#btn');
+    await btn.trigger('click');
+    expect(wrapper.vm.quantity).toBe(8);
+  });
+```
 ##### Keyboard:KEY_DOWN
+```javascript
+test('방향키 아래 버튼 누를 경우 값을 감소시킨다.', async () => {
+    const wrapper = shallowMount(KeyDownComponent);
+    wrapper.vm.quantity = 4;
+    const input = wrapper.find('input');
+    await input.trigger('keydown.down');
+    expect(wrapper.vm.quantity).toBe(3);
+  });
+```
 ##### Keyboard:KEY_UP
+```javascript
+ test('방향키 위 버튼 누를 경우 값을 증가시킨다.', async () => {
+    const wrapper = shallowMount(KeyDownComponent);
+    const input = wrapper.find('input');
+    await input.trigger('keydown.up');
+    expect(wrapper.vm.quantity).toBe(1);
+  });
+```
 ##### Keyboard:ESCAPE
+```javascript
+test("Esc 누를 경우 값을 초기화 시켜준다.", async () => {
+    const wrapper = shallowMount(KeyDownComponent);
+    wrapper.vm.quantity = 20;
+    const input = wrapper.find('input');
+    await input.trigger("keydown.esc");
+    expect(wrapper.vm.quantity).toBe(0)
+  });
+```
 
 #### mock
 
