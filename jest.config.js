@@ -1,10 +1,16 @@
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest',
   moduleFileExtensions: [
-    "js",
-    "json",
     // tell Jest to handle `*.vue` files
     "vue",
+    "js",
+    "mjs",
+    "cjs",
+    "jsx",
+    "ts",
+    "tsx",
+    "json",
+    "node",
   ],
   transform: {
     // process `*.vue` files with `vue-jest`
@@ -16,6 +22,11 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "axios": "axios/dist/node/axios.cjs"
   },
+  // The glob patterns Jest uses to detect test files
+  testMatch: [
+    "<rootDir>/**/*.spec.(js|jsx|ts|tsx)",
+    "<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))",
+  ],
   collectCoverage: true,
   collectCoverageFrom: [
     "**/*.{js,vue}",

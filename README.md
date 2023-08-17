@@ -442,8 +442,6 @@ describe('ForEach mock testing', () => {
 
 #### axios mock
 
-#### findComponent
-
 #### SpyOn
 
 #### vue router jest
