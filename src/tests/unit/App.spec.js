@@ -14,11 +14,14 @@ describe('App', () => {
     }))
     const wrapper = mount(App, {
       localVue,
-      router
+      router,
+      stubs: {
+        NestedRoute: true
+      }
     });
 
     router.push("/nested")
-    await wrapper.vm.$nextTick()
+    await wrapper.vm.$nextTick();
     expect(wrapper.findComponent(NestedRoute).exists()).toBe(true)
 
   });

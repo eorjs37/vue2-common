@@ -475,4 +475,107 @@ describe('Axios 컴퍼넌트 테스팅', () => {
 
 #### vue router jest
 1. 실제 라우터 쓰는법
+```javascript
+//router/index.js
+import VueRouter from "vue-router";
+import Vue from "vue";
+import nestedRoute from "@/layout/nestedRoute.vue"
+Vue.use(VueRouter)
+const routes = [
+  {
+    path: '/nested',
+    component: nestedRoute
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+export { router }
+```
+
+```javascript
+//App.spec.js
+import { createLocalVue, mount } from "@vue/test-utils";
+import VueRouter from "vue-router";
+import { router } from "@/router";
+import App from "@/App.vue";
+import NestedRoute from '@/layout/nestedRoute.vue'
+const localVue = createLocalVue();
+localVue.use(VueRouter)
+
+describe('App', () => {
+  test('rendering', async () => {
+    jest.mock("@/layout/NestedRoute.vue", () => ({
+      name: "NestedRoute",
+      render: h => h("div")
+    }))
+    const wrapper = mount(App, {
+      localVue,
+      router,
+      stubs: {
+        NestedRoute: true
+      }
+    });
+
+    router.push("/nested")
+    await wrapper.vm.$nextTick();
+    expect(wrapper.findComponent(NestedRoute).exists()).toBe(true)
+
+  });
+});
+
+```
 2. $route,$router 글로벌 모킹 객체 만들기
+```html
+<!--nestedRoute.vue -->
+<template>
+  <div>
+    Nested Route
+    <div class="username">
+      {{ $route.params.username }}
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: 'NestedRoute',
+
+  data() {
+    return {
+
+    };
+  },
+
+  mounted() {
+
+  },
+
+  methods: {
+
+  },
+};
+</script>
+
+```
+
+```javascript
+import { shallowMount } from "@vue/test-utils";
+import NestedRoute from "@/layout/nestedRoute.vue";
+describe('NestedRoute', () => {
+  test('쿼리 스트링으부터 userName을 렌더한다.', () => {
+    const username = "alice";
+    const wrapper = shallowMount(NestedRoute, {
+      mocks: {
+        $route: {
+          params: { username }
+        }
+      }
+    });
+    expect(wrapper.find('.username').text()).toBe(username)
+  });
+});
+
+```
