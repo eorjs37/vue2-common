@@ -43,6 +43,10 @@ const routes = [
   {
     path: '/nested',
     component: nestedRoute
+  },
+  {
+    path: '/dummy',
+    component: () => import("@/layout/dummyLayout.vue")
   }
 ]
 
