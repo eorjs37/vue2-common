@@ -579,3 +579,129 @@ describe('NestedRoute', () => {
 });
 
 ```
+
+
+#### vuex jest
+> 실제 vuex를 사용하는 방법과, mock사용하는 방법 두가지가 존재한다.
+
+##### 1.실제 vuex를 사용하는 방법
+
+```html
+<!-- VuexComponent.vue-->
+<template>
+  <div>
+    <p data-vuex="username">
+      {{ username }}
+    </p>
+  </div>
+</template>
+<script>
+export default {
+  name: 'Vue2EditorconfigVuexComponent',
+
+  data() {
+    return {
+      username: this.$store.state.userName
+    };
+  },
+
+  mounted() {
+
+  },
+
+  methods: {
+
+  },
+};
+</script>
+<style scoped></style>
+```
+
+```javascript
+//vuexcomponent.spec.js
+import { createLocalVue, shallowMount } from "@vue/test-utils";
+import Vuex from 'vuex'
+import VuexComponents from '@/components/VuexComponent.vue'
+import { store } from "@/store";
+describe('Vuex componentn testing', () => {
+  test('should ', () => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
+    const wrapper = shallowMount(VuexComponents, {
+      store,
+      localVue
+    });
+
+    expect(wrapper.find('[data-vuex="username"]').text()).toBe("안녕하세요");
+  });
+});
+
+```
+
+##### 2.mock사용하는 방법
+
+```html
+<!-- VuexMockComponent.vue -->
+<template>
+  <div id="greet">
+    {{ greet }}
+  </div>
+</template>
+<script>
+export default {
+  name: 'Vue2EditorconfigVuexMockComponent',
+
+  data() {
+    return {
+
+    };
+  },
+
+  mounted() {
+
+  },
+
+  methods: {
+
+  },
+  computed: {
+    greet() {
+      return this.$store.getters.getterFullName
+    }
+  }
+};
+</script>
+<style scoped></style>
+
+```
+
+```javascript
+//vuexmockcomponent.spec.js
+import { shallowMount } from "@vue/test-utils";
+import VuexMockComponent from '@/components/VuexMockComponent.vue'
+describe('VuexMockComponentn testing', () => {
+  test('testing1', () => {
+    const object = {
+      userName: "안녕하세요",
+      lastName: "최대건"
+    }
+    const wrapper = shallowMount(VuexMockComponent, {
+      mocks: {
+        $store: {
+          state: {
+            userName: object.userName,
+            lastName: object.lastName
+          },
+          getters: {
+            getterFullName: `${object.userName} ${object.lastName}님`
+          }
+        }
+      }
+    });
+
+    expect(wrapper.find('#greet').text()).toBe("안녕하세요 최대건님")
+
+  });
+});
+
+```
