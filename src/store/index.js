@@ -7,6 +7,8 @@ const store = new Vuex.Store({
     isPlay: false,
     brandPlayList: [],
     brandActiveIndex: -1,
+    userName: "안녕하세요",
+    lastName: "최대건"
   },
   mutations: {
     setPlay(state, val) {
@@ -38,6 +40,9 @@ const store = new Vuex.Store({
     },
     getBrandListLength(state) {
       return state.brandPlayList.length;
+    },
+    getterFullName(state) {
+      return `${state.userName} ${state.lastName}님`
     }
   },
   modules: {
