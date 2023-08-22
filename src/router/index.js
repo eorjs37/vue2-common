@@ -46,6 +46,7 @@ const routes = [
   },
   {
     path: '/dummy',
+    name: "DummyLayout",
     component: () => import("@/layout/dummyLayout.vue")
   }
 ]

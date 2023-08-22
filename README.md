@@ -705,3 +705,67 @@ describe('VuexMockComponentn testing', () => {
 });
 
 ```
+
+
+##### 3.router-link 테스트하는법
+
+```html
+<template>
+  <div id="app">
+    <!-- 이름을 가지는 라우트 -->
+    <router-link id="home" :to="{ name: 'DummyLayout' }">User</router-link>
+    <router-view />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+    }
+  },
+
+  created() {
+  },
+  mounted() {
+  },
+  methods: {
+  }
+}
+</script>
+
+<style>
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+</style>
+
+```
+
+```javascript
+import { createLocalVue, mount, shallowMount } from "@vue/test-utils";
+import VueRouter from "vue-router";
+import { router } from "@/router";
+import App from "@/App.vue";
+import NestedRoute from '@/layout/nestedRoute.vue'
+import DummyLayout from '@/layout/dummyLayout.vue'
+const localVue = createLocalVue();
+localVue.use(VueRouter)
+describe('App', () => {
+  test("DummyLayout router를 가지고 있는지 테스트", () => {
+    const wrapper = shallowMount(App, {
+      localVue,
+      router
+    });
+    const routerLink = wrapper.findComponent("#home");
+    //router-link에서 to속성의 값으로 테스트 한다.
+    expect(routerLink.props().to).toEqual({ name: "DummyLayout" })
+
+  })
+
+});
+
+```

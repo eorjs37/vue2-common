@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <!-- 이름을 가지는 라우트 -->
+    <router-link id="home" :to="{ name: 'DummyLayout' }">User</router-link>
     <router-view />
   </div>
 </template>
