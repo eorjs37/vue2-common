@@ -21,4 +21,26 @@ describe('Axios 컴퍼넌트 테스팅', () => {
     expect(posts.at(0).text()).toContain('title1')
     expect(posts.at(1).text()).toContain('title2')
   });
+
+  test('중첩API 버튼 클릭', async () => {
+    axios.get = await jest.fn().mockImplementationOnce(() => Promise.resolve({
+      status: 200,
+      data: {
+        result: "0000"
+      }
+    }))
+      .mockImplementationOnce(() => Promise.resolve({
+        status: 200,
+        data: {
+          result: "0001"
+        }
+      }))
+
+
+    const wrapper = shallowMount(AxiosPracticeComponent);
+    const btn = wrapper.find('#btn2');
+    await btn.trigger('click');
+    expect(axios.get.mock.calls[0][0]).toBe('/api/posts');
+    expect(axios.get.mock.calls[1][0]).toBe('/api/posts2');
+  });
 });
