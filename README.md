@@ -769,3 +769,109 @@ describe('App', () => {
 });
 
 ```
+
+
+#### setTimeOut,setInterval 사용
+
+##### 1.setTimeOut
+```html
+<!-- /* setTimeOut */ -->
+<template>
+  <div>
+
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      visible: false,
+      count: 0,
+      interval: null
+    }
+  },
+  created() {
+    setTimeout(() => {
+      console.log("call setTime out");
+      this.visible = true
+    }, 10000);
+  },
+  destroyed() {
+  }
+}
+</script>
+<style scoped></style>
+
+```
+
+```javascript
+//timeoutcomponent.spec.js
+import { shallowMount } from "@vue/test-utils";
+import TimeOutComponent from '@/components/TimeOutComponent.vue'
+describe('timeout component', () => {
+  let wrapper;
+  beforeEach(() => {
+    //1.jest.useFakeTimers();
+    jest.useFakeTimers();
+    wrapper = shallowMount(TimeOutComponent);
+
+  })
+  test('timeout', async () => {
+    //2.jest.advanceTimersByTime 를 통해 몇초후에 발생할 것인지 설정
+    jest.advanceTimersByTime(10000)
+    expect(wrapper.vm.visible).toBe(true);
+  });
+
+});
+```
+
+##### 2.setInterval
+```html
+<!-- /* setInterval */ -->
+<template>
+  <div>
+
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      visible: false,
+      count: 0,
+      interval: null
+    }
+  },
+  created() {
+    this.interval = setInterval(() => {
+      this.count++;
+    }, 1000);
+  },
+  destroyed() {
+    clearInterval(this.interval)
+  }
+}
+</script>
+<style scoped></style>
+```
+
+```javascript
+import { shallowMount } from "@vue/test-utils";
+import TimeOutComponent from '@/components/TimeOutComponent.vue'
+describe('timeout component', () => {
+  let wrapper;
+  beforeEach(() => {
+    //1.jest.useFakeTimers();
+    jest.useFakeTimers();
+    wrapper = shallowMount(TimeOutComponent);
+  })
+
+
+  test("interval", () => {
+    //2.jest.advanceTimersByTime 를 통해 몇초후에 발생할 것인지 설정
+    jest.advanceTimersByTime(1000)
+    expect(wrapper.vm.count).toBe(1);
+  })
+});
+
+```
