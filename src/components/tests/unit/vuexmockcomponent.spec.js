@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import VuexMockComponent from '@/components/VuexMockComponent.vue'
 describe('VuexMockComponentn testing', () => {
-  test('testing1', () => {
+  test('testing1-1', () => {
     const object = {
       userName: "안녕하세요",
       lastName: "최대건"
