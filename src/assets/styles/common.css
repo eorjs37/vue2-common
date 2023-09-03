@@ -11,3 +11,57 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.fixed {
+  position: fixed;
+}
+
+/*######### width #########*/
+.w_100 {
+  width: 100%;
+}
+
+.w_90 {
+  width: 90%;
+}
+
+/*########## height ##########*/
+
+.h_100 {
+  height: 100%;
+}
+
+.h_80px {
+  height: 80px;
+}
+
+.m_auto {
+  margin: 0 auto;
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+
+/*######### flex #########*/
+.space_between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align_center {
+  display: flex;
+  align-items: center;
+}
+
+/*######### margin #########*/
+.margin_left_60px {
+  margin-left: 60px;
+}
+
+
+/*######### color #########*/
+.font_white {
+  color: var(--white);
+}

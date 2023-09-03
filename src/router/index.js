@@ -48,6 +48,25 @@ const routes = [
     path: '/dummy',
     name: "DummyLayout",
     component: () => import("@/layout/dummyLayout.vue")
+  },
+  {
+    path: '/aplayz',
+    component: () => import('@/layout/layout4Layout.vue'),
+    redirect: '/player',
+    children: [
+      {
+        path: '/player',
+        name: 'playerws',
+        component: () => import("@/views/layout4Layout/playerView.vue"),
+        meta: { viewName: "마이스페이스" }
+      },
+      {
+        path: '/dummyview',
+        name: "dummyview",
+        component: () => import("@/views/layout4Layout/dummyView.vue"),
+        meta: { viewName: "더미" }
+      }
+    ]
   }
 ]
 

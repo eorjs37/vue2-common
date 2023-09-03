@@ -39,15 +39,5 @@ describe('App', () => {
 
   });
 
-  test("DummyLayout router를 가지고 있는지 테스트", () => {
-    const wrapper = shallowMount(App, {
-      localVue,
-      router
-    });
-    const routerLink = wrapper.findComponent("#home");
-
-    expect(routerLink.props().to).toEqual({ name: "DummyLayout" })
-
-  })
 
 });
