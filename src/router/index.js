@@ -65,6 +65,12 @@ const routes = [
         name: "dummyview",
         component: () => import("@/views/layout4Layout/dummyView.vue"),
         meta: { viewName: "더미" }
+      },
+      {
+        path: '/event',
+        name: "eventview",
+        component: () => import("@/views/layout4Layout/eventView.vue"),
+        meta: { viewName: "이벤트" }
       }
     ]
   }

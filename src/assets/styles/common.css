@@ -56,10 +56,17 @@
 }
 
 /*######### margin #########*/
-.margin_left_60px {
+.ml_60px {
   margin-left: 60px;
 }
 
+.mr_60px {
+  margin-right: 60px;
+}
+
+.mr_10px {
+  margin-right: 10px;
+}
 
 /*######### color #########*/
 .font_white {

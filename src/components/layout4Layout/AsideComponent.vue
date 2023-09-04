@@ -1,5 +1,5 @@
 <template>
-  <aside class="side_bar on fixed h_100">
+  <aside class="side_bar  fixed h_100">
     <nav class="nav h_100">
       <h2>리스트</h2>
       <ul>
@@ -41,8 +41,9 @@ export default {
   right: 0;
   display: inline-block;
   width: 347px;
-  transform: translateX(200px);
+  transform: translateX(347px);
   z-index: 1;
+
   background-color: var(--black151515);
 }
 
