@@ -58,19 +58,19 @@ const routes = [
         path: '/player',
         name: 'playerws',
         component: () => import("@/views/layout4Layout/playerView.vue"),
-        meta: { viewName: "마이스페이스" }
+        meta: { viewName: "마이스페이스", isUseMenu: true }
       },
       {
         path: '/dummyview',
         name: "dummyview",
         component: () => import("@/views/layout4Layout/dummyView.vue"),
-        meta: { viewName: "더미" }
+        meta: { viewName: "더미", isUseMenu: true }
       },
       {
         path: '/event',
         name: "eventview",
         component: () => import("@/views/layout4Layout/eventView.vue"),
-        meta: { viewName: "이벤트" }
+        meta: { viewName: "이벤트", isUseMenu: true }
       }
     ]
   }

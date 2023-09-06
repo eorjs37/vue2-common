@@ -3,11 +3,11 @@
 
     <ul class="space_between w_90 h_100 m_auto">
       <!--################# left #################-->
-      <!--###### PC ######-->
+      <!--###### menu left PC ######-->
       <li class="align_center header_pc">
         <img class="cursor header_pc" :src="require(`@/assets/images/${getLogoUrl}`)" alt="로고">
       </li>
-      <!--###### Mobile ######-->
+      <!--######  menu left Mobile ######-->
       <li class="align_center header_mobile ">
         <ul class="align_center h_100">
           <li>
