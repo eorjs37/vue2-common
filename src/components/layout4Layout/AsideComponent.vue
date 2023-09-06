@@ -1,5 +1,5 @@
 <template>
-  <aside class="side_bar off fixed h_100">
+  <aside class="side_bar fixed h_100" :class="openStatus">
     <nav class="nav h_100">
       <h2>리스트</h2>
       <ul>
@@ -18,6 +18,12 @@
 </template>
 <script>
 export default {
+  props: {
+    openStatus: {
+      type: String,
+      defalut: ""
+    }
+  },
   name: 'AsideComponent',
 
   data() {
@@ -54,7 +60,7 @@ export default {
 
 .side_bar.off {
   animation: slideInLeft;
-  animation-duration: 1.5s;
+  animation-duration: .7s;
   right: -347px;
 }
 

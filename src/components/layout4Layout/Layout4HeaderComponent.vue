@@ -29,7 +29,7 @@
           <li class="align_center">
             <img class="cursor" src="/media/img/alarm.png" alt="알람">
           </li>
-          <li class="ml_60px hambuger_bar">
+          <li class="ml_60px hambuger_bar" @click="openAside">
             <img class="cursor" src="/media/img/toggle.svg" alt="햄버거바">
           </li>
         </ul>
@@ -41,7 +41,7 @@
 <script>
 export default {
   name: 'Layout4Header',
-
+  emits: ["openaside"],
   data() {
     return {
       viewName: "",
@@ -65,6 +65,9 @@ export default {
   methods: {
     setViewName(viewname) {
       this.viewName = viewname
+    },
+    openAside() {
+      this.$emit('openaside')
     }
   },
 
