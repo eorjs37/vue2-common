@@ -14,9 +14,15 @@ module.exports = {
   ],
   transform: {
     // process `*.vue` files with `vue-jest`
-    ".*\\.(vue)$": "vue-jest",
+    ".*\\.(vue)$": ["vue-jest",
+      {
+        "sourceMaps": true
+      }],
     // process `*.js` files with `babel-jest`
-    ".*\\.(js)$": "babel-jest"
+    ".*\\.(js)$": ["babel-jest",
+      {
+        "sourceMaps": true
+      }]
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
@@ -29,7 +35,9 @@ module.exports = {
   ],
   collectCoverage: true,
   collectCoverageFrom: [
-    "**/*.{js,vue}",
+    '<rootDir>/src/**/*.(ts|vue)',
+    // "**/*.{js,vue}",
+
     "!**/node_modules/**",
     "!.eslintrc.js",
     "!babel.config.js",
@@ -37,5 +45,6 @@ module.exports = {
     "!vue.config.js",
     "!**/coverage/**"
   ],
-  transformIgnorePatterns: ['<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)']
+  transformIgnorePatterns: ['<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)'],
+
 }

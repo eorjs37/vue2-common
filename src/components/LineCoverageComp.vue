@@ -1,7 +1,6 @@
 <template>
   <div>
-    {{ reversedMsg }}
-    <button @click="test">button</button>
+
   </div>
 </template>
 <script>
@@ -14,7 +13,7 @@ export default {
   },
   computed: {
     reversedMsg() {
-      return this.reverseString(this.msg)
+      return this.msg
     }
   },
   methods: {
