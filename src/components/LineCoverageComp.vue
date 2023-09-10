@@ -1,10 +1,11 @@
 <template>
   <div>
-
+    {{ reversedMsg }}
+    <button data-btn="test" @click="test">btn</button>
   </div>
 </template>
 <script>
-export default {
+const Component = {
   data() {
     return {
       msg: 'Test coverage'
@@ -13,7 +14,7 @@ export default {
   },
   computed: {
     reversedMsg() {
-      return this.msg
+      return this.reverseString(this.msg)
     }
   },
   methods: {
@@ -25,5 +26,7 @@ export default {
     }
   }
 }
+
+export default Component
 </script>
 <style scoped></style>

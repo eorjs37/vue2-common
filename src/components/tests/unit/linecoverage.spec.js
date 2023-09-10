@@ -4,4 +4,11 @@ describe('Line Coverage comp test', () => {
   test('test12', () => {
     shallowMount(LineCoverageComp)
   });
+
+  test("btn click", async () => {
+    const wrapper = shallowMount(LineCoverageComp);
+    const btn = wrapper.findComponent('[data-btn="test"]');
+
+    await btn.trigger('click')
+  })
 });
