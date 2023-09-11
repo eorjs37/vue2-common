@@ -73,6 +73,25 @@ const routes = [
         meta: { viewName: "이벤트", isUseMenu: true }
       }
     ]
+  },
+  {
+    path: '/main',
+    component: () => import('@/layout/loginLayout.vue'),
+    redirect: '/main',
+    children: [
+      {
+        path: '/main',
+        name: 'mainView',
+        component: () => import("@/views/loginLayout/mainView.vue"),
+        meta: { viewName: "마이스페이스" }
+      },
+      {
+        path: '/space',
+        name: 'spaceView',
+        component: () => import("@/views/loginLayout/spaceView.vue"),
+        meta: { viewName: "스페이스등록" }
+      }
+    ]
   }
 ]
 
