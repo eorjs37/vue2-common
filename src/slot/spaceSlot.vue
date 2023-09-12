@@ -4,7 +4,7 @@
       <!--############## PC ##############-->
       <ul class="space_between w_90 h_100 m_auto header_pc">
         <li class="align_center">
-          <img class="cursor" :src="require(`@/assets/images/logo_white.svg`)" alt="로고">
+          <img class="cursor" :src="require(`@/assets/images/logo.svg`)" alt="로고">
         </li>
 
         <li>

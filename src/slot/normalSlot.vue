@@ -3,7 +3,7 @@
     <header class="h_80px w_100 layout4_header bg fixed ">
       <ul class="space_between w_90 h_100 m_auto">
         <li class="align_center header_pc">
-          <img class="cursor header_pc" :src="require(`@/assets/images/logo_white.svg`)" alt="로고">
+          <img class="cursor header_pc" :src="require(`@/assets/images/logo.svg`)" alt="로고">
         </li>
         <!--######  menu left Mobile ######-->
         <li class="align_center header_mobile ">

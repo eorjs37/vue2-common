@@ -90,6 +90,12 @@ const routes = [
         name: 'spaceView',
         component: () => import("@/views/loginLayout/spaceView.vue"),
         meta: { viewName: "스페이스등록" }
+      },
+      {
+        path: '/playerview',
+        name: "playerView",
+        component: () => import("@/views/loginLayout/playerView.vue"),
+        meta: { viewName: "플레이어" }
       }
     ]
   }
