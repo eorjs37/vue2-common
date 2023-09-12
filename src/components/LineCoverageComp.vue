@@ -1,15 +1,16 @@
 <template>
   <div>
     {{ reversedMsg }}
-    <button data-btn="test" @click="test">btn</button>
+    <button data-btn="btn" @click="evetnClick">버튼</button>
+    <button data-btn="condition" @click="conditionClick(2, 1)">버튼</button>
   </div>
 </template>
 <script>
 const Component = {
   data() {
     return {
-      msg: 'Test coverage'
-
+      msg: 'Test coverage',
+      val: false
     }
   },
   computed: {
@@ -21,8 +22,15 @@ const Component = {
     reverseString(str) {
       return str.split('').reverse().join('')
     },
-    test() {
-      console.log(1)
+    evetnClick() {
+      if (this.val === true) {
+        console.log("success")
+      }
+    },
+    decisionClick(a, b) {
+      if (a > b) {
+        console.log("pass condition")
+      }
     }
   }
 }
