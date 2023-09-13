@@ -1,5 +1,6 @@
 <template>
   <div>
+    <aside-comp :openstatus="'on'" />
     <header class="h_80px w_100 layout4_header bg fixed ">
       <ul class="space_between w_90 h_100 m_auto">
         <li class="align_center header_pc">
@@ -40,8 +41,12 @@
   </div>
 </template>
 <script>
+import AsideComponent from '@/components/layout4Layout/AsideComponent.vue';
 export default {
   name: 'MainSlot',
+  components: {
+    'aside-comp': AsideComponent
+  },
   data() {
     return {
 
