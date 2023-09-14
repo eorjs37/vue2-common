@@ -36,6 +36,9 @@
         </li>
       </ul>
     </header>
+    <main class="mt_80px">
+      <slot name="main"></slot>
+    </main>
   </div>
 </template>
 <script>

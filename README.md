@@ -885,3 +885,12 @@ describe('timeout component', () => {
 
 ### 결정 커버리지 기준
 > 브랜치 커버러지라고 불린다. **전체 조건식이 True인 케이스, False인 케이스 2가지가 최소한 한번 실행**되면 충족된다.
+
+
+## Vue Directive
+
+## Vue Extend
+
+## High Order Components
+
+## Vue Mixin
