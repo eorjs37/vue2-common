@@ -1,8 +1,10 @@
 <template>
   <aside class="side_bar fixed h_100 " :class="openstatus">
+    <!--####################### PC Nav #######################-->
     <nav class="nav h_100 ml_80px mt_80px pc_nav">
-      <figure class="flex_end">
-        <img class="cursor" :src="require(`@/assets/images/aside/icon_close_24.svg`)" alt="닫기">
+      <figure class="flex_end" @click="$emit('closeaside')">
+        <img class="cursor" @click="$emit('closeaside')" :src="require(`@/assets/images/aside/icon_close_24.svg`)"
+          alt="닫기">
       </figure>
       <ul class="mt_13px">
         <li class="flex space_between">
@@ -30,11 +32,12 @@
         </li>
       </ul>
     </nav>
+    <!--####################### Mobile Nav #######################-->
     <nav class="mobile_nav">
       <div class="info_box">
         <div class="title_box space_between mt_13px mb_24px">
           <h2 class="align_center font_white mobile_menu_title font_500">메뉴</h2>
-          <figure class="align_center">
+          <figure class="align_center" @click="$emit('closeaside')">
             <img class="cursor" :src="require(`@/assets/images/aside/icon_close_24.svg`)" alt="닫기">
           </figure>
         </div>
@@ -47,6 +50,43 @@
         </div>
       </div>
       <div class="bar"></div>
+
+      <div class="mobile_menu_box">
+        <ul class="menu_row w_100 mt_30px">
+          <li class="menu_item align_center">
+            <figure>
+              <img :src="require(`@/assets/images/aside/myspace.svg`)" alt="마이스페이스">
+            </figure>
+            <span class="font_white menu_item_name">마이스페이스</span>
+          </li>
+          <li class="menu_item align_center">
+            <figure>
+              <img :src="require(`@/assets/images/aside/mymusic.svg`)" alt="마이뮤직">
+            </figure>
+            <span class="font_white menu_item_name">마이뮤직</span>
+          </li>
+          <li class="menu_item align_center">
+            <figure>
+              <img :src="require(`@/assets/images/aside/product_introduce.svg`)" alt="이용권소개">
+            </figure>
+            <span class="font_white menu_item_name">이용권소개</span>
+          </li>
+        </ul>
+        <ul class="menu_row w_100 mt_30px">
+          <li class="menu_item align_center">
+            <figure>
+              <img :src="require(`@/assets/images/aside/event.svg`)" alt="이벤트">
+            </figure>
+            <span class="font_white menu_item_name">이벤트</span>
+          </li>
+          <li class="menu_item align_center">
+            <figure>
+              <img :src="require(`@/assets/images/aside/inquiry.svg`)" alt="고객센터">
+            </figure>
+            <span class="font_white menu_item_name">고객센터</span>
+          </li>
+        </ul>
+      </div>
     </nav>
   </aside>
 </template>
@@ -58,6 +98,7 @@ export default {
       defalut: ""
     }
   },
+  emits: ['closeaside'],
   name: 'AsideComponent',
 
   data() {
@@ -75,77 +116,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.pc_nav {
-  display: inline-block;
-}
-
-.mobile_nav {
-  display: none;
-}
-
-.bar {
-  width: 100%;
-  height: 1px;
-  background-color: hsla(0, 0%, 100%, .2);
-}
-
-.side_bar {
-  top: 0;
-  right: 0;
-  display: inline-block;
-  width: 347px;
-  transform: translateX(347px);
-  z-index: 1;
-  background-color: var(--black151515);
-}
-
-.side_bar.on {
-  animation: slideInRight;
-  transform: translateX(0);
-  animation-duration: .5s;
-}
-
-.side_bar.off {
-  animation: slideInLeft;
-  animation-duration: .7s;
-  right: -347px;
-}
-
-.nav {
-  width: 200px;
-  display: inline-block;
-}
-
-.email {
-  line-height: 1.2;
-}
-
-@media (max-width: 1024px) {
-  .pc_nav {
-    display: none;
-  }
-
-  .side_bar {
-    width: 100%;
-  }
-
-  .mobile_nav {
-    display: block;
-
-  }
-
-  .info_box {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .mobile_menu_title {
-    font-size: 18px;
-  }
-
-  .mobile_email {
-    padding: 12px 0 23px;
-  }
-}
-</style>
+<style scoped src="@/assets/styles/aside.css"></style>

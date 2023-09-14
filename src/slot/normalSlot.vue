@@ -1,6 +1,6 @@
 <template>
   <div>
-    <aside-comp :openstatus="'on'" />
+    <aside-comp :openstatus="asideOpen" @closeaside="onCloseAside" v-click-outside="onCloseAside" />
     <header class="h_80px w_100 layout4_header bg fixed ">
       <ul class="space_between w_90 h_100 m_auto">
         <li class="align_center header_pc">
@@ -28,7 +28,7 @@
             <li class="align_center">
               <img class="cursor" src="/media/img/alarm.png" alt="알람">
             </li>
-            <li class="ml_60px hambuger_bar">
+            <li class="ml_60px hambuger_bar" @click="asideOpen = 'on'">
               <img class="cursor" src="/media/img/toggle.svg" alt="햄버거바">
             </li>
           </ul>
@@ -42,14 +42,18 @@
 </template>
 <script>
 import AsideComponent from '@/components/layout4Layout/AsideComponent.vue';
+import ClickOutside from 'vue-click-outside'
 export default {
   name: 'MainSlot',
+  directives: {
+    ClickOutside
+  },
   components: {
     'aside-comp': AsideComponent
   },
   data() {
     return {
-
+      asideOpen: ''
     };
   },
 
@@ -58,7 +62,12 @@ export default {
   },
 
   methods: {
-
+    onCloseAside() {
+      console.log(
+        "!"
+      )
+      this.asideOpen = 'off'
+    }
   },
 };
 </script>
