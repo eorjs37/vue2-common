@@ -17,21 +17,8 @@
   right: 0;
   display: inline-block;
   width: 347px;
-  transform: translateX(347px);
   z-index: 1;
   background-color: var(--black151515);
-}
-
-.side_bar.on {
-  animation: slideInRight;
-  transform: translateX(0);
-  animation-duration: .5s;
-}
-
-.side_bar.off {
-  animation: slideInLeft;
-  animation-duration: .7s;
-  right: -347px;
 }
 
 .nav {
@@ -50,12 +37,8 @@
 
   .side_bar {
     width: 100%;
-    transform: translateX(100%);
   }
 
-  .side_bar.off {
-    right: -100%;
-  }
 
   .mobile_nav {
     display: block;

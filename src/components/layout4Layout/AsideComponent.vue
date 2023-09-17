@@ -1,5 +1,5 @@
 <template>
-  <aside class="side_bar fixed h_100 " :class="openstatus">
+  <aside class="side_bar fixed h_100">
     <!--####################### PC Nav #######################-->
     <nav class="nav h_100 ml_80px mt_80px pc_nav">
       <figure class="flex_end" @click="$emit('closeaside')">

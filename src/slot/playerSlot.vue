@@ -1,6 +1,9 @@
 <template>
   <div>
-    <aside-comp :openstatus="asideOpen" @closeaside="onCloseAside" v-click-outside="onCloseAside" />
+    <transition name="slide">
+      <aside-comp v-if="asideOpen === 'on'" :openstatus="asideOpen" @closeaside="onCloseAside"
+        v-click-outside="onCloseAside" />
+    </transition>
     <header class="h_80px w_100 layout4_header bg fixed ">
       <!--############## PC ##############-->
       <ul class="space_between w_90 h_100 m_auto header_pc">
@@ -81,5 +84,25 @@ export default {
 <style scoped>
 .arrow_icon {
   margin-left: 5px;
+}
+
+
+.slide-enter-active {
+  animation: slideInRight;
+  transform: translateX(0);
+  animation-duration: .5s;
+}
+
+.slide-leave-to {
+  animation: slideInLeft;
+  animation-duration: .7s;
+  right: -347px;
+}
+
+
+@media (max-width: 1024px) {
+  .slide-leave-to {
+    right: -100%;
+  }
 }
 </style>

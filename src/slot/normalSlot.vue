@@ -1,6 +1,9 @@
 <template>
   <div>
-    <aside-comp :openstatus="asideOpen" @closeaside="onCloseAside" v-click-outside="onCloseAside" />
+    <Transition name="slide">
+      <aside-comp v-if="asideOpen === 'on'" :openstatus="asideOpen" @closeaside="onCloseAside"
+        v-click-outside="onCloseAside" />
+    </Transition>
     <header class="h_80px w_100 layout4_header bg fixed ">
       <ul class="space_between w_90 h_100 m_auto">
         <li class="align_center header_pc">
