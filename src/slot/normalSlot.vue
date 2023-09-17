@@ -7,7 +7,7 @@
           <img class="cursor header_pc" :src="require(`@/assets/images/logo.svg`)" alt="로고">
         </li>
         <!--######  menu left Mobile ######-->
-        <li class="align_center header_mobile ">
+        <li class="align_center header_mobile">
           <ul class="align_center h_100">
             <li>
               <img class="cursor" src="/media/img/icon_back_24.svg" alt="로고">
@@ -63,9 +63,6 @@ export default {
 
   methods: {
     onCloseAside() {
-      console.log(
-        "!"
-      )
       this.asideOpen = 'off'
     }
   },
