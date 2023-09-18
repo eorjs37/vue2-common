@@ -3,10 +3,11 @@
 </template>
 <script>
 export default {
-  name: 'DummyLayout',
+  name: 'DynamicLayout',
 
   data() {
     return {
+
 
     };
   },

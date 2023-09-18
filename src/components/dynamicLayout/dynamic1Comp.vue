@@ -1,9 +1,11 @@
 <template>
-  <router-view />
+  <div>
+    <h1 class="font_white">dynamic1</h1>
+  </div>
 </template>
 <script>
 export default {
-  name: 'DummyLayout',
+  name: 'Dynamic1Comp',
 
   data() {
     return {
@@ -20,4 +22,3 @@ export default {
   },
 };
 </script>
-<style scoped></style>

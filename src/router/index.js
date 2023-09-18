@@ -98,6 +98,19 @@ const routes = [
         meta: { viewName: "플레이어" }
       }
     ]
+  },
+  {
+    path: '/dynamic',
+    name: "dynamicLayout",
+    component: () => import("@/layout/dynamicLayout.vue"),
+    redirect: '/dynamicview',
+    children: [
+      {
+        path: '/dynamicview',
+        name: 'dynamicview',
+        component: () => import('@/views/dynamic/dynamicView.vue')
+      },
+    ]
   }
 ]
 
