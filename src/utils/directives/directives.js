@@ -5,10 +5,17 @@ const focus = {
     console.log("call bind ele : ", el)
   },
   inserted: (el) => {
+    console.log("call inserted ele : ", el)
     el.focus()
   },
-  update: () => {
-    console.log("updated focus")
+  update: (_, binding) => {
+    console.log("updated focus");
+    console.log(binding)
+    const { value, oldValue, arg } = binding
+
+    console.log("oldValue : ", oldValue)
+    console.log("value : ", value)
+    console.log("arg : ", arg)
   },
   componentUpdated: () => {
     console.log("componentUpdated focus")

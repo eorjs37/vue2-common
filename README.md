@@ -888,7 +888,103 @@ describe('timeout component', () => {
 
 
 ## Vue Directive
+> vue에서는 v-model,v-if,v-show 이외에 사용자 정의 디렉티브를 등록 할 수 있다.
 
+### focus 예제
+```javascript
+import Vue from "vue";
+
+const focus = {
+  //Element에 바인딩 될때 호출 1회성
+  bind: (el) => {
+    console.log("call bind ele : ", el)
+  },
+  //부모 노드에 삽입될때 호출 1회성
+  inserted: (el) => {
+    console.log("call inserted ele : ", el)
+    el.focus()
+  },
+  //바인딩 된 값이 변경될때 호출
+  update: (_, binding) => {
+    console.log("updated focus");
+  },
+  //바인딩 된 값이 변경될때 호출(여기서 업데이트 될때 조작 하는것을 추천)
+  componentUpdated: () => {
+    console.log("componentUpdated focus")
+  }
+}
+export default focus;
+Vue.directive('focus', focus)
+```
+
+```html
+<template>
+  <input type="text" v-focus:foo="message" v-model="message">
+</template>
+
+<script>
+import focus from '@/utils/directives/directives'
+export default {
+  name: 'SpaceView',
+  directives: {
+    focus,
+  },
+  components: {
+  },
+  data() {
+    return {
+      message: "hello"
+    };
+  },
+
+  mounted() {
+
+  },
+
+  methods: {
+
+  },
+};
+</script>
+<style scoped></style>
+
+```
+
+### 다아니믹 전달 인자
+```javascript
+import Vue from "vue";
+const dynamicPin = {
+  bind: (el, binding) => {
+    el.style.position = 'fixed';
+    //arg에 인자가 담겨있음.
+    var s = (binding.arg == 'left' ? 'left' : 'top')
+    el.style[s] = binding.value + 'px'
+  }
+}
+export default dynamicPin;
+
+Vue.directive('dynamicpin', dynamicPin)
+```
+
+```html
+<template>
+    <p class="font_white" v-dynamicpin:[direction]="500">Stick me 200px from the top of the page</p>
+</template>
+<script>
+import dynamicPin from '@/utils/directives/dynamicpin'
+export default {
+  directives: {
+    dynamicPin
+  },
+  data() {
+    return {
+      direction: 'left'
+    };
+  },
+}
+</script>
+<style scoped></style>
+```
 ## Vue Extend
 
 ## High Order Components
