@@ -2,9 +2,9 @@
   <div>
     <transition name="slide">
       <aside-comp v-if="asideOpen === 'on'" :openstatus="asideOpen" @closeaside="onCloseAside"
-        v-click-outside="onCloseAside" />
+        v-click-outside="outSideClick" />
     </transition>
-    <header class="h_80px w_100 layout4_header bg fixed ">
+    <header class="h_80px w_100 layout4_header fixed ">
       <!--############## PC ##############-->
       <ul class="space_between w_90 h_100 m_auto header_pc">
         <li class="align_center">
@@ -21,7 +21,7 @@
               <img class="cursor" src="/media/img/alarm.png" alt="알람">
             </li>
             <li class="ml_60px hambuger_bar" @click="asideOpen = 'on'">
-              <img class="cursor" src="/media/img/toggle.svg" alt="햄버거바">
+              <img id="hambuger" class="cursor" src="/media/img/toggle.svg" alt="햄버거바">
             </li>
           </ul>
         </li>
@@ -76,6 +76,11 @@ export default {
   methods: {
     onCloseAside() {
       this.asideOpen = 'off'
+    },
+    outSideClick(e) {
+      if (e.target.id !== "hambuger") {
+        this.onCloseAside();
+      }
     }
   },
 };
@@ -87,10 +92,11 @@ export default {
 }
 
 
-.slide-enter-active {
+.slide-enter-active,
+.slide-enter-to {
   animation: slideInRight;
   transform: translateX(0);
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 .slide-leave-to {
@@ -99,6 +105,10 @@ export default {
   right: -347px;
 }
 
+.main {
+  position: relative;
+  height: 100vh;
+}
 
 @media (max-width: 1024px) {
   .slide-leave-to {

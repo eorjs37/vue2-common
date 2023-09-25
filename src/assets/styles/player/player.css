@@ -1,0 +1,26 @@
+.player_wrapper {
+  width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+}
+
+.player_title_box {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  color: var(--white);
+  font-size: 38px;
+  line-height: 55px;
+  font-weight: 350;
+}
+
+.title_em {
+  font-weight: 500;
+}
+
+.player_box {
+  height: 300px;
+  background-color: black;
+
+}
