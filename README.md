@@ -985,8 +985,88 @@ export default {
 </script>
 <style scoped></style>
 ```
-## Vue Extend
 
 ## High Order Components
+> 컴퍼넌트 로직을 재사용 하기 위한 기술
+
+```html
+<template>
+  <div>
+    <ul>
+      <li class="font_white" v-for="item in userlist" :key="item.id">
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+import userList from '@/assets/mocks/userlist.json'
+export default {
+  name: 'UsersListComp',
+
+  data() {
+    return {
+      userlist: []
+    };
+  },
+
+  mounted() {
+    this.userlist = userList.list
+  },
+
+  methods: {
+
+  },
+};
+</script>
+<style scoped></style>
+```
+
+```js
+// userListComp.js
+import UsersList from '@/components/UsersListComp.vue'
+
+export default function createListComp(componentName) {
+  return {
+    name: componentName,
+    mounted() { },
+    render(h) {
+      return h(UsersList)
+    }
+  }
+}
+
+```
+
+```js
+import createListComp from "@/utils/hoc/userListComp";
+//router/index.js
+const routes = [
+  {
+    path: '/user',
+    name: 'userLayout',
+    component: () => import("@/layout/userLayout.vue"),
+    redirect: '/user1',
+    children: [
+      {
+        path: "/user1",
+        name: "user1view",
+        component: () => import("@/views/userLayout/user1View.vue")
+      },
+      {
+        path: "/user2",
+        name: "user2view",
+        component: createListComp("user2view")
+      },
+      {
+        path: "/user3",
+        name: "user2view",
+        component: createListComp("user2view")
+      }
+    ]
+  }
+]
+```
+## Vue Extend
 
 ## Vue Mixin

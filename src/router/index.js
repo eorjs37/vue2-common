@@ -1,6 +1,7 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
 import nestedRoute from "@/layout/nestedRoute.vue"
+import createListComp from "@/utils/hoc/userListComp";
 Vue.use(VueRouter)
 const routes = [
   {
@@ -110,6 +111,29 @@ const routes = [
         name: 'dynamicview',
         component: () => import('@/views/dynamic/dynamicView.vue')
       },
+    ]
+  },
+  {
+    path: '/user',
+    name: 'userLayout',
+    component: () => import("@/layout/userLayout.vue"),
+    redirect: '/user1',
+    children: [
+      {
+        path: "/user1",
+        name: "user1view",
+        component: () => import("@/views/userLayout/user1View.vue")
+      },
+      {
+        path: "/user2",
+        name: "user2view",
+        component: createListComp("user2view")
+      },
+      {
+        path: "/user3",
+        name: "user2view",
+        component: createListComp("user2view")
+      }
     ]
   }
 ]
