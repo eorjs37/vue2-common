@@ -135,6 +135,11 @@ const routes = [
         component: createListComp("user2view")
       }
     ]
+  },
+  {
+    path: '/hoc',
+    name: 'hocLayout',
+    component: () => import('@/layout/hocLayout.vue')
   }
 ]
 

@@ -14,7 +14,7 @@ export default {
   name: 'CounterComponent',
   props: {
     foo: {
-      tyoe: String,
+      type: String,
       default: ""
     }
   },

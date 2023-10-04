@@ -987,7 +987,7 @@ export default {
 ```
 
 ## High Order Components
-> 컴퍼넌트 로직을 재사용 하기 위한 기술
+> 컴퍼넌트 로직을 재사용 하기 위한 기술, 컴퍼넌트를 인자로 받아 컴퍼넌트를 리턴해주는 패턴
 
 ```html
 <template>
