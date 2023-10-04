@@ -1,11 +1,12 @@
 <template>
   <div class="font_white">
-    userId : {{ data ? data.userId : '' }}
+    userId : {{ data ? data : '' }}
     id : {{ id }}
   </div>
 </template>
 <script>
 export default {
+  emits: ['startLoading', 'endLoading'],
   props: {
     data: {
       type: Object,
@@ -17,11 +18,12 @@ export default {
     },
     id: {
       type: String,
-      default: "ss"
+      default: ""
     }
   },
   created() {
     console.log("ListComp created");
+    this.$emit('startLoading')
   },
   mounted() {
     console.log("ListComp mounted");

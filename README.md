@@ -989,84 +989,12 @@ export default {
 ## High Order Components
 > 컴퍼넌트 로직을 재사용 하기 위한 기술, 컴퍼넌트를 인자로 받아 컴퍼넌트를 리턴해주는 패턴
 
-```html
-<template>
-  <div>
-    <ul>
-      <li class="font_white" v-for="item in userlist" :key="item.id">
-        {{ item.name }}
-      </li>
-    </ul>
-  </div>
-</template>
-<script>
-import userList from '@/assets/mocks/userlist.json'
-export default {
-  name: 'UsersListComp',
+### hoc 공통부분 추출(spinner)
 
-  data() {
-    return {
-      userlist: []
-    };
-  },
+### hoc 라이프사이클 호출
 
-  mounted() {
-    this.userlist = userList.list
-  },
+### hoc props / emit
 
-  methods: {
-
-  },
-};
-</script>
-<style scoped></style>
-```
-
-```js
-// userListComp.js
-import UsersList from '@/components/UsersListComp.vue'
-
-export default function createListComp(componentName) {
-  return {
-    name: componentName,
-    mounted() { },
-    render(h) {
-      return h(UsersList)
-    }
-  }
-}
-
-```
-
-```js
-import createListComp from "@/utils/hoc/userListComp";
-//router/index.js
-const routes = [
-  {
-    path: '/user',
-    name: 'userLayout',
-    component: () => import("@/layout/userLayout.vue"),
-    redirect: '/user1',
-    children: [
-      {
-        path: "/user1",
-        name: "user1view",
-        component: () => import("@/views/userLayout/user1View.vue")
-      },
-      {
-        path: "/user2",
-        name: "user2view",
-        component: createListComp("user2view")
-      },
-      {
-        path: "/user3",
-        name: "user2view",
-        component: createListComp("user2view")
-      }
-    ]
-  }
-]
-```
 ## Vue Extend
 
 ## Vue Mixin
