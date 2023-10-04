@@ -1,6 +1,6 @@
 <template>
   <div class="font_white">
-    userId : {{ data.userId }}
+    userId : {{ data ? data.userId : '' }}
     id : {{ id }}
   </div>
 </template>
@@ -10,13 +10,24 @@ export default {
     data: {
       type: Object,
       default: () => {
-        return {}
+        return {
+          userId: ""
+        }
       }
     },
     id: {
       type: String,
       default: "ss"
     }
+  },
+  created() {
+    console.log("ListComp created");
+  },
+  mounted() {
+    console.log("ListComp mounted");
+  },
+  methods: {
+    //test() { }
   }
 }
 </script>

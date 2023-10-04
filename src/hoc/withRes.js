@@ -1,24 +1,33 @@
-import Vue from "vue";
+
 import axios from 'axios';
 const withRes = (url, component) => {
-  return Vue.component('withRes', {
+
+  return {
+    name: "withRes",
+    props: Object.assign({}, component.props),
     data() {
       return {
         fetchedData: null
       };
     },
     async created() {
+      console.log("withRes created")
       const response = await axios.get(url);
       this.fetchedData = response.data;
+
     },
-    render(createElement) {
-      return createElement(component, {
-        props: {
-          data: this.fetchedData
-        }
-      })
+    mounted() {
+      console.log("withRes mounted")
     },
-  })
+    methods: {
+      test() {
+        console.log("1")
+      }
+    },
+    render(h) {
+      return h(component)
+    },
+  }
 }
 
 export { withRes }
