@@ -1,21 +1,32 @@
 <template>
   <div>
-    <!-- <div class="loading">
+    <div class="loading" v-if="gettersIsLoading">
       <font-awesome-icon class="spinner" icon="fa-solid fa-spinner" spin-pulse />
-    </div> -->
-    <list-comp @startLoading="onStartLoading" />
+    </div>
+    <list-comp @startLoading="onStartLoading" @endLoading="onEndLoading" />
+    <list-comp2 />
   </div>
 </template>
 <script>
 import ListComp from '@/components/hocLayout/ListComp.vue';
+import ListComp2 from '@/components/hocLayout/ListComp2.vue';
 import { withRes } from '@/hoc/withRes';
 export default {
   components: {
-    'list-comp': withRes('https://jsonplaceholder.typicode.com/posts/1', ListComp)
+    'list-comp': withRes('https://jsonplaceholder.typicode.com/posts/1', ListComp),
+    'list-comp2': withRes('https://jsonplaceholder.typicode.com/posts/1', ListComp2)
   },
   methods: {
     onStartLoading() {
       console.log("onStartLoading")
+    },
+    onEndLoading() {
+      console.log("onEndLoading")
+    }
+  },
+  computed: {
+    gettersIsLoading() {
+      return this.$store.getters["hoc/getIsLoading"]
     }
   }
 }

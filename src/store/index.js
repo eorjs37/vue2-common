@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { userInfo } from './module/userInfo';
+import { hoc } from './module/hoc';
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
@@ -46,7 +47,8 @@ const store = new Vuex.Store({
     }
   },
   modules: {
-    userInfo
+    userInfo,
+    hoc
   }
 }
 

@@ -24,6 +24,7 @@ export default {
   created() {
     console.log("ListComp created");
     this.$emit('startLoading')
+    this.$emit('endLoading')
   },
   mounted() {
     console.log("ListComp mounted");

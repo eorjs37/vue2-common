@@ -5,7 +5,6 @@ const withRes = (url, component) => {
 
   //기존 props +  전달 받은 props
 
-
   return {
     name: "withRes",
     props: originalProps,
@@ -15,10 +14,12 @@ const withRes = (url, component) => {
       };
     },
     async created() {
-      console.log("withRes created")
+      this.$store.commit("hoc/setIsLoading", true)
       const response = await axios.get(url);
       this.fetchedData = response.data;
-      console.log(this.id)
+      setTimeout(() => {
+        this.$store.commit("hoc/setIsLoading", false)
+      }, 2000);
     },
     mounted() {
       console.log("withRes mounted");
@@ -31,7 +32,8 @@ const withRes = (url, component) => {
     render(createElement) {
       return createElement(component, {
         props: {
-          data: this.fetchedData
+          data: this.fetchedData,
+          id: "2"
         },
         on: {
           ...this.$listeners
