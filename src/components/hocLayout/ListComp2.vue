@@ -1,9 +1,13 @@
 <template>
-  <ul>
-    <li>
-
-    </li>
-  </ul>
+  <div>
+    <ul v-if="data">
+      <li v-for="(item) in data" :key="item.id" class="font_white">
+        <span>
+          {{ item.id }} : {{ item.name }}
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {

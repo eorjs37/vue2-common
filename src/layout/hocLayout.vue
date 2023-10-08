@@ -13,8 +13,8 @@ import ListComp2 from '@/components/hocLayout/ListComp2.vue';
 import { withRes } from '@/hoc/withRes';
 export default {
   components: {
-    'list-comp': withRes('https://jsonplaceholder.typicode.com/posts/1', ListComp),
-    'list-comp2': withRes('https://jsonplaceholder.typicode.com/posts/1', ListComp2)
+    'list-comp': withRes('list', ListComp),
+    'list-comp2': withRes('list2', ListComp2)
   },
   methods: {
     onStartLoading() {

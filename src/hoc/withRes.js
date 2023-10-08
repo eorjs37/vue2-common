@@ -1,8 +1,6 @@
 
 const withRes = (url, component) => {
-  const originalProps = component.props || {};
-
-  //기존 props +  전달 받은 props
+  const originalProps = Object.assign({}, component.props) || {};
 
   return {
     name: "withRes",
@@ -12,32 +10,24 @@ const withRes = (url, component) => {
         fetchedData: null
       };
     },
-    async created() {
-
-      await setTimeout(() => {
-        const { data } = require(`@/assets/mocks/list.json`)
-        this.fetchedData = data
-        console.log(this.fetchedData)
-      }, 5000);
+    created() {
       this.$store.commit("hoc/setIsLoading", true)
-
-      await setTimeout(() => {
+      setTimeout(() => {
+        //url
+        const { data } = require(`@/assets/mocks/${url}.json`)
+        this.fetchedData = data;
         this.$store.commit("hoc/setIsLoading", false)
-      }, 2000);
+      }, 5000);
     },
     mounted() {
-      console.log("withRes mounted");
     },
     methods: {
-      test() {
-        console.log("1")
-      }
     },
     render(createElement) {
       return createElement(component, {
         props: {
-          data: this.fetchedData,
-          id: "2"
+          ...this.$props,
+          data: this.fetchedData
         },
         on: {
           ...this.$listeners

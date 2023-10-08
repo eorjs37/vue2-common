@@ -1,5 +1,13 @@
 <template>
-  <div></div>
+  <div class="font_white" v-if="data">
+    <ul v-if="data">
+      <li v-for="(item) in data" :key="item.id" class="font_white">
+        <span>
+          {{ item.id }} : {{ item.name }}
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
@@ -17,7 +25,6 @@ export default {
     }
   },
   created() {
-    console.log("ListComp created");
     this.$emit('startLoading')
     this.$emit('endLoading')
   },
