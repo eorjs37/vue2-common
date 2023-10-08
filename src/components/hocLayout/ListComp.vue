@@ -1,19 +1,14 @@
 <template>
-  <div class="font_white">
-    userId : {{ data ? data : '' }}
-    id : {{ id }}
-  </div>
+  <div></div>
 </template>
 <script>
 export default {
   emits: ['startLoading', 'endLoading'],
   props: {
     data: {
-      type: Object,
+      type: Array,
       default: () => {
-        return {
-          userId: ""
-        }
+        return []
       }
     },
     id: {

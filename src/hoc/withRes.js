@@ -1,5 +1,4 @@
 
-import axios from 'axios';
 const withRes = (url, component) => {
   const originalProps = component.props || {};
 
@@ -14,10 +13,15 @@ const withRes = (url, component) => {
       };
     },
     async created() {
+
+      await setTimeout(() => {
+        const { data } = require(`@/assets/mocks/list.json`)
+        this.fetchedData = data
+        console.log(this.fetchedData)
+      }, 5000);
       this.$store.commit("hoc/setIsLoading", true)
-      const response = await axios.get(url);
-      this.fetchedData = response.data;
-      setTimeout(() => {
+
+      await setTimeout(() => {
         this.$store.commit("hoc/setIsLoading", false)
       }, 2000);
     },

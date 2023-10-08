@@ -1,12 +1,21 @@
 <template>
-  <div>
+  <ul>
+    <li>
 
-  </div>
+    </li>
+  </ul>
 </template>
 <script>
 export default {
   name: 'ListComp2',
-
+  props: {
+    data: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  },
   data() {
     return {
 
