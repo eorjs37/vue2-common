@@ -2,8 +2,29 @@ import VueRouter from "vue-router";
 import Vue from "vue";
 import nestedRoute from "@/layout/nestedRoute.vue"
 import createListComp from "@/utils/hoc/userListComp";
+import { withHoc } from "@/hoc/withHoc";
+import ListView from '@/views/hocLayout/listView.vue'
+import ListView2 from '@/views/hocLayout/listView2.vue'
 Vue.use(VueRouter)
 const routes = [
+  {
+    path: '/hoc',
+    name: 'hocLayout',
+    component: () => import('@/layout/hocLayout.vue'),
+    redirect: '/hoclist1',
+    children: [
+      {
+        path: '/hoclist1',
+        name: 'ListView',
+        component: withHoc('list', ListView)
+      },
+      {
+        path: '/hoclist2',
+        name: 'ListView',
+        component: withHoc('list2', ListView2)
+      }
+    ]
+  },
   {
     path: '/',
     component: () => import('@/layout/mainLayout.vue'),
@@ -136,11 +157,7 @@ const routes = [
       }
     ]
   },
-  {
-    path: '/hoc',
-    name: 'hocLayout',
-    component: () => import('@/layout/hocLayout.vue')
-  }
+
 ]
 
 const router = new VueRouter({
