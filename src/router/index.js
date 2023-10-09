@@ -20,7 +20,7 @@ const routes = [
       },
       {
         path: '/hoclist2',
-        name: 'ListView',
+        name: 'ListView2',
         component: withHoc('list2', ListView2)
       }
     ]
@@ -152,7 +152,7 @@ const routes = [
       },
       {
         path: "/user3",
-        name: "user2view",
+        name: "user3view",
         component: createListComp("user2view")
       }
     ]

@@ -140,12 +140,13 @@ const videoObject = {
   * @param {*} videoSrc 비디오 URL
   * @author CHOI DAE GEON
   */
-  initHls(videoSrc) {
+  async initHls(videoSrc) {
     if (Hls.isSupported()) {
       this.hls = new Hls({
         backBufferLength: 0,
       });
       this.hls.loadSource(videoSrc);
+
       this.hls.attachMedia(this.video);
     }
     else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
