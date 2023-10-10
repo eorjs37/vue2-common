@@ -157,6 +157,24 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/hls',
+    name: 'hlsLayout',
+    component: () => import("@/layout/hlsLayout.vue"),
+    redirect: '/first',
+    children: [
+      {
+        path: '/first',
+        name: 'firstPage',
+        component: () => import("@/views/hlsLayout/firstPage.vue"),
+      },
+      {
+        path: '/second',
+        name: 'secondPage',
+        component: () => import("@/views/hlsLayout/secondPage.vue"),
+      }
+    ]
+  }
 
 ]
 
