@@ -1,21 +1,27 @@
 import { videoObject } from "@/utils/video";
 import Hls from 'hls.js'
+jest.mock('hls.js')
 describe('video plugin 테스트', () => {
-  jest.mock("hls.js");
+
   beforeEach(async () => {
+    document.body.innerHTML = `
+      <video id="global_video" controls autoplay playsinline></video>
+    `
     Hls.isSupported = jest.fn().mockImplementation(() => {
       return true;
     });
 
+    videoObject.setVideo(document.querySelector('#global_video'))
+
   });
-  test('hls 초기 세팅을 진행하면 video src에 주입한다. ', async () => {
+  test('hls 초기 세팅을 진행하면 video src에 주입한다. ', () => {
 
-    await videoObject.initHls("https://test.m3u8");
-
-    videoObject.hls.loadSource = jest.fn()
-    //videoObject.hls.attachMedia = jest.fn();
+    videoObject.initHls("https://test.m3u8");
 
     expect(videoObject.hls).toBeTruthy();
-    //expect(videoObject.hls.loadSource).toBeCalled()
+
+    expect(videoObject.hls.loadSource).toBeCalledWith("https://test.m3u8");
+
+    expect(videoObject.hls.attachMedia).toBeCalledWith(videoObject.video);
   });
 });

@@ -146,7 +146,6 @@ const videoObject = {
         backBufferLength: 0,
       });
       this.hls.loadSource(videoSrc);
-
       this.hls.attachMedia(this.video);
     }
     else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
