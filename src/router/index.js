@@ -174,6 +174,29 @@ const routes = [
         component: () => import("@/views/hlsLayout/secondPage.vue"),
       }
     ]
+  },
+  {
+    path: '/router',
+    name: 'routerLayout',
+    component: () => import("@/layout/routerLayout.vue"),
+    redirect: '/router1',
+    children: [
+      {
+        path: '/router1',
+        name: 'router1View',
+        component: () => import("@/views/routerLayout/router1View.vue"),
+      },
+      {
+        path: '/router2',
+        name: 'router2View',
+        component: () => import("@/views/routerLayout/router2View.vue"),
+      },
+      {
+        path: '/router3',
+        name: 'router3View',
+        component: () => import("@/views/routerLayout/router3View.vue"),
+      }
+    ]
   }
 
 ]
