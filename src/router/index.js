@@ -154,6 +154,11 @@ const routes = [
         path: "/user3",
         name: "user3view",
         component: createListComp("user2view")
+      },
+      {
+        path: "/swiper",
+        name: "swiperView",
+        component: () => import('@/views/userLayout/swiperView.vue')
       }
     ]
   },

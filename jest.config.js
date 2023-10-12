@@ -26,7 +26,8 @@ module.exports = {
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
-    "axios": "axios/dist/node/axios.cjs"
+    "axios": "axios/dist/node/axios.cjs",
+    '\\.(css|less)$': '<rootDir>/tests/jest/__mocks__/styleMock.js'
   },
   // The glob patterns Jest uses to detect test files
   testMatch: [
