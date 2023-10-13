@@ -23,4 +23,44 @@ module.exports = {
 }
 ```
 
-## 에러2
+## particles-bg-vue 에서 'Cannot use import statement outside a module' 에러
+
+```html
+<!-- particlesView.vue -->
+<template>
+  <div>
+    <particles-bg type="lines" :bg="true" />
+  </div>
+</template>
+<script>
+import { ParticlesBg } from "particles-bg-vue";
+export default {
+  name: 'ParticlesView',
+  components: {
+    'particles-bg': ParticlesBg
+  },
+  data() {
+    return {
+
+    };
+  },
+
+  mounted() {
+
+  },
+
+  methods: {
+
+  },
+};
+</script>
+<style scoped></style>
+```
+
+```javascript
+//jest.config.js
+//transformIgnorePatterns 에  <rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)/) 추가
+module.exports = {
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)/)'],
+}
+```

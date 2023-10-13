@@ -46,6 +46,7 @@ module.exports = {
     "!vue.config.js",
     "!**/coverage/**"
   ],
-  transformIgnorePatterns: ['<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)'],
+  // '<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)'
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)/)'],
 
 }
