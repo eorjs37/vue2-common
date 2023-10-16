@@ -156,6 +156,11 @@ const routes = [
         component: createListComp("user2view")
       },
       {
+        path: "/node",
+        name: "mediaSessionView",
+        component: () => import("@/views/userLayout/mediaSessionView.vue")
+      },
+      {
         path: "/swiper",
         name: "swiperView",
         component: () => import('@/views/userLayout/swiperView.vue')

@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import { list } from '@/api/NodeApi'
 export default {
   name: 'MediaSessionView',
 
@@ -13,6 +14,7 @@ export default {
     };
   },
   created() {
+    list();
     if (this.$MediaSession.init()) {
       console.log("this.$MediaSession.init()")
     }
