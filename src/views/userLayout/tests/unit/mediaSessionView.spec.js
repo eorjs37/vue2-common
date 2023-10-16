@@ -13,7 +13,7 @@ describe('mediaSession view testing', () => {
       localVue
     })
   });
-  test('should ', async () => {
+  test('created', async () => {
     console.log(wrapper)
   });
 });
