@@ -1,0 +1,49 @@
+.ws_wrap {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 55px;
+  color: var(--white);
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.curation {
+  display: flex;
+  color: var(--white);
+  justify-content: space-between;
+  font-size: 16px;
+  width: 762px;
+  margin-top: 23px;
+  background: hsla(0, 0%, 100%, .12);
+  border-radius: 100px;
+}
+
+.curationall {
+  box-sizing: border-box;
+  width: 56px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid hsla(0, 0%, 100%, .08);
+  border-radius: 100px;
+}
+
+.curation_option {
+  display: flex;
+  padding: 12px;
+  cursor: pointer;
+}

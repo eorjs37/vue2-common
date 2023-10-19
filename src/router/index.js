@@ -187,6 +187,11 @@ const routes = [
         path: '/socket',
         name: 'playerWebCastingView',
         component: () => import("@/views/hlsLayout/playerWebCastingView.vue")
+      },
+      {
+        path: '/playerWs',
+        name: 'PlayerWS',
+        component: () => import('@/views/hlsLayout/playerWS.vue')
       }
     ]
   },
