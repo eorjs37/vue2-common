@@ -182,6 +182,11 @@ const routes = [
         path: '/second',
         name: 'secondPage',
         component: () => import("@/views/hlsLayout/secondPage.vue"),
+      },
+      {
+        path: '/socket',
+        name: 'playerWebCastingView',
+        component: () => import("@/views/hlsLayout/playerWebCastingView.vue")
       }
     ]
   },
