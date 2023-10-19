@@ -10,10 +10,15 @@
       <li class="curationall">
         <img :src="require(`@/assets/images/player/curation_setting_on.svg`)" alt="curation_setting">
       </li>
+
       <li class="curation_option">공간 분위기</li>
+      <li class="curation_line"></li>
       <li class="curation_option">국내곡 비율</li>
+      <li class="curation_line"></li>
       <li class="curation_option">선호 장르</li>
+      <li class="curation_line"></li>
       <li class="curation_option">선호 시디</li>
+      <li class="curation_line"></li>
       <li class="curation_option">선호 음악 분위기</li>
     </ul>
     <!--###################### Player Box ######################-->

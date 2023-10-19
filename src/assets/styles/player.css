@@ -46,4 +46,13 @@
   display: flex;
   padding: 12px;
   cursor: pointer;
+  box-sizing: content-box;
+  line-height: 20px;
+}
+
+.curation_line {
+  width: 1px;
+  height: 16px;
+  margin: auto 0;
+  background-color: var(--white);
 }
