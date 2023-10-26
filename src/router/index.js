@@ -5,6 +5,8 @@ import createListComp from "@/utils/hoc/userListComp";
 import { withHoc } from "@/hoc/withHoc";
 import ListView from '@/views/hocLayout/listView.vue'
 import ListView2 from '@/views/hocLayout/listView2.vue'
+import { withCuration } from "@/hoc/withCuration";
+import curationView from '@/views/userLayout/curationView.vue'
 Vue.use(VueRouter)
 const routes = [
   {
@@ -164,6 +166,11 @@ const routes = [
         path: "/swiper",
         name: "swiperView",
         component: () => import('@/views/userLayout/swiperView.vue')
+      },
+      {
+        path: "/curation",
+        name: "curationView",
+        component: withCuration(curationView)
       }
     ]
   },
