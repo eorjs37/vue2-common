@@ -30,13 +30,16 @@ const withCuration = (component) => {
     created() {
     },
     mounted() {
-
     },
     methods: {
-      test() {
-        if (this.curationInfo.mood.length === 0) {
-          alert("1")
-        }
+      test(
+        curation = {
+          mood: [],
+          peroid: []
+        },
+        validateFn = () => { }) {
+        console.log(curation)
+        validateFn();
       }
     },
     render(createElement) {

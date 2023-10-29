@@ -46,7 +46,13 @@ export default {
 
   methods: {
     clickTest() {
-      this.fn();
+      this.fn({
+        mood: this.mood,
+        peroid: this.peroid
+      }, this.alertValidate);
+    },
+    alertValidate() {
+      alert("12345")
     }
   },
 };
