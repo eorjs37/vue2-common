@@ -28,17 +28,25 @@ const withCuration = (component) => {
       }
     },
     created() {
+
     },
     mounted() {
     },
     methods: {
-      test(
+      validation(
         curation = {
           mood: [],
           peroid: []
         },
-        validateFn = () => { }) {
-        console.log(curation)
+        validateFn = () => { }
+      ) {
+        if (curation.mood.length === 0) {
+          alert(`분위기를 선택해주세요.`);
+          return false;
+        } else if (curation.peroid.length === 0) {
+          alert(`시대를 선택해주세요.`);
+          return false;
+        }
         validateFn();
       }
     },
@@ -47,7 +55,7 @@ const withCuration = (component) => {
         attrs: this.$attrs,
         props: {
           curationinfo: this.curationInfo,
-          fn: this.test
+          validate: this.validation
         },
         on: this.$listeners,
         scopedSlots: this.$scopedSlots

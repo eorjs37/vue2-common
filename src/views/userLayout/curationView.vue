@@ -1,5 +1,6 @@
 <template>
   <div>
+    <alert-comp v-if="isvisible" :headtitle="'알림'" :bodycontents="'시대를 입력해주세요'" @close-modal="onCloseModal" />
     <h1 class="font_white">curationViews</h1>
     <button @click="clickTest">테스트</button>
     <ul>
@@ -17,10 +18,15 @@
   </div>
 </template>
 <script>
+import AlertComp from '@/components/common/AlertComp.vue'
 export default {
   name: 'CurationView',
+  emits: ['validate'],
+  components: {
+    'alert-comp': AlertComp
+  },
   props: {
-    fn: {
+    validate: {
       type: Function,
       default() {
         return 'Default function'
@@ -31,12 +37,14 @@ export default {
       default: () => {
         return {}
       }
-    }
+    },
+
   },
   data() {
     return {
       mood: [],
       peroid: [],
+      isvisible: false
     };
   },
 
@@ -45,14 +53,18 @@ export default {
   },
 
   methods: {
+    onCloseModal() {
+      this.isvisible = false;
+    },
     clickTest() {
-      this.fn({
+      const send = {
         mood: this.mood,
         peroid: this.peroid
-      }, this.alertValidate);
+      }
+      this.validate(send, this.alertValidate);
     },
     alertValidate() {
-      alert("12345")
+      alert(`validation에 성공하였습니다.`)
     }
   },
 };
