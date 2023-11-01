@@ -1,6 +1,6 @@
 <template>
   <div>
-    <alert-comp v-if="isvisible" :headtitle="'알림'" :bodycontents="'시대를 입력해주세요'" @close-modal="onCloseModal" />
+    <alert-comp v-if="isvisible" :headtitle="'알림'" :bodycontents="modalText" @close-modal="onCloseModal" />
     <h1 class="font_white">curationViews</h1>
     <button @click="clickTest">테스트</button>
     <ul>
@@ -44,7 +44,8 @@ export default {
     return {
       mood: [],
       peroid: [],
-      isvisible: false
+      isvisible: false,
+      modalText: '',
     };
   },
 
@@ -59,7 +60,15 @@ export default {
     clickTest() {
       const send = {
         mood: this.mood,
-        peroid: this.peroid
+        peroid: this.peroid,
+        moodAlert: () => {
+          this.isvisible = true;
+          this.modalText = '분위기를 선택해주세요'
+        },
+        peroiAlert: () => {
+          this.isvisible = true;
+          this.modalText = '시대를 선택해주세요'
+        }
       }
       this.validate(send, this.alertValidate);
     },

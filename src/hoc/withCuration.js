@@ -36,15 +36,17 @@ const withCuration = (component) => {
       validation(
         curation = {
           mood: [],
-          peroid: []
+          peroid: [],
+          moodAlert: () => { },
+          peroiAlert: () => { }
         },
         validateFn = () => { }
       ) {
         if (curation.mood.length === 0) {
-          alert(`분위기를 선택해주세요.`);
+          curation.moodAlert();
           return false;
         } else if (curation.peroid.length === 0) {
-          alert(`시대를 선택해주세요.`);
+          curation.peroiAlert();
           return false;
         }
         validateFn();
