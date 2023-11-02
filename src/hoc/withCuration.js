@@ -54,13 +54,11 @@ const withCuration = (component) => {
     },
     render(createElement) {
       return createElement(component, {
-        attrs: this.$attrs,
+
         props: {
           curationinfo: this.curationInfo,
           validate: this.validation
         },
-        on: this.$listeners,
-        scopedSlots: this.$scopedSlots
       })
     }
   }

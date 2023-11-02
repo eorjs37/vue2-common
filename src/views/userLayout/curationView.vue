@@ -1,5 +1,6 @@
 <template>
   <div>
+    <curation-comp />
     <alert-comp v-if="isvisible" :headtitle="'알림'" :bodycontents="modalText" @close-modal="onCloseModal" />
     <h1 class="font_white">curationViews</h1>
     <button @click="clickTest">테스트</button>
@@ -19,11 +20,14 @@
 </template>
 <script>
 import AlertComp from '@/components/common/AlertComp.vue'
+import CurationComp from '@/components/CurationComp.vue';
+import { withCuration } from '@/hoc/withCuration';
 export default {
   name: 'CurationView',
   emits: ['validate'],
   components: {
-    'alert-comp': AlertComp
+    'alert-comp': AlertComp,
+    'curation-comp': withCuration(CurationComp)
   },
   props: {
     validate: {
