@@ -2,7 +2,7 @@
   <div>
 
     <div class="send_wrap">
-      <input type="text" class="send_input" v-model="sendData" @keyup.enter="sendEvent">
+      <input type="text" class="send_input" v-model="sendData" @keypress.enter="sendEvent">
       <button class="send_btn" @click="sendEvent">send</button>
     </div>
   </div>
@@ -20,7 +20,11 @@ export default {
   },
 
   created() {
-    this.socketClient = io("http://localhost:3000");
+    this.socketClient = io(process.env.VUE_APP_SOCKET_URL, {
+      query: {
+        "user": "userA"
+      }
+    });
     this.socketClient.on("connect", () => {
       console.log("connection server")
     })
@@ -31,9 +35,13 @@ export default {
   },
 
   methods: {
-    sendEvent() {
-      this.socketClient.emit("chat message", this.sendData)
-      this.sendData = ""
+    sendEvent($event) {
+      const { isComposing } = $event;
+      if (!isComposing) {
+        this.socketClient.emit("chatmessage", this.sendData)
+        this.sendData = ""
+      }
+
     },
     receiveEvent(data) {
       console.log(data)
