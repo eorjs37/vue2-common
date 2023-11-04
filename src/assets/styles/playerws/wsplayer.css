@@ -1,0 +1,178 @@
+.wsplayer_wrap {
+  background: hsla(0, 0%, 100%, .16);
+  border: 1px solid hsla(0, 0%, 100%, .12);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, .08);
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.wsplayer_head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 0;
+  color: var(--white);
+  border-bottom: 1px solid hsla(0, 0%, 100%, .16);
+}
+
+.channel_title {
+  display: inline-block;
+  border: 1px solid hsla(0, 0%, 100%, .64);
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 0 6px;
+  line-height: 20px;
+}
+
+.channel_name {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 5px;
+}
+
+.equalizer {
+  display: flex;
+  justify-content: space-between;
+  width: 15px;
+}
+
+.rythm {
+  display: inline-block;
+  width: 2px;
+  border-radius: 50px;
+  border: none;
+  padding: 0;
+  height: 16px;
+  background: linear-gradient(180deg, #fff, #ed4a9f);
+  animation: rythm 1s linear infinite;
+}
+
+.rythm.first {
+  animation-delay: .1s;
+}
+
+.rythm.second {
+  height: 14px;
+  animation-delay: .3s;
+}
+
+.rythm.third {
+  animation-delay: .1s;
+}
+
+.rythm.fourth {
+  height: 14px;
+}
+
+@keyframes rythm {
+  0% {
+    transform: scaleY(100%);
+  }
+
+  50% {
+    transform: scaleY(50%);
+  }
+
+  100% {
+    transform: scaleY(100%);
+  }
+}
+
+.wsplayer_body {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid hsla(0, 0%, 100%, .16);
+}
+
+.wscurrent_music {
+  display: flex;
+  justify-content: space-between;
+  width: 553px;
+}
+
+.wscurrent_music_img {
+  width: 240px;
+  height: 240px;
+}
+
+.wscurrent_music_info {
+  width: 280px;
+}
+
+.wscurrent_music_title {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 40px;
+  white-space: nowrap;
+  color: var(--white);
+  margin-top: 50px;
+}
+
+.wscurrent_music_artist {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: nowrap;
+  color: var(--white);
+  margin-top: 4px;
+}
+
+.wscurrent_music_func {
+  display: flex;
+  align-items: center;
+  margin-top: 55px;
+}
+
+.music_func_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 14px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+
+}
+
+.music_func_item:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.music_func_item_img {
+  width: 20px;
+  height: 30px;
+}
+
+.wsplayer_footer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 28px 0px;
+}
+
+.ws_play_control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 600px;
+  cursor: pointer;
+  margin-left: calc(380px - 64px);
+}
+
+.volume_control {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+}

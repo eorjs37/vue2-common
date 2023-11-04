@@ -56,3 +56,18 @@
   margin: auto 0;
   background-color: var(--white);
 }
+
+.ws_box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  width: 1200px;
+}
+
+.ws_left_box {
+  width: 762px;
+}
+
+.ws_right_box {
+  width: 462px;
+}
