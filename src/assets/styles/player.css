@@ -65,9 +65,13 @@
 }
 
 .ws_left_box {
-  width: 762px;
+  max-width: 762px;
+  height: 480px;
+  width: 100%;
 }
 
 .ws_right_box {
-  width: 462px;
+  max-width: 424px;
+  height: 480px;
+  width: 100%;
 }

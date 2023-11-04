@@ -13,16 +13,19 @@
       </li>
       <li class="ws_right_box">
         <!--###################### Recommend Channel ######################-->
+        <recomm-channel />
       </li>
     </ul>
   </div>
 </template>
 <script>
 import PlayerComp from '@/components/playerws/PlayerComp.vue'
+import RecommChannel from '@/components/playerws/RecommChannel.vue';
 export default {
   name: 'PlayerWS',
   components: {
-    'player-comp': PlayerComp
+    'player-comp': PlayerComp,
+    'recomm-channel': RecommChannel
   },
   data() {
     return {
