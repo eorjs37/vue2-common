@@ -1,0 +1,50 @@
+.calendar_container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.month_title {
+  margin-top: 10px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.month_wrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.week_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.day_wrap {
+  display: flex;
+  border: 1px solid rgb(178, 170, 170);
+  padding: 10px;
+  width: calc(1200px / 7);
+  height: calc(1200px / 7);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.weekday_wrap {
+  display: flex;
+  border: 1px solid transparent;
+  margin-top: 10px;
+}
+
+.weekday_wrap_item {
+  width: calc(100% / 7);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+}
