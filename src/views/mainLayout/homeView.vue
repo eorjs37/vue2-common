@@ -29,16 +29,29 @@ export default {
   },
 
   mounted() {
-    this.testError();
+    //this.testError();
     this.setWow();
+    this.testError2();
   },
 
   methods: {
     testError() {
+
       try {
-        throw new Error('error')
+        let a = 1;
+        a.push(1)
       } catch (error) {
-        console.error("error");
+        this.$SentryObject.captureException(new Error("testError error : ", error))
+        console.error("testError error : ", error);
+      }
+    },
+    testError2() {
+      try {
+        let a = 1;
+        a.push(1)
+      } catch (error) {
+        this.$SentryObject.captureException(new Error("testError error : ", error))
+        console.error("testError error : ", error);
       }
     },
     setWow() {

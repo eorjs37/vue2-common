@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.16",
     "@babel/preset-env": "^7.22.9",
+    "@sentry/webpack-plugin": "^2.9.0",
     "@testing-library/vue": "^5.9.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
