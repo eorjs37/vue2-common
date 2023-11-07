@@ -5,6 +5,7 @@ import { testplugin } from '@/utils/testpulguin'
 import { myplugin } from "@/utils/myplugins";
 import { weatherPlugin } from "@/utils/weatherplugin";
 import { mediaSessionObject } from "@/utils/mediaSession";
+import { sentryObject } from "@/utils/sentry/sentryLog";
 export default {
   install(Vue) {
     Vue.prototype.$VideoJS = videoObject
@@ -13,6 +14,7 @@ export default {
     Vue.prototype.$TestPlugin = testplugin;
     Vue.prototype.$MyPlugins = myplugin;
     Vue.prototype.$WeatherPlugin = weatherPlugin;
-    Vue.prototype.$MediaSession = mediaSessionObject
+    Vue.prototype.$MediaSession = mediaSessionObject;
+    Vue.prototype.$SentryObject = sentryObject;
   }
 }

@@ -29,10 +29,18 @@ export default {
   },
 
   mounted() {
+    this.testError();
     this.setWow();
   },
 
   methods: {
+    testError() {
+      try {
+        throw new Error('error')
+      } catch (error) {
+        console.error("error");
+      }
+    },
     setWow() {
       const wow = new WOW.WOW({
         boxClass: 'event_title',

@@ -12,6 +12,9 @@ import "@/assets/styles/global.css"
 import "@/assets/styles/common.css"
 import 'animate.css';
 
+//Sentry
+import "@/utils/sentry/sentry";
+
 //vue awesome
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
