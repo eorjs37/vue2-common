@@ -224,6 +224,19 @@ const routes = [
         component: () => import("@/views/routerLayout/router3View.vue"),
       }
     ]
+  },
+  {
+    path: '/calendar',
+    name: "calendarLayout",
+    component: () => import("@/layout/calendarLayout.vue"),
+    redirect: "/calendarview",
+    children: [
+      {
+        path: "/calendarview",
+        name: "calendarview",
+        component: () => import("@/views/calendarLayout/CalendarView.vue")
+      }
+    ]
   }
 
 ]
