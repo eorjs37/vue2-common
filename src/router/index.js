@@ -237,6 +237,19 @@ const routes = [
         component: () => import("@/views/calendarLayout/CalendarView.vue")
       }
     ]
+  },
+  {
+    path: '/obigo',
+    name: "obigoLayout",
+    component: () => import("@/layout/obigoLayout.vue"),
+    redirect: '/obigoview',
+    children: [
+      {
+        path: '/obigoview',
+        name: "obigoview",
+        component: () => import("@/views/obigoLayout/obigoView.vue")
+      }
+    ]
   }
 
 ]
