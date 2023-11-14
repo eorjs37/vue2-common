@@ -3,15 +3,16 @@
     <transition name="fade">
       <nav class="nav" v-if="show">
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          <li>선호장르</li>
+          <li>선호시대</li>
+          <li>선호블라</li>
         </ul>
       </nav>
     </transition>
     <div class="contents" :class="show ? 'contents_30' : 'contents_100'">
       <h1 class="text">노래제목이 정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~말
         길어요</h1>
+      <h2 class="text2">가수제목</h2>
     </div>
     <button class="btn" @click="show = !show">버튼</button>
   </section>
@@ -29,13 +30,15 @@ export default {
 
   mounted() {
     const target = document.querySelector('.text')
+    const target2 = document.querySelector('.text2')
     const observer = new ResizeObserver((entries) => {
       //관찰중인 객체 리스트
       entries.forEach(entry => {
         console.log(entry)
       })
     });
-    observer.observe(target)
+    observer.observe(target);
+    observer.observe(target2)
     this.isFirstLoad = false;
   },
 
