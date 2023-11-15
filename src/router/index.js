@@ -250,6 +250,19 @@ const routes = [
         component: () => import("@/views/obigoLayout/obigoView.vue")
       }
     ]
+  },
+  {
+    path: '/transitionLayout',
+    name: "transitionLayout",
+    component: () => import("@/layout/transitionLayout.vue"),
+    redirect: '/transitionview',
+    children: [
+      {
+        path: '/transitionview',
+        name: "transitionView",
+        component: () => import('@/views/transitionLayout/transitionView.vue')
+      }
+    ]
   }
 
 ]
