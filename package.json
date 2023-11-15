@@ -55,7 +55,8 @@
     "jest": "^27.0.5",
     "vue-jest": "^3.0.7",
     "vue-router": "^3.6.5",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "webpack-bundle-analyzer": "^4.9.1"
   },
   "overrides": {
     "@babel/core": "^7.17.9",
