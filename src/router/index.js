@@ -163,11 +163,6 @@ const routes = [
         component: () => import("@/views/userLayout/mediaSessionView.vue")
       },
       {
-        path: "/swiper",
-        name: "swiperView",
-        component: () => import('@/views/userLayout/swiperView.vue')
-      },
-      {
         path: "/curation",
         name: "curationView",
         component: withCuration(curationView)

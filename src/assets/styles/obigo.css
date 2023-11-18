@@ -1,90 +1,43 @@
 .obigo_container {
   max-width: 1780px;
   width: 100%;
+  height: 720px;
   margin: 0 auto;
   background-color: #fff;
   display: flex;
   box-sizing: border-box;
+  position: relative;
 }
 
-.nav {
-  width: 70%;
-  border: 3px solid gray;
-  box-sizing: border-box;
-  height: 100px;
-}
-
-.contents {
-  width: 30%;
-  border: 3px solid rebeccapurple;
-  box-sizing: border-box;
-  height: 100px;
-}
-
-.contents_100 {
+.obigo_swiper_wrap {
   width: 100%;
-  animation: contents_increase .5s linear;
 }
 
-.contents_30 {
-  animation: contents_decrease .5s linear;
+.obigo_swiper {
+  position: relative;
 }
 
-
-.btn {
+.obigo_music_album_img {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   position: absolute;
-  top: 110px;
-}
-
-.text {
-  word-break: break-word;
-}
-
-.fade-enter-active {
-  animation: nav_left_to_right .5s linear forwards;
-}
-
-.fade-leave-active {
-  animation: nav_right_to_left .5s linear forwards;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
 }
 
 
-@keyframes nav_left_to_right {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 70%;
-  }
-}
-
-@keyframes nav_right_to_left {
-  0% {
-    width: 70%;
-  }
-
-  to {
-    width: 0;
-  }
-}
-
-@keyframes contents_decrease {
-  0% {
-    width: 100%;
-  }
-
-  100% {
-    width: 30%;
-  }
-}
-
-@keyframes contents_increase {
-  0% {
-    width: 30%;
-  }
-
-  100% {
-    width: 100%;
-  }
+.obigo_music_album {
+  filter: blur(8px);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: absolute;
+  top: 0; */
 }

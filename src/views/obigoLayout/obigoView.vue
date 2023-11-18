@@ -1,53 +1,43 @@
 <template>
   <section class="obigo_container">
-    <transition name="fade">
-      <nav class="nav" v-if="show">
-        <ul>
-          <li>선호장르</li>
-          <li>선호시대</li>
-          <li>선호블라</li>
-        </ul>
-      </nav>
-    </transition>
-    <div class="contents" :class="show ? 'contents_30' : 'contents_100'">
-      <h1 class="text">노래제목이 정~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~말
-        길어요</h1>
-      <h2 class="text2">가수제목</h2>
-    </div>
-    <button class="btn" @click="show = !show">버튼</button>
+    <swiper-container :speed="500" :loop="true" :centered-slides="true" :css-mode="true" :pagination="{
+      hideOnClick: true
+    }">
+      <swiper-slide>
+        Slide 1
+      </swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper-container>
   </section>
 </template>
 <script>
+import { register } from 'swiper/element/bundle';
+register();
 export default {
   name: 'ObigoView',
 
   data() {
     return {
-      show: false,
-      isFirstLoad: false
     };
   },
 
   mounted() {
-    const target = document.querySelector('.text')
-    const target2 = document.querySelector('.text2')
-    const observer = new ResizeObserver((entries) => {
-      //관찰중인 객체 리스트
-      entries.forEach(entry => {
-        console.log(entry)
-      })
-    });
-    observer.observe(target);
-    observer.observe(target2)
-    this.isFirstLoad = false;
+
   },
 
   methods: {
-    resizeEvent() { }
+  },
+  computed: {
+    backgroundImageInlineStyle() {
+      //{ 'background-image': 'url(../../assets/images/obigo/album.png)' }
+      return `background-image: url(${require('@/assets/images/obigo/album.png')})`
+    }
   },
   destroyed() {
 
   }
 };
 </script>
+<style scoped></style>
 <style scoped src="@/assets/styles/obigo.css"></style>
