@@ -6,7 +6,9 @@
         <div class="obigo_swiper">
           <div class="obigo_car_music">
             <div class="obigo_car_music_box">
-              <h1 class="obigo_music_title" data-swiper-parallax="-2300">{{ item.musicInfo.musicTitle }}</h1>
+              <h1 class="obigo_music_title" v-rolling:value="[item.musicInfo.musicTitle, 576]"
+                data-swiper-parallax="-2300">{{
+                  item.musicInfo.musicTitle }}</h1>
               <h2 class="obigo_music_artist" data-swiper-parallax="-1200">{{ item.musicInfo.musicArtist }}</h2>
               <ul class="obigo_mucis_control" data-swiper-parallax="-900">
                 <li class="align_center">
@@ -26,7 +28,6 @@
                       alt="thumb_down">
                   </figure>
                 </li>
-
               </ul>
             </div>
             <div class="obigo_album_box" data-swiper-parallax="-1200">
@@ -34,13 +35,11 @@
                 <img class="obigo_album_img" :src="require(`@/assets/images/obigo/${item.albumImgUrl}`)"
                   alt="photographer">
               </figure>
-
             </div>
           </div>
           <img class="obigo_music_album_bgimg" :src="require(`@/assets/images/obigo/${item.albumImgUrl}`)">
         </div>
       </swiper-slide>
-
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </section>
@@ -48,8 +47,12 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
+import rolling from '@/utils/directives/rolling'
 export default {
   name: 'ObigoView',
+  directives: {
+    rolling
+  },
   components: {
     Swiper,
     SwiperSlide
@@ -71,7 +74,7 @@ export default {
         {
           id: "channel1",
           musicInfo: {
-            musicTitle: "Good Mood (feat. Terri Walker) Good",
+            musicTitle: "Good Mood (feat. Terri Walker) Good0",
             musicArtist: "Donae’o featuring Terri Walker"
           },
           titleSpeed: -2300,
@@ -83,7 +86,7 @@ export default {
         {
           id: "channel2",
           musicInfo: {
-            musicTitle: "Good Mood (feat. Terri Walker) Good",
+            musicTitle: "Good Mood",
             musicArtist: "Donae’o featuring Terri Walker"
           },
           titleSpeed: -2300,
@@ -95,7 +98,7 @@ export default {
         {
           id: "channel3",
           musicInfo: {
-            musicTitle: "Good Mood (feat. Terri Walker) Good",
+            musicTitle: "Good Mood (feat. Terri Walker) Good2",
             musicArtist: "Donae’o featuring Terri Walker"
           },
           titleSpeed: -2300,
@@ -106,7 +109,7 @@ export default {
         }, {
           id: "channel4",
           musicInfo: {
-            musicTitle: "Good Mood (feat. Terri Walker) Good",
+            musicTitle: "Good Mood (feat. Terri Walker) Good3",
             musicArtist: "Donae’o featuring Terri Walker"
           },
           titleSpeed: -2300,
@@ -117,7 +120,7 @@ export default {
         }, {
           id: "channel5",
           musicInfo: {
-            musicTitle: "Good Mood (feat. Terri Walker) Good",
+            musicTitle: "Good Mood (feat. Terri Walker) Good4",
             musicArtist: "Donae’o featuring Terri Walker"
           },
           titleSpeed: -2300,
