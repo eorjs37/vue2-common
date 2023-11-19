@@ -5,20 +5,26 @@
         <div class="obigo_swiper">
           <div class="obigo_car_music">
             <div class="obigo_car_music_box">
-              <h1 class="obigo_music_title">Good Mood (feat. Terri Walker) Good</h1>
-              <h2 class="obigo_music_artist">Donae’o featuring Terri Walker</h2>
-              <ul class="obigo_mucis_control">
-                <li class="obigo_album_item_box">
-                  <figure class="obigo_thumb_wrap">
-                    <img class="obigo_album_img" :src="require('@/assets/images/obigo/thumb_active.png')"
-                      alt="thumb_active ">
+              <h1 class="obigo_music_title" data-swiper-parallax="-1200">Good Mood (feat. Terri Walker) Good</h1>
+              <h2 class="obigo_music_artist" data-swiper-parallax="-900">Donae’o featuring Terri Walker</h2>
+              <ul class="obigo_mucis_control" data-swiper-parallax="-700">
+                <li class="align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb"
+                      :src="require('@/assets/images/obigo/thumb_active.png')" alt="thumb_active ">
+                  </figure>
+                </li>
+                <li class="obigo_album_item_box_musicplay"></li>
+                <li class="obigi_music_control_item last align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb" :src="require('@/assets/images/obigo/thumb_down.png')"
+                      alt="thumb_down">
                   </figure>
                 </li>
 
-
               </ul>
             </div>
-            <div class="obigo_album_box">
+            <div class="obigo_album_box" data-swiper-parallax="-1200">
               <figure class="obigo_album_wrap">
                 <img class="obigo_album_img" :src="require('@/assets/images/obigo/photographer.jpeg')" alt="photographer">
               </figure>
@@ -32,7 +38,32 @@
       <swiper-slide class="slide">
         <div class="obigo_swiper">
           <div class="obigo_car_music">
-            <h1 class="title">Slide2</h1>
+            <div class="obigo_car_music_box">
+              <h1 class="obigo_music_title" data-swiper-parallax="-1200">Good Mood (feat. Terri Walker) Good</h1>
+              <h2 class="obigo_music_artist" data-swiper-parallax="-900">Donae’o featuring Terri Walker</h2>
+              <ul class="obigo_mucis_control" data-swiper-parallax="-700">
+                <li class="align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb"
+                      :src="require('@/assets/images/obigo/thumb_active.png')" alt="thumb_active ">
+                  </figure>
+                </li>
+                <li class="obigo_album_item_box_musicplay"></li>
+                <li class="obigi_music_control_item last align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb" :src="require('@/assets/images/obigo/thumb_down.png')"
+                      alt="thumb_down">
+                  </figure>
+                </li>
+
+              </ul>
+            </div>
+            <div class="obigo_album_box" data-swiper-parallax="-1200">
+              <figure class="obigo_album_wrap">
+                <img class="obigo_album_img" :src="require('@/assets/images/obigo/photographer.jpeg')" alt="photographer">
+              </figure>
+
+            </div>
           </div>
           <img class="obigo_music_album_bgimg" :src="require('@/assets/images/obigo/photographer.jpeg')">
         </div>
@@ -40,7 +71,32 @@
       <swiper-slide class="slide">
         <div class="obigo_swiper">
           <div class="obigo_car_music">
-            <h1 class="title">Slide3</h1>
+            <div class="obigo_car_music_box">
+              <h1 class="obigo_music_title" data-swiper-parallax="-1200">Good Mood (feat. Terri Walker) Good</h1>
+              <h2 class="obigo_music_artist" data-swiper-parallax="-900">Donae’o featuring Terri Walker</h2>
+              <ul class="obigo_mucis_control" data-swiper-parallax="-700">
+                <li class="align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb"
+                      :src="require('@/assets/images/obigo/thumb_active.png')" alt="thumb_active ">
+                  </figure>
+                </li>
+                <li class="obigo_album_item_box_musicplay"></li>
+                <li class="obigi_music_control_item last align_center">
+                  <figure class="obigo_album_item_box">
+                    <img class="obigo_thumb_wrap obigo_album_thumb" :src="require('@/assets/images/obigo/thumb_down.png')"
+                      alt="thumb_down">
+                  </figure>
+                </li>
+
+              </ul>
+            </div>
+            <div class="obigo_album_box" data-swiper-parallax="-1200">
+              <figure class="obigo_album_wrap">
+                <img class="obigo_album_img" :src="require('@/assets/images/obigo/photographer.jpeg')" alt="photographer">
+              </figure>
+
+            </div>
           </div>
           <img class="obigo_music_album_bgimg" :src="require('@/assets/images/obigo/photographer.jpeg')">
         </div>
@@ -61,6 +117,9 @@ export default {
   data() {
     return {
       swiperOption: {
+        parallax: true,
+        speed: 1100,
+
         slidesPerView: 1,
         loop: true,
         pagination: {
