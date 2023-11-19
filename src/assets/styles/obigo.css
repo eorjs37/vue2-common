@@ -80,9 +80,17 @@
   border-radius: 50%;
   background-color: var(--white);
   margin-left: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.obigo_album_item_box:hover {
+.obigo_play_wrap {
+  width: 36px;
+  height: 44px;
+}
+
+.obigo_album_item_box.active {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -132,12 +140,21 @@
   height: 100%;
 }
 
-.obigo_w70 {
-  width: 70%;
+.obigo_swiper_nav_open {
+  width: calc(100% - 629px);
 }
 
 .obigo_w100 {
   width: 100%;
+}
+
+.obigo_nav {
+  visibility: hidden;
+  width: 0;
+}
+
+.obigo_nav.open {
+  width: 629px;
 }
 
 
