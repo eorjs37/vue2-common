@@ -61,8 +61,7 @@ export default {
     return {
       swiperOption: {
         parallax: true,
-        speed: 800,
-
+        speed: 400,
         slidesPerView: 1,
         loop: true,
         pagination: {
