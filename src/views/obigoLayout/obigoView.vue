@@ -6,7 +6,8 @@
         <div class="obigo_swiper">
           <div class="obigo_car_music">
             <div class="obigo_car_music_box">
-              <h1 class="obigo_music_title" v-rolling:value="item.musicInfo.musicTitle" data-swiper-parallax="-2300"></h1>
+              <h1 :id="`music${item.id}`" class="obigo_music_title" v-rolling:value="item.musicInfo.musicTitle"
+                data-swiper-parallax="-2300"></h1>
               <h2 class="obigo_music_artist" data-swiper-parallax="-1200">{{ item.musicInfo.musicArtist }}</h2>
               <ul class="obigo_mucis_control" data-swiper-parallax="-900">
                 <li class="align_center">
