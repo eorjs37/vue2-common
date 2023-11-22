@@ -243,6 +243,11 @@ const routes = [
         path: '/obigoview',
         name: "obigoview",
         component: () => import("@/views/obigoLayout/obigoView.vue")
+      },
+      {
+        path: '/obigopurpose',
+        name: 'obigopurposeView',
+        component: () => import("@/views/obigoLayout/obigoPurposeView.vue")
       }
     ]
   },

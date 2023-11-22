@@ -15,6 +15,9 @@ import 'animate.css';
 //Sentry
 import "@/utils/sentry/sentry";
 
+//carousel-3d
+import Carousel3d from 'vue-carousel-3d';
+
 //vue awesome
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -39,6 +42,8 @@ Vue.use(router)
 Vue.use(VueCookies);
 //쿠키의 만료일은 7일이다. (글로벌 세팅)
 Vue.$cookies.config("7d");
+
+Vue.use(Carousel3d);
 
 //globalcomponent
 Vue.component('LoadingComponent', LoadingComponent)

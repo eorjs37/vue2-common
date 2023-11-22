@@ -1,0 +1,36 @@
+.obigo_container {
+  max-width: 1780px;
+  width: 100%;
+  height: 720px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.swiper-container {
+  max-width: 1280px;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: 346px;
+}
+
+.swiper-slide {
+  width: 320px;
+}
+
+.slider-image {
+  /* width: 462px; */
+  height: 346px;
+}
+
+.slider-image_img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-button-prev {
+  right: auto;
+}
