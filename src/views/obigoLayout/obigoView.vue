@@ -144,6 +144,15 @@ export default {
       if ($ele) {
         $ele.target.classList.remove('active');
       }
+    },
+    onSlideChange() {
+      console.log('onSlideChange');
+    },
+    onTransitionEnd() {
+      console.log('onTransitionEnd');
+    },
+    onSlideChangeTransitionEnd() {
+      console.log('onSlideChangeTransitionEnd');
     }
   },
   computed: {

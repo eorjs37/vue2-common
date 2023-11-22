@@ -1,9 +1,8 @@
 import Vue from "vue";
 let animate = null;
 const diff = (el) => {
-  const ele = document.querySelector(`#${el.id}`);
-  if (ele.scrollWidth > ele.clientWidth) {
-    animate = ele.animate(
+  if (el.scrollWidth > el.clientWidth) {
+    animate = el.animate(
       [
         {
           transform: "translateX(0)"
@@ -19,8 +18,8 @@ const diff = (el) => {
     console.log(animate);
   } else {
 
-    ele.style.animationPlayState = "paused";
-    console.log(ele.style);
+    el.style.animationPlayState = "paused";
+    console.log(el.style);
     //console.lo  g(animate.pause());
   }
 }
@@ -30,6 +29,9 @@ const rolling = {
     console.log("bind");
     const { value } = binding;
     el.innerHTML = value;
+    //
+    //
+    // diff(el)
   },
   inserted: (el) => {
     console.log("inserted");
@@ -39,9 +41,15 @@ const rolling = {
   },
   update: (el, binding) => {
     console.log("updated binding : ", binding);
-    const { value } = binding;
-    el.innerHTML = value;
-    diff(el)
+    // const { value } = binding;
+    // el.innerHTML = value;
+    // diff(el)
+  },
+  componentUpdated: (el, binding) => {
+    console.log("componentUpdated binding : ", binding);
+  },
+  unbind: () => {
+    console.log("unbind");
   }
 }
 
