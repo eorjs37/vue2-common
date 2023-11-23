@@ -1,81 +1,90 @@
 <template>
   <div class="obigo_container">
-    <swiper class="swiper obigo_w100 " :options="swiperOption">
-      <swiper-slide class="slide">
-        <div class="slider-image">
+    <swiper-container effect="creative" :modules="modules" :navigation="true" class="swiper-container" :loop="true"
+      :slides-per-view="2.5" :centered-slides="true" :creative-effect="{
+        prev: {
+          shadow: true,
+          origin: 'left center',
+          translate: ['-5%', 0, -200],
+          rotate: [0, 100, 0],
+        },
+        next: {
+          origin: 'right center',
+          translate: ['5%', 0, -200],
+          rotate: [0, -100, 0],
+        },
+      }" :grabCursor="true" @swiperprogress="onProgress" @swiperslidechange="onSlideChange">
+      <swiper-slide>
+        <figure class="slider-image">
           <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/business.png')" alt="business">
-        </div>
+        </figure>
       </swiper-slide>
-      <swiper-slide class="slide">
-        <div class="slider-image">
-          <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/daily.png')" alt="business">
-        </div>
+      <swiper-slide>
+        <figure class="slider-image">
+          <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/daily.png')" alt="daily">
+        </figure>
       </swiper-slide>
-      <swiper-slide class="slide">
-        <div class="slider-image">
+      <swiper-slide>
+        <figure class="slider-image">
           <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/drive.png')" alt="drive">
-        </div>
+        </figure>
       </swiper-slide>
-      <swiper-slide class="slide">
-        <div class="slider-image">
+      <swiper-slide>
+        <figure class="slider-image">
           <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/gotowork.png')" alt="gotowork">
-        </div>
+        </figure>
       </swiper-slide>
-      <swiper-slide class="slide">
-        <div class="slider-image">
+      <swiper-slide>
+        <figure class="slider-image">
           <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/leavework.png')" alt="leavework">
-        </div>
+        </figure>
       </swiper-slide>
-      <swiper-slide class="slide">
-        <div class="slider-image">
+      <swiper-slide>
+        <figure class="slider-image">
           <img class="slider-image_img " :src="require('@/assets/images/obigo/purpose/trip.png')" alt="trip">
-        </div>
+        </figure>
       </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    </swiper-container>
   </div>
 </template>
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+import { register } from 'swiper/element/bundle';
+import { Navigation, EffectCoverflow, EffectFade, EffectCreative } from 'swiper/modules'
+register();
+
 export default {
   name: 'ObigoPurposeView',
-  components: {
-    Swiper,
-    SwiperSlide
-  },
   data() {
     return {
-      swiperOption: {
-        loop: true,
-        speed: 800,
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 3.1,
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 80,
-          depth: 200,
-          modifier: 1,
-          slideShadows: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
+      modules: [Navigation, EffectCoverflow, EffectFade, EffectCreative],
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
       },
+      creativeEffect: {
+        prev: {
+          opacity: 0,
+        },
+        next: {
+          opacity: 0,
+        },
+      }
     };
   },
 
   mounted() {
-
   },
-
   methods: {
+    onProgress() { },
+    onSlideChange() {
+      console.log('slide changed')
 
-  },
+    }
+  }
+
 };
 </script>
 <style scoped src="@/assets/styles/obigopurpose.css"></style>
