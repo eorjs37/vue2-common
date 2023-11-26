@@ -19,8 +19,6 @@ const diff = (el) => {
   } else {
 
     el.style.animationPlayState = "paused";
-    console.log(el.style);
-    //console.lo  g(animate.pause());
   }
 }
 
@@ -29,9 +27,7 @@ const rolling = {
     console.log("bind");
     const { value } = binding;
     el.innerHTML = value;
-    //
-    //
-    // diff(el)
+
   },
   inserted: (el) => {
     console.log("inserted");

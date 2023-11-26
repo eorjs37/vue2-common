@@ -61,6 +61,11 @@ const routes = [
         path: '/car',
         name: 'carpurpose',
         component: () => import("@/views/mainLayout/carPurposeView.vue")
+      },
+      {
+        path: '/rolling',
+        name: 'RollingView',
+        component: () => import("@/views/mainLayout/rollingView.vue")
       }
     ],
   },

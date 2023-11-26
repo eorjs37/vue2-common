@@ -986,6 +986,21 @@ export default {
 <style scoped></style>
 ```
 
+### Vue directive rolling
+
+#### 훅 함수
+
+##### bind
+> 바인딩되고 최초 한번 호출이 된다
+##### inserted
+> 바인딩 되고 Element가 Dom에 삽입됐을때
+##### update
+> 바인딩된 데이터가 Update가 일어날때
+##### unbind
+> 바인딩 해제가 될때
+
+
+
 ## High Order Components
 > 컴퍼넌트 로직을 재사용 하기 위한 기술, 컴퍼넌트를 인자로 받아 컴퍼넌트를 리턴해주는 패턴
 
