@@ -4,9 +4,37 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/business.png')" alt="business.png">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/daily.png')" alt="daily.png">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/drive.png')" alt="drive.png">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/gotowork.png')" alt="gotowork.png">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/leavework.png')"
+              alt="leavework.png">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="slider-image">
+            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/trip.png')" alt="trip.png">
+          </figure>
+        </div>
       </div>
 
       <!-- If we need navigation buttons -->
@@ -30,34 +58,28 @@ export default {
   },
 
   mounted() {
-    new Swiper(this.$refs.swiper, {
+    const swiper = new Swiper(this.$refs.swiper, {
+      init: false,
       modules: [Navigation, EffectCreative],
       loop: true,
-
-      // Navigation arrows
+      centeredSlides: true,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      // effect: 'creative',
-      // creativeEffect: {
-      //   prev: {
-      //     shadow: true,
-      //     origin: 'left center',
-      //     translate: ['-5%', 0, -200],
-      //     rotate: [0, 100, 0],
-      //   },
-      //   next: {
-      //     origin: 'right center',
-      //     translate: ['5%', 0, -200],
-      //     rotate: [0, -100, 0],
-      //   },
-      // },
       slidesPerView: 2.5
-    })
+    });
+
+    swiper.on('slideChange', this.onSlideChange);
+    swiper.on('init', this.onInit)
+
+    swiper.init();
+
   },
   methods: {
-    onProgress() { },
+    onInit() {
+      console.log('afterInit');
+    },
     onSlideChange() {
       console.log('slide changed')
 
