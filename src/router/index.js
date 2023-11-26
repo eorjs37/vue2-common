@@ -263,6 +263,19 @@ const routes = [
         component: () => import('@/views/transitionLayout/transitionView.vue')
       }
     ]
+  },
+  {
+    path: '/swiperLayout',
+    name: "swiperLayout",
+    component: () => import("@/layout/swiperLayout.vue"),
+    redirect: '/swiperview',
+    children: [
+      {
+        path: "/swiperview",
+        name: "swiperView",
+        component: () => import("@/views/swiperLayout/swiperView.vue")
+      }
+    ]
   }
 
 ]

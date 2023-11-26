@@ -1,0 +1,24 @@
+.swiper_wrap {
+  max-width: 1780px;
+  width: 100%;
+}
+
+.text {
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+}
+
+.purpose_img_wrap {
+  width: 462px;
+  height: 346px;
+}
+
+.purpose_img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  width: 462px;
+}
