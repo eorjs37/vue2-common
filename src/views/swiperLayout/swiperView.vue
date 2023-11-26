@@ -43,7 +43,7 @@ export default {
         },
         {
           imgname: "trip.png"
-        }
+        },
       ]
     }
   },
@@ -56,7 +56,7 @@ export default {
       grabCursor: true,
       centeredSlides: true,
       modules: [Navigation, EffectCoverflow],
-      spaceBetween: 20,
+      // spaceBetween: 20,
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
