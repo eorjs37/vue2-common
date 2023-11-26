@@ -1,89 +1,41 @@
 <template>
   <div class="obigo_container">
-    <div ref="swiper" class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/business.png')" alt="business.png">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/daily.png')" alt="daily.png">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/drive.png')" alt="drive.png">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/gotowork.png')" alt="gotowork.png">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/leavework.png')"
-              alt="leavework.png">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="slider-image">
-            <img class="slider-image_img" :src="require('@/assets/images/obigo/purpose/trip.png')" alt="trip.png">
-          </figure>
-        </div>
-      </div>
+    <carousel-3d :autoplay="false" :inverse-scaling="500" :space="250" :width="463" :height="346" :controls-visible="true"
+      :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" :clickable="false" :perspective="0">
+      <slide-comp v-for="(item, index) in purposeList" :key="`purpose${index}`" :index="index">
 
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-    </div>
+        <figure class="slider-image">
+          <img class="slider-image_img" :src="require(`@/assets/images/obigo/purpose/${item.imgurl}`)" :alt="item.imgurl">
+        </figure>
+      </slide-comp>
+    </carousel-3d>
   </div>
 </template>
 <script>
-
-import Swiper from 'swiper';
-import { Navigation, EffectCreative } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
+import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   name: 'ObigoPurposeView',
+  components: {
+    'carousel-3d': Carousel3d,
+    'slide-comp': Slide
+  },
   data() {
     return {
+      purposeList: [
+        { imgurl: 'business.png' },
+        { imgurl: 'daily.png' },
+        { imgurl: 'drive.png' },
+        { imgurl: 'gotowork.png' },
+        { imgurl: 'leavework.png' },
+        { imgurl: 'trip.png' }
+      ]
     };
   },
 
   mounted() {
-    const swiper = new Swiper(this.$refs.swiper, {
-      init: false,
-      modules: [Navigation, EffectCreative],
-      loop: true,
-      centeredSlides: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      slidesPerView: 2.5
-    });
-
-    swiper.on('slideChange', this.onSlideChange);
-    swiper.on('init', this.onInit)
-
-    swiper.init();
 
   },
   methods: {
-    onInit() {
-      console.log('afterInit');
-    },
-    onSlideChange() {
-      console.log('slide changed')
-
-    }
   }
 
 };

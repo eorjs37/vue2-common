@@ -9,6 +9,21 @@
   position: relative;
 }
 
+.carousel-3d-slide {
+  background: none;
+  border: none;
+}
+
+/* .carousel-3d-slide[class*="right-1"],
+.carousel-3d-slide[class*="left-1"] {
+  opacity: 0.8 !important;
+}
+
+.carousel-3d-slide[class*="right-2"],
+.carousel-3d-slide[class*="left-2"] {
+  opacity: 0.6 !important;
+} */
+
 .swiper-container {
   max-width: 1280px;
   width: 100%;
