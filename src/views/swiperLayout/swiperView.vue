@@ -58,14 +58,13 @@ export default {
       modules: [Navigation, EffectCoverflow],
       // spaceBetween: 20,
       // Navigation arrows
-      spaceBetween: 100,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
       coverflowEffect: {
         rotate: 0,
-        stretch: 60,
+        stretch: 80,
         depth: 190,
         modifier: 2.5,
         slideShadows: true,
