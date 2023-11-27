@@ -63,23 +63,33 @@ export default {
         prevEl: '.swiper-button-prev',
       },
       coverflowEffect: {
-        rotate: 0,
-        stretch: 80,
-        depth: 190,
-        modifier: 2.5,
+        rotate: 0, //회전
+        stretch: 120, //
+        depth: 200, // 슬라이드 깊이 Translate3D에서 z축을 담당한다
+        modifier: 2,
         slideShadows: true,
-        // scale: 0.8
       },
 
     });
 
-    swiper.on('init', this.onInit)
-
+    swiper.on('init', this.onInit);
+    swiper.on('realIndexChange', this.onRealIndexChange)
     swiper.init();
   },
   methods: {
     onInit() {
       console.log("onInit");
+    },
+    onRealIndexChange(swiper) {
+      const { slides } = swiper;
+      slides.forEach(element => {
+        if (!element.classList.contains('swiper-slide-visible')) {
+          element.style.opacity = 0;
+        } else {
+          element.style.opacity = 1;
+        }
+
+      });
     }
   }
 }
