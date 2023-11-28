@@ -4,7 +4,7 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <div class="swiper-slide" v-for="(item, index) in list" :key="index">
-        <figure class="purpose_img_wrap">
+        <figure class="purpose_img_wrap" :id="`purpose_img_wrap${index}`">
           <img :src="require(`@/assets/images/obigo/purpose/${item.imgname}`)" :alt="item.imgname" class="purpose_img">
         </figure>
       </div>
@@ -56,8 +56,6 @@ export default {
       grabCursor: true,
       centeredSlides: true,
       modules: [Navigation, EffectCoverflow],
-      // spaceBetween: 20,
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -73,15 +71,19 @@ export default {
     });
 
     swiper.on('init', this.onInit);
-    swiper.on('realIndexChange', this.onRealIndexChange)
+    swiper.on('realIndexChange', this.onRealIndexChange);
+    swiper.on('click', () => {
+      console.log("click");
+    })
     swiper.init();
   },
   methods: {
     onInit() {
       console.log("onInit");
     },
-    onRealIndexChange(swiper) {
+    async onRealIndexChange(swiper) {
       const { slides } = swiper;
+      //opacity 세팅
       slides.forEach(element => {
         if (!element.classList.contains('swiper-slide-visible')) {
           element.style.opacity = 0;
@@ -90,6 +92,37 @@ export default {
         }
 
       });
+
+      //
+      await this.$nextTick();
+      const ele = document.querySelector(".swiper-slide-active");
+      const swiperIndex = parseInt(ele.getAttribute('data-swiper-slide-index'))
+
+      //active은 opacity 1
+      const activeEle = document.querySelector(`#purpose_img_wrap${swiperIndex}`);
+      activeEle.style.opacity = 1;
+      //양옆은 opacity 0.6666
+      const oneLeft = swiperIndex === 0 ? 5 : swiperIndex - 1;
+      const oneRight = swiperIndex === 5 ? 0 : swiperIndex + 1;
+      const oneLeftEle = document.querySelector(`#purpose_img_wrap${oneLeft}`);
+      const oneRightEle = document.querySelector(`#purpose_img_wrap${oneRight}`);
+
+      oneLeftEle.style.opacity = 0.6666;
+      oneRightEle.style.opacity = 0.6666;
+      //제일 끝은 opacity 0.3333
+
+      const twoLeft = swiperIndex - 2 < 1 ? 4 : swiperIndex - 2;
+      const twoRight = swiperIndex === 5 ? 1 : swiperIndex + 2;
+
+      const twoLeftEle = document.querySelector(`#purpose_img_wrap${twoLeft}`);
+      const twoRightEle = document.querySelector(`#purpose_img_wrap${twoRight}`);
+      if (twoLeftEle) {
+        twoLeftEle.style.opacity = 0.3333;
+      }
+
+      if (twoRightEle) {
+        twoRightEle.style.opacity = 0.3333;
+      }
     }
   }
 }
