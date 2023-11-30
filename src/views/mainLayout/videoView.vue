@@ -29,12 +29,26 @@ export default {
     this.$nextTick(() => {
       this.$VideoJS.registerHlsErrorEvent(Hls.Events.ERROR, this.errorHandle)
       this.$VideoJS.videoRegisterEvent('play', this.playEvent)
-      this.$VideoJS.videoRegisterEvent('canplaythrough', this.canplaythroughEvent)
+      this.$VideoJS.videoRegisterEvent('canplaythrough', this.canplaythroughEvent);
+      this.$VideoJS.videoRegisterEvent("loadedmetadata", this.onLoadedmetadata);
+      this.$VideoJS.videoRegisterEvent("error", this.onError);
+      this.$VideoJS.videoRegisterEvent("stalled", this.onError);
+      this.$VideoJS.videoRegisterEvent("suspend", this.onSuspend);
+      this.$VideoJS.videoRegisterEvent("progress", this.onProgress);
       this.volume = this.$VideoJS.getVolume();
     })
   },
 
   methods: {
+    onProgress(evt) {
+      console.log("progress event trigger : ", evt);
+    },
+    onSuspend(evt) {
+      console.log("suspend event trigger : ", evt);
+    },
+    onStalled(evt) {
+      console.log("stalled event trigger : ", evt);
+    },
     playMusic() {
       console.log("playMusic");
       this.$VideoJS.onPlay()
@@ -53,6 +67,9 @@ export default {
       const { valueAsNumber } = e.target;
       this.$VideoJS.setVolume(valueAsNumber * 0.1);
       this.volume = this.$VideoJS.getVolume();
+    },
+    onError(evt) {
+      console.log("video error : ", evt);
     },
     errorHandle(_, data) {
       if (data.fatal) {
@@ -87,6 +104,9 @@ export default {
           }
           console.error("videoPromiseRetry error : ", err.name);
         })
+    },
+    onLoadedmetadata(evt) {
+      console.log("onLoadedmetadata : ", evt);
     }
   },
 
