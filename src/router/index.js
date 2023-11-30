@@ -279,6 +279,11 @@ const routes = [
         path: "/swiperview",
         name: "swiperView",
         component: () => import("@/views/swiperLayout/swiperView.vue")
+      },
+      {
+        path: "/swiperverticalview",
+        name: "SwiperVerticalView",
+        component: () => import("@/views/swiperLayout/swiperVerticalView.vue")
       }
     ]
   }
