@@ -34,7 +34,27 @@ export default {
       this.$VideoJS.videoRegisterEvent("error", this.onError);
       this.$VideoJS.videoRegisterEvent("stalled", this.onError);
       this.$VideoJS.videoRegisterEvent("suspend", this.onSuspend);
-      this.$VideoJS.videoRegisterEvent("progress", this.onProgress);
+      //this.$VideoJS.videoRegisterEvent("progress", this.onProgress);
+
+      setTimeout(() => {
+        const videoAudioTrack = this.$VideoJS.getVideoAudioTrack();
+        console.log(videoAudioTrack);
+        videoAudioTrack[0].enabled = false;
+
+        videoAudioTrack.addEventListener("change", (event) => {
+          console.log(`change event fired : `, event);
+        });
+
+        videoAudioTrack.addEventListener("addTrack", (event) => {
+          console.log(`addTrack event fired : `, event);
+        })
+        videoAudioTrack.addEventListener("addtrack", (event) => {
+          console.log(`Audio track: ${event.track.label} added`);
+        });
+
+      }, 5000);
+
+
       this.volume = this.$VideoJS.getVolume();
     })
   },

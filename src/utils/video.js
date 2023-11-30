@@ -14,6 +14,9 @@ const videoObject = {
   getVideoEle() {
     return this.video
   },
+  getVideoAudioTrack() {
+    return this.video.audioTracks
+  },
   /**
   * @description Hls return
   * @author CHOI DAE GEON
