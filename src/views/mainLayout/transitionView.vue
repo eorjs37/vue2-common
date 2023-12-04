@@ -1,23 +1,10 @@
 <template>
   <div class="container">
-    <button @click="show = !show">토글</button>
-    <Transition name="fade">
-      <p v-if="show" class="desc">Hello</p>
-    </Transition>
-    <button @click="toogle = !toogle">Toggle render</button>
-    <Transition name="slide-fade">
-      <p v-if="toogle">hello</p>
-    </Transition>
-    <button @click="bounce = !bounce">Bounce</button>
-    <Transition name="bounce">
-      <p v-if="bounce">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
-        diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
-    </Transition>
-    <button @click="toggleAni = !toggleAni">toggleAni</button>
-    <Transition name="custom-classes-transition" enter-active-class="animated tada"
-      leave-active-class="animated bounceOutRight">
-      <p v-if="toggleAni" class="desc">Hello</p>
-    </Transition>
+
+    <figure class="player_img_wrap">
+      <img class="player_img" :src="require(`@/assets/images/obigo/player/gotowork_player.png`)"
+        alt="gotowork_player.png">
+    </figure>
   </div>
 </template>
 
@@ -95,5 +82,15 @@ export default {
   100% {
     transform: scale(1);
   }
+}
+
+.player_img_wrap {
+  width: 300px;
+  height: 300px;
+}
+
+.player_img {
+  width: 100%;
+  height: 100%;
 }
 </style>

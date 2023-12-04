@@ -58,6 +58,8 @@ export default {
       modules: [Pagination, Navigation],
       mousewheel: true,
       slidesPerView: 3,
+      spaceBetween: 0,
+      centeredSlides: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
