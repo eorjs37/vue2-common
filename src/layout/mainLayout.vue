@@ -1,5 +1,6 @@
 <template>
   <div>
+    <lottie-comp :options="options" :width="60" :height="60" />
     <HeaderComponent />
     <main class="main">
       <router-view></router-view>
@@ -16,13 +17,19 @@
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import FloatingComponent from '@/components/FloatingComponent.vue';
-import crontab from '@/assets/mocks/crontab.json'
+import crontab from '@/assets/mocks/crontab.json';
+import Lottie from 'vue-lottie';
+import sleighData from '@/assets/json/santa_hat.json';
 export default {
   name: 'mainLayout',
-  components: { HeaderComponent, FooterComponent, FloatingComponent },
+  components: {
+    HeaderComponent, FooterComponent, FloatingComponent,
+    'lottie-comp': Lottie
+  },
   data() {
     return {
-      isShowFloating: true
+      isShowFloating: true,
+      options: { animationData: sleighData },
     };
   },
   created() {
