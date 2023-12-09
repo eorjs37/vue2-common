@@ -15,6 +15,7 @@ module.exports = defineConfig({
       // }),
       //
     ],
+    externalsType: 'commonjs-module',
     externals(_, request, callback) {
       if (/vue-lottie/.test(request)) {
         return callback(null, `commonjs ${request}`);
