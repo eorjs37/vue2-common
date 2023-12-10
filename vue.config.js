@@ -15,13 +15,19 @@ module.exports = defineConfig({
       // }),
       //
     ],
-    externalsType: 'commonjs-module',
-    externals(_, request, callback) {
-      if (/vue-lottie/.test(request)) {
-        return callback(null, `commonjs ${request}`);
+    // externalsType: 'commonjs-module',
+    externals: [
+      function (ctx, callback) {
+        callback(null, 'lottie-web', 'node-commonjs')
       }
-      callback();
-    }
+    ],
+    // externals: [
+    //   function (ctx, callback) {
+    //     callback(null, {
+    //       umd: 'lottie-web'
+    //     })
+    //   }
+    // ]
   },
   chainWebpack: (config) => {
     config.plugin('html').tap(args => {
