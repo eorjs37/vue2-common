@@ -6,6 +6,9 @@ const CopyPlugin = require("copy-webpack-plugin")
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
+    output: {
+      libraryTarget: 'umd'
+    },
     target: 'web',
     optimization: {
       splitChunks: {
@@ -33,26 +36,24 @@ module.exports = defineConfig({
       // }),
       //
     ],
-    // externalsType: 'commonjs-module',
     externals: {
-      'lottie-web': {
-        commonjs: 'lottie-web',
-        root: 'lottie-web',
-        umd: 'lottie-web'
-      },
+      'lottie-web': 'lottieWeb',
       'vue-lottie': {
-        commonjs: 'vue-lottie',
         root: 'vue-lottie',
+        commonjs: 'vue-lottie',
+        commonjs2: 'vue-lottie',
         umd: 'vue-lottie'
       }
-    },
-    // externals: [
-    //   function (ctx, callback) {
-    //     callback(null, {
-    //       umd: 'lottie-web'
-    //     })
+    }
+    // externals: {
+    //   'lottie-web': {
+    //     amd: 'lottie-web',
+    //   },
+    //   vuelottie: {
+    //     amd: 'vue-lottie',
+    //     root: '_'
     //   }
-    // ]
+    // },
   },
   chainWebpack: (config) => {
     config.plugin('html').tap(args => {
