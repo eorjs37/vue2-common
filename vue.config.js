@@ -1,5 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
-const CopyPlugin = require("copy-webpack-plugin")
+const { dependencies } = require('./package.json')
+let whiteListedModules = ['vue', 'vue-lottie']
+// const CopyPlugin = require("copy-webpack-plugin")
 
 // const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 //const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -16,18 +18,6 @@ module.exports = defineConfig({
       },
     },
     plugins: [
-      new CopyPlugin({
-        patterns: [
-          {
-            from: './node_modules/lottie-web/build/player/lottie.min.js',
-            to: './lottie-web.min.js'
-          },
-          {
-            from: './node_modules/vue-lottie/dist/build.js',
-            to: './build.js'
-          },
-        ]
-      })
       //new BundleAnalyzerPlugin()
       // sentryWebpackPlugin({
       //   org: "no-vx9",
@@ -36,15 +26,10 @@ module.exports = defineConfig({
       // }),
       //
     ],
-    externals: {
-      'lottie-web': 'lottieWeb',
-      'vue-lottie': {
-        root: 'vue-lottie',
-        commonjs: 'vue-lottie',
-        commonjs2: 'vue-lottie',
-        umd: 'vue-lottie'
-      }
-    }
+    externals: [
+      'lottie-web',
+      'vue-lottie'
+    ],
     // externals: {
     //   'lottie-web': {
     //     amd: 'lottie-web',
