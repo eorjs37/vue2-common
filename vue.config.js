@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service');
 const CopyPlugin = require("copy-webpack-plugin")
 
 // const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
@@ -24,7 +24,7 @@ module.exports = defineConfig({
           },
         ]
       }),
-      new BundleAnalyzerPlugin()
+      // new BundleAnalyzerPlugin()
       // sentryWebpackPlugin({
       //   org: "no-vx9",
       //   project: "vue2-editorconfig",

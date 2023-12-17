@@ -1,0 +1,8 @@
+.swiper6_container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  height: 520px;
+  background-color: var(--white);
+}

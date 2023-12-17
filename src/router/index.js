@@ -270,20 +270,15 @@ const routes = [
     ]
   },
   {
-    path: '/swiperLayout',
-    name: "swiperLayout",
-    component: () => import("@/layout/swiperLayout.vue"),
-    redirect: '/swiperview',
+    path: '/swiper6Layout',
+    name: "swiper6Layout",
+    component: () => import("@/layout/swiper6Layout.vue"),
+    redirect: '/swiper6',
     children: [
       {
-        path: "/swiperview",
-        name: "swiperView",
-        component: () => import("@/views/swiperLayout/swiperView.vue")
-      },
-      {
-        path: "/swiperverticalview",
-        name: "SwiperVerticalView",
-        component: () => import("@/views/swiperLayout/swiperVerticalView.vue")
+        path: '/swiper6',
+        name: "swiper6View",
+        component: () => import('@/views/swiper6Layout/swiper6View.vue')
       }
     ]
   }
