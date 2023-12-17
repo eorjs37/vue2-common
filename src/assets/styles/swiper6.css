@@ -1,8 +1,33 @@
 .swiper6_container {
-  max-width: 1400px;
+  max-width: 1780px;
   width: 100%;
   margin: 0 auto;
   display: block;
   height: 520px;
   background-color: var(--white);
+  position: relative;
+}
+
+/* .swiper_img_fig{
+  width: ;
+} */
+
+.swiper-pagination {
+  bottom: 0;
+}
+
+.purpose_img_wrap {
+  width: 462px;
+  height: 346px;
+}
+
+.purpose_img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  width: 462px;
+  background-color: #18212b;
+  border-radius: 15px;
 }
