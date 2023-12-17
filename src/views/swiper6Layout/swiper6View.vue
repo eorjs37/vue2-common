@@ -73,9 +73,9 @@ export default {
     async onInit() {
       await this.$nextTick();
       const list = Array.from(document.querySelector('.swiper-wrapper').children) || [];
-      const findIndex = Array.from(list).findIndex(item => item.classList.contains('swiper-slide-active'));
-      const prev1 = findIndex - 1;
-      const prev2 = findIndex - 2;
+      //const findIndex = Array.from(list).findIndex(item => item.classList.contains('swiper-slide-active'));
+      // const prev1 = findIndex - 1;
+      // const prev2 = findIndex - 2;
 
       list[0].style.visibility = 'hidden';
       list[1].style.visibility = 'hidden';
