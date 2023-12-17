@@ -4,14 +4,15 @@
       <swiper-slide>1</swiper-slide>
       <swiper-slide>2</swiper-slide>
       <swiper-slide>3</swiper-slide>
-    </swiper>
 
-    <div class="swiper-pagination"></div>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
   </div>
 </template>
 <script>
-import 'swiper/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
+import 'swiper/css/swiper.css'
 export default {
   name: "swiper6View",
   components: {
