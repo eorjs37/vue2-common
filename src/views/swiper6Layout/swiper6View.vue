@@ -4,7 +4,10 @@
       <swiper-slide>1</swiper-slide>
       <swiper-slide>2</swiper-slide>
       <swiper-slide>3</swiper-slide>
-
+      <swiper-slide>4</swiper-slide>
+      <swiper-slide>5</swiper-slide>
+      <swiper-slide>6</swiper-slide>
+      <swiper-slide>7</swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
@@ -22,11 +25,14 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 1,
+        loop: true,
+        direction: 'vertical',
         pagination: {
           el: ".swiper-pagination",
           clickable: true
         },
+        slidesPerGroup: 1,
+        preventInteractionOnTranstition: true
       }
     }
   },
