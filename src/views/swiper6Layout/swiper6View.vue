@@ -1,13 +1,46 @@
 <template>
   <div class="swiper6_container">
     <swiper ref="filterSwiper" :options="swiperOption">
-      <swiper-slide>1</swiper-slide>
-      <swiper-slide>2</swiper-slide>
-      <swiper-slide>3</swiper-slide>
-      <swiper-slide>4</swiper-slide>
-      <swiper-slide>5</swiper-slide>
-      <swiper-slide>6</swiper-slide>
-      <swiper-slide>7</swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          1
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          2
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          3
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          4
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          5
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          6
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+          7
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box">
+
+        </div>
+      </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
@@ -26,6 +59,8 @@ export default {
     return {
       swiperOption: {
         loop: true,
+        slidesPerView: 3,
+
         direction: 'vertical',
         pagination: {
           el: ".swiper-pagination",
