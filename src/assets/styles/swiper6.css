@@ -7,6 +7,10 @@
   background-color: var(--white);
 }
 
+.swiper-container {
+  height: inherit;
+}
+
 .box {
   width: 200px;
   height: 200px;

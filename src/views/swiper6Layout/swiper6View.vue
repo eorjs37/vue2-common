@@ -38,7 +38,7 @@
       </swiper-slide>
       <swiper-slide>
         <div class="box">
-
+          8
         </div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -66,12 +66,16 @@ export default {
           el: ".swiper-pagination",
           clickable: true
         },
-        slidesPerGroup: 1,
-        preventInteractionOnTranstition: true
+        watchOverflow: true
       }
     }
   },
   mounted() {
+    console.log(this.$refs.filterSwiper.swiper);
+    setTimeout(() => {
+      this.swiperOption.slidesPerView = 1;
+      this.$refs.filterSwiper.swiper.init();
+    }, 3000);
   },
   methods: {
     onSwiper(swiper) {
