@@ -60,7 +60,7 @@ export default {
       swiperOption: {
         loop: true,
         slidesPerView: 3,
-
+        centeredSlides: true,
         direction: 'vertical',
         pagination: {
           el: ".swiper-pagination",
