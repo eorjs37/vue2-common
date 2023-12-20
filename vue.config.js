@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service');
 const CopyPlugin = require("copy-webpack-plugin")
 
 // const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
@@ -22,9 +22,13 @@ module.exports = defineConfig({
             from: './node_modules/lottie-web/build/player/lottie.min.js',
             to: './lottie.min.js'
           },
+          {
+            from: './node_modules/hls.js/dist/hls.js',
+            to: './hls.js'
+          }
         ]
       }),
-      // new BundleAnalyzerPlugin()
+      new BundleAnalyzerPlugin(),
       // sentryWebpackPlugin({
       //   org: "no-vx9",
       //   project: "vue2-editorconfig",
@@ -34,6 +38,7 @@ module.exports = defineConfig({
     ],
     externals: {
       'lottie-web': 'lottie',
+      'hls.js': 'Hls'
     }
   },
   chainWebpack: (config) => {
