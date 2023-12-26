@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <lottie-comp :options="options" :width="60" :height="60" />
     <HeaderComponent />
     <main class="main">

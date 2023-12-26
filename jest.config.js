@@ -34,7 +34,7 @@ module.exports = {
     "<rootDir>/**/*.spec.(js|jsx|ts|tsx)",
     "<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))",
   ],
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
     '<rootDir>/src/**/*.(ts|vue)',
     // "**/*.{js,vue}",
@@ -47,6 +47,7 @@ module.exports = {
     "!**/coverage/**"
   ],
   // '<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)'
-  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)/)'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)|(?!(vue-lottie))/)'],
+  setupFiles: ["jest-canvas-mock"]
 
 }
