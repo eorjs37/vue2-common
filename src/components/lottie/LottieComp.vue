@@ -16,6 +16,12 @@ export default {
       options: { animationData: sleighData },
     };
   },
+  created() {
+    const { name } = this.$route;
+    if (name === 'go') {
+      //다음 액션을 취한다
+    }
+  },
 
   mounted() {
 
