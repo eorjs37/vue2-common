@@ -9,7 +9,9 @@ export default {
 
   data() {
     return {
-      isVisible: false
+      isVisible: false,
+      isVisible2: false,
+      intervalId: -1,
     };
   },
 
@@ -17,6 +19,11 @@ export default {
     setTimeout(() => {
       this.isVisible = true;
     }, 5000);
+
+    this.intervalId = setInterval(() => {
+
+      this.isVisible2 = true;
+    }, 3000);
   },
 
   mounted() {
@@ -26,6 +33,9 @@ export default {
   methods: {
 
   },
+  destroyed() {
+    clearInterval(this.intervalId)
+  }
 };
 </script>
 <style scoped></style>
