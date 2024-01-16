@@ -4,8 +4,8 @@
       <span>재생상태 : {{ $store.getters.getIsPlay ? '재생' : '중지' }}</span>
       <span>볼륨 : {{ getVolume }}</span>
       <div class="control">
-        <button @click="playMusic">onPlay</button>
-        <button @click="pauseMusic">onPause</button>
+        <button id="playbtn" @click="playMusic">onPlay</button>
+        <button id="pausebtn" @click="pauseMusic">onPause</button>
         <input type="range" min="0" max="10" :value="getVolume" @input="duratinonChange">
       </div>
     </div>
