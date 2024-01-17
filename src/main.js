@@ -12,6 +12,10 @@ import "@/assets/styles/global.css"
 import "@/assets/styles/common.css"
 import 'animate.css';
 
+//vuetify
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
+
 //Sentry
 import "@/utils/sentry/sentry";
 
@@ -47,6 +51,7 @@ Vue.use(Carousel3d);
 
 //globalcomponent
 Vue.component('LoadingComponent', LoadingComponent)
+Vue.use(Vuetify);
 new Vue({
   render: h => h(App),
   router,
