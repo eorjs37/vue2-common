@@ -7,6 +7,7 @@ import { videoObject } from "@/utils/video"
 describe('videoview unit testing', () => {
   let wrapper = null;
   beforeEach(() => {
+
     const localVue = createLocalVue();
     localVue.use(Vuex);
     localVue.use(Plugins);
@@ -21,6 +22,9 @@ describe('videoview unit testing', () => {
   });
 
   test('스트리밍 재생을 한다', async () => {
+    /* */
+    jest.spyOn(window.HTMLMediaElement.prototype, 'play')
+      .mockResolvedValue(() => { });
     const btn = wrapper.find("#playbtn")
     btn.trigger('click')
   });
