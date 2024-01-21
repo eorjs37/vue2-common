@@ -1010,6 +1010,26 @@ export default {
 
 ### hoc props / emit
 
+## StoryBook 설치
+
+```bash
+vue add storybook@next
+```
+
+### vue.config.js 세팅
+```javascript
+const { defineConfig } = require('@vue/cli-service');
+module.exports = defineConfig({
+  pluginOptions: {
+    storybook: {
+      allowedPlugins: [
+        'define'
+      ]
+    }
+  },
+})
+```
+
 ## Vue Extend
 
 ## Vue Mixin

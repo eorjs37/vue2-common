@@ -4,6 +4,13 @@ const CopyPlugin = require("copy-webpack-plugin")
 // const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = defineConfig({
+  pluginOptions: {
+    storybook: {
+      allowedPlugins: [
+        'define'
+      ]
+    }
+  },
   transpileDependencies: true,
   configureWebpack: {
     output: {
