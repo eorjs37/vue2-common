@@ -286,6 +286,19 @@ const routes = [
         component: () => import('@/views/swiper6Layout/swiper6View.vue')
       }
     ]
+  },
+  {
+    path: '/storybooklayout',
+    name: "storybookLayout",
+    component: () => import("@/layout/storybookLayout.vue"),
+    redirect: '/storybookview',
+    children: [
+      {
+        path: '/storybookview',
+        name: "storybookView",
+        component: () => import("@/views/storybookLayout/storybookView.vue"),
+      }
+    ]
   }
 
 ]
