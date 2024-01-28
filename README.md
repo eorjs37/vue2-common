@@ -1030,6 +1030,30 @@ module.exports = defineConfig({
 })
 ```
 
+### storybookView.stories.js 작성
+```javascript
+import { action } from '@storybook/addon-actions';
+
+import StoryBookView from './storybookView.vue';
+
+export default {
+  //컴퍼넌트 위치
+  component: StoryBookView,
+  //컴퍼넌트 title
+  title: '스토리북',
+  //컴퍼넌트 태그(검색할떄 도움이 된다고함)
+  tags: ['autodocs'],
+  //👇 Our events will be mapped in Storybook UI
+  argTypes: {
+    onPinTask: {},
+    onArchiveTask: {},
+  },
+  //👇 Our exports that end in "Data" are not stories.
+  excludeStories: /.*Data$/,
+
+}
+```
+
 ## Vue Extend
 
 ## Vue Mixin
