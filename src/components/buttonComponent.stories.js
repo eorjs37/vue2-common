@@ -1,5 +1,5 @@
 import ButtonComponent from './ButtonComponent.vue';
-
+import "@/assets/styles/_variables.css"
 export default {
   component: ButtonComponent,
   tags: ['autodocs'],
@@ -7,6 +7,13 @@ export default {
   //👇 Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
 }
-export const Default = {
+export const DefaultButton = {
+  render: () => ({
+    components: { ButtonComponent },
+    template: `<ButtonComponent btnname="테스트 버튼" disabled=true/>`
+  })
+}
+
+export const DisabledButton = {
 
 }

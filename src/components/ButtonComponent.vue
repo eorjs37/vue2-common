@@ -1,12 +1,23 @@
 <template>
   <div>
-    <button class="btn">버튼</button>
+    <button class="btn" :disabled="disabled">{{ btnname }}</button>
   </div>
 </template>
 <script>
 export default {
   name: 'ButtonComponent',
-
+  props: {
+    btnname: {
+      type: String,
+      default: '버튼',
+      required: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+      required: false
+    }
+  },
   data() {
     return {
 
@@ -26,5 +37,11 @@ export default {
 .btn {
   background-color: var(--D9D9D9);
   border: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .5;
+  cursor: initial;
 }
 </style>
