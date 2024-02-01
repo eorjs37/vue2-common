@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn" :disabled="disabled">{{ btnname }}</button>
+    <button class="btn" :class="type" :disabled="disabled">{{ btnname }}</button>
   </div>
 </template>
 <script>
@@ -15,6 +15,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+      required: false
+    },
+    type: {
+      type: String,
+      default: '',
       required: false
     }
   },
@@ -35,13 +40,30 @@ export default {
 </script>
 <style scoped>
 .btn {
-  background-color: var(--D9D9D9);
+  background-color: var(--blue);
   border: none;
   cursor: pointer;
+  color: var(--white);
+  padding: 10px;
+  line-height: 1;
+  font-size: 14px;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  opacity: .8;
 }
 
 .btn:disabled {
   opacity: .5;
   cursor: initial;
+}
+
+.btn.danger {
+  background-color: var(--danger);
+}
+
+.btn.warning {
+  background-color: var(--warning);
 }
 </style>

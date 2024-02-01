@@ -15,5 +15,14 @@ export const DefaultButton = {
 }
 
 export const DisabledButton = {
-
+  render: () => ({
+    components: { ButtonComponent },
+    template: `
+      <div>
+        <ButtonComponent btnname="일반버튼"/>
+        <ButtonComponent type="danger" btnname="위험"/>
+        <ButtonComponent type="warning" btnname="경고"/>
+      </div>
+      `
+  })
 }
