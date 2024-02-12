@@ -1,11 +1,12 @@
 <template>
   <div>
-    <button class="btn" :class="type" :disabled="disabled">{{ btnname }}</button>
+    <button @click="btnClick" class="btn" :class="type" :disabled="disabled">{{ btnname }}</button>
   </div>
 </template>
 <script>
 export default {
   name: 'ButtonComponent',
+  emits:['on-click'],
   props: {
     btnname: {
       type: String,
@@ -34,7 +35,9 @@ export default {
   },
 
   methods: {
-
+    btnClick(){
+      this.$emit('on-click')
+    }
   },
 };
 </script>
