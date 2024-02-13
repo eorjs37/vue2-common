@@ -6,7 +6,7 @@
 <script>
 export default {
   name: 'ButtonComponent',
-  emits:['on-click'],
+  emits:['on-custom-click'],
   props: {
     btnname: {
       type: String,
@@ -36,7 +36,7 @@ export default {
 
   methods: {
     btnClick(){
-      this.$emit('on-click')
+      this.$emit('on-custom-click')
     }
   },
 };

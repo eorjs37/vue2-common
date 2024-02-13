@@ -1,7 +1,6 @@
-const preview = {
+module.exports  = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
   }
 }
 
-export default preview;
