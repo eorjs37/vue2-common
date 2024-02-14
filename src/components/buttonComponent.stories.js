@@ -2,31 +2,35 @@ import "@/assets/styles/_variables.css"
 import ButtonComponent from './ButtonComponent.vue';
 import { action } from '@storybook/addon-actions'
 export default{
-  component:ButtonComponent,
   title:'ButtomComponent',
   tags: ['autodocs']
 };
 
-export const Default = {
-  argTypes: {
-    onClick: { action: 'clicked' },
-  },
-  args:{
-    disabled: true,
-    onClick:action('on-custom-click')
-  }
-}
+export const Default = () =>({
+  components: { ButtonComponent },
+  template: `
+    <ButtonComponent btnname="버튼1" @on-custom-click="action"/>
+  `,
+  methods: { action: action('clicked') }
+})
 
-export const warning = {
-  args:{
-    type:'warning'
-  }
-}
+export const Warning = () =>({
+  components: { ButtonComponent },
+  template: `
+    <div>
+      <ButtonComponent type="warning" btnname="버튼1" @on-custom-click="action"/>
+    </div>
+  `,
+  methods: { action: action('clicked') }
+})
 
+export const Story = () =>({
+  render: () => ({
+    components: { ButtonComponent },
+    template:`
+      <ButtonComponent type="warning" btnname="버튼1" @on-custom-click="action"/>
+    `
+  }),
 
-export const danger = {
-  args:{
-    type:'danger'
-  }
-}
-
+  decorators: [() => ({ template: '<div style="margin: 3em;"><story /></div>' })],
+})
