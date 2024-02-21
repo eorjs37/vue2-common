@@ -1,11 +1,11 @@
-import VueRouter from "vue-router";
-import Vue from "vue";
-import nestedRoute from "@/layout/nestedRoute.vue"
-import createListComp from "@/utils/hoc/userListComp";
-import { withHoc } from "@/hoc/withHoc";
+import VueRouter from 'vue-router'
+import Vue from 'vue'
+import nestedRoute from '@/layout/nestedRoute.vue'
+import createListComp from '@/utils/hoc/userListComp'
+import { withHoc } from '@/hoc/withHoc'
 import ListView from '@/views/hocLayout/listView.vue'
 import ListView2 from '@/views/hocLayout/listView2.vue'
-import { withCuration } from "@/hoc/withCuration";
+import { withCuration } from '@/hoc/withCuration'
 import curationView from '@/views/userLayout/curationView.vue'
 Vue.use(VueRouter)
 const routes = [
@@ -44,8 +44,8 @@ const routes = [
       },
       {
         path: '/videotest',
-        name: "VideoTestView",
-        component: () => import("@/views/mainLayout/videoTestView.vue")
+        name: 'VideoTestView',
+        component: () => import('@/views/mainLayout/videoTestView.vue')
       },
       {
         path: '/mixin',
@@ -65,14 +65,19 @@ const routes = [
       {
         path: '/car',
         name: 'carpurpose',
-        component: () => import("@/views/mainLayout/carPurposeView.vue")
+        component: () => import('@/views/mainLayout/carPurposeView.vue')
       },
       {
         path: '/rolling',
         name: 'RollingView',
-        component: () => import("@/views/mainLayout/rollingView.vue")
+        component: () => import('@/views/mainLayout/rollingView.vue')
+      },
+      {
+        path: '/payment',
+        name: 'paymentView',
+        component: () => import('@/views/payment/paymentView.vue')
       }
-    ],
+    ]
   },
   {
     path: '/nested',
@@ -80,8 +85,8 @@ const routes = [
   },
   {
     path: '/dummy',
-    name: "DummyLayout",
-    component: () => import("@/layout/dummyLayout.vue")
+    name: 'DummyLayout',
+    component: () => import('@/layout/dummyLayout.vue')
   },
   {
     path: '/aplayz',
@@ -91,20 +96,20 @@ const routes = [
       {
         path: '/player',
         name: 'playerws',
-        component: () => import("@/views/layout4Layout/playerView.vue"),
-        meta: { viewName: "마이스페이스", isUseMenu: true }
+        component: () => import('@/views/layout4Layout/playerView.vue'),
+        meta: { viewName: '마이스페이스', isUseMenu: true }
       },
       {
         path: '/dummyview',
-        name: "dummyview",
-        component: () => import("@/views/layout4Layout/dummyView.vue"),
-        meta: { viewName: "더미", isUseMenu: true }
+        name: 'dummyview',
+        component: () => import('@/views/layout4Layout/dummyView.vue'),
+        meta: { viewName: '더미', isUseMenu: true }
       },
       {
         path: '/event',
-        name: "eventview",
-        component: () => import("@/views/layout4Layout/eventView.vue"),
-        meta: { viewName: "이벤트", isUseMenu: true }
+        name: 'eventview',
+        component: () => import('@/views/layout4Layout/eventView.vue'),
+        meta: { viewName: '이벤트', isUseMenu: true }
       }
     ]
   },
@@ -116,65 +121,65 @@ const routes = [
       {
         path: '/main',
         name: 'mainView',
-        component: () => import("@/views/loginLayout/mainView.vue"),
-        meta: { viewName: "마이스페이스" }
+        component: () => import('@/views/loginLayout/mainView.vue'),
+        meta: { viewName: '마이스페이스' }
       },
       {
         path: '/space',
         name: 'spaceView',
-        component: () => import("@/views/loginLayout/spaceView.vue"),
-        meta: { viewName: "스페이스등록" }
+        component: () => import('@/views/loginLayout/spaceView.vue'),
+        meta: { viewName: '스페이스등록' }
       },
       {
         path: '/playerview',
-        name: "playerView",
-        component: () => import("@/views/loginLayout/playerView.vue"),
-        meta: { viewName: "플레이어" }
+        name: 'playerView',
+        component: () => import('@/views/loginLayout/playerView.vue'),
+        meta: { viewName: '플레이어' }
       }
     ]
   },
   {
     path: '/dynamic',
-    name: "dynamicLayout",
-    component: () => import("@/layout/dynamicLayout.vue"),
+    name: 'dynamicLayout',
+    component: () => import('@/layout/dynamicLayout.vue'),
     redirect: '/dynamicview',
     children: [
       {
         path: '/dynamicview',
         name: 'dynamicview',
         component: () => import('@/views/dynamic/dynamicView.vue')
-      },
+      }
     ]
   },
   {
     path: '/user',
     name: 'userLayout',
-    component: () => import("@/layout/userLayout.vue"),
+    component: () => import('@/layout/userLayout.vue'),
     redirect: '/user1',
     children: [
       {
-        path: "/user1",
-        name: "user1view",
-        component: () => import("@/views/userLayout/user1View.vue")
+        path: '/user1',
+        name: 'user1view',
+        component: () => import('@/views/userLayout/user1View.vue')
       },
       {
-        path: "/user2",
-        name: "user2view",
-        component: createListComp("user2view")
+        path: '/user2',
+        name: 'user2view',
+        component: createListComp('user2view')
       },
       {
-        path: "/user3",
-        name: "user3view",
-        component: createListComp("user2view")
+        path: '/user3',
+        name: 'user3view',
+        component: createListComp('user2view')
       },
       {
-        path: "/node",
-        name: "mediaSessionView",
-        component: () => import("@/views/userLayout/mediaSessionView.vue")
+        path: '/node',
+        name: 'mediaSessionView',
+        component: () => import('@/views/userLayout/mediaSessionView.vue')
       },
       {
-        path: "/curation",
-        name: "curationView",
+        path: '/curation',
+        name: 'curationView',
         component: withCuration(curationView)
       }
     ]
@@ -182,23 +187,23 @@ const routes = [
   {
     path: '/hls',
     name: 'hlsLayout',
-    component: () => import("@/layout/hlsLayout.vue"),
+    component: () => import('@/layout/hlsLayout.vue'),
     redirect: '/first',
     children: [
       {
         path: '/first',
         name: 'firstPage',
-        component: () => import("@/views/hlsLayout/firstPage.vue"),
+        component: () => import('@/views/hlsLayout/firstPage.vue')
       },
       {
         path: '/second',
         name: 'secondPage',
-        component: () => import("@/views/hlsLayout/secondPage.vue"),
+        component: () => import('@/views/hlsLayout/secondPage.vue')
       },
       {
         path: '/socket',
         name: 'playerWebCastingView',
-        component: () => import("@/views/hlsLayout/playerWebCastingView.vue")
+        component: () => import('@/views/hlsLayout/playerWebCastingView.vue')
       },
       {
         path: '/playerWs',
@@ -210,97 +215,96 @@ const routes = [
   {
     path: '/router',
     name: 'routerLayout',
-    component: () => import("@/layout/routerLayout.vue"),
+    component: () => import('@/layout/routerLayout.vue'),
     redirect: '/router1',
     children: [
       {
         path: '/router1',
         name: 'router1View',
-        component: () => import("@/views/routerLayout/router1View.vue"),
+        component: () => import('@/views/routerLayout/router1View.vue')
       },
       {
         path: '/router2',
         name: 'router2View',
-        component: () => import("@/views/routerLayout/router2View.vue"),
+        component: () => import('@/views/routerLayout/router2View.vue')
       },
       {
         path: '/router3',
         name: 'router3View',
-        component: () => import("@/views/routerLayout/router3View.vue"),
+        component: () => import('@/views/routerLayout/router3View.vue')
       }
     ]
   },
   {
     path: '/calendar',
-    name: "calendarLayout",
-    component: () => import("@/layout/calendarLayout.vue"),
-    redirect: "/calendarview",
+    name: 'calendarLayout',
+    component: () => import('@/layout/calendarLayout.vue'),
+    redirect: '/calendarview',
     children: [
       {
-        path: "/calendarview",
-        name: "calendarview",
-        component: () => import("@/views/calendarLayout/CalendarView.vue")
+        path: '/calendarview',
+        name: 'calendarview',
+        component: () => import('@/views/calendarLayout/CalendarView.vue')
       }
     ]
   },
   {
     path: '/obigo',
-    name: "obigoLayout",
-    component: () => import("@/layout/obigoLayout.vue"),
+    name: 'obigoLayout',
+    component: () => import('@/layout/obigoLayout.vue'),
     redirect: '/obigoview',
     children: [
       {
         path: '/obigoview',
-        name: "obigoview",
-        component: () => import("@/views/obigoLayout/obigoView.vue")
+        name: 'obigoview',
+        component: () => import('@/views/obigoLayout/obigoView.vue')
       },
       {
         path: '/obigopurpose',
         name: 'obigopurposeView',
-        component: () => import("@/views/obigoLayout/obigoPurposeView.vue")
+        component: () => import('@/views/obigoLayout/obigoPurposeView.vue')
       }
     ]
   },
   {
     path: '/transitionLayout',
-    name: "transitionLayout",
-    component: () => import("@/layout/transitionLayout.vue"),
+    name: 'transitionLayout',
+    component: () => import('@/layout/transitionLayout.vue'),
     redirect: '/transitionview',
     children: [
       {
         path: '/transitionview',
-        name: "transitionView",
+        name: 'transitionView',
         component: () => import('@/views/transitionLayout/transitionView.vue')
       }
     ]
   },
   {
     path: '/swiper6Layout',
-    name: "swiper6Layout",
-    component: () => import("@/layout/swiper6Layout.vue"),
+    name: 'swiper6Layout',
+    component: () => import('@/layout/swiper6Layout.vue'),
     redirect: '/swiper6',
     children: [
       {
         path: '/swiper6',
-        name: "swiper6View",
+        name: 'swiper6View',
         component: () => import('@/views/swiper6Layout/swiper6View.vue')
       }
     ]
   },
   {
     path: '/storybooklayout',
-    name: "storybookLayout",
-    component: () => import("@/layout/storybookLayout.vue"),
+    name: 'storybookLayout',
+    component: () => import('@/layout/storybookLayout.vue'),
     redirect: '/storybookview',
     children: [
       {
         path: '/storybookview',
-        name: "storybookView",
-        component: () => import("@/views/storybookLayout/storybookView.vue"),
+        name: 'storybookView',
+        component: () => import('@/views/storybookLayout/storybookView.vue')
       }
     ]
   }
-
 ]
 
 const router = new VueRouter({
