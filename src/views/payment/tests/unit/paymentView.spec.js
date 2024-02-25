@@ -21,4 +21,12 @@ describe('paymentView ', () => {
     const price = parseInt(priceEle.text())
     expect(price).toBe(1980)
   })
+
+  test('할인금액 버튼을 클릭하면 해당 금액만큼 차감이된다. 2200 - 1000 = 1100원이  된다', async () => {
+    const btn = wrapper.findComponent('#monenySaleBtn');
+    await btn.trigger('click');
+    const priceEle = wrapper.findComponent('#price');
+    const price = parseInt(priceEle.text())
+    expect(price).toBe(1200)
+  });
 })
