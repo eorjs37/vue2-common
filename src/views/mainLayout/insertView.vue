@@ -1,5 +1,6 @@
 <template>
   <div>
+    <alert-comp v-if="isOpen" :headtitle="'Title'" :bodycontents="'BodyContents'" />
     <ul>
       <li>
         <label for="value1"></label>
@@ -24,24 +25,31 @@
         <input type="checkbox" :id="'key' + item.key" :value="item.key" v-model="selectbox2" />
       </li>
     </ul>
-    <button id="validateBtn" @click="validate"></button>
-    <button id="validateBtn2" @click="validate2"></button>
+    <button id="validateBtn" @click="validate">validate</button>
+    <button id="validateBtn2" @click="validate2">validateBtn2</button>
+
+    <input type="text" @keyup.enter="openAlert" />
   </div>
 </template>
 <script>
+import AlertComp from '@/components/common/AlertComp.vue'
 export default {
   name: 'InsertView',
-
+  components: {
+    'alert-comp': AlertComp
+  },
   data() {
     return {
       selectbox: [],
-      selectbox2: []
+      selectbox2: [],
+      isOpen: false
     }
   },
 
   mounted() {},
 
   methods: {
+    openAlert() {},
     validate() {
       if (this.selectbox.length === 0) {
         alert('값을 선택해주세요')
