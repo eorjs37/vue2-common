@@ -135,6 +135,11 @@ const routes = [
         name: 'playerView',
         component: () => import('@/views/loginLayout/playerView.vue'),
         meta: { viewName: '플레이어' }
+      },
+      {
+        path: '/postcode',
+        name: 'postcodeView',
+        component: () => import(`@/views/mainLayout/postcodeView.vue`)
       }
     ]
   },

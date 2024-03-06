@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <button id="postbtn" @click="openPostCode">주소 검색 버튼</button>
+  </div>
+</template>
+<script>
+export default {
+  name: 'PostcodeView',
+
+  data() {
+    return {}
+  },
+
+  mounted() {},
+
+  methods: {
+    openPostCode() {
+      console.log(window.daum.PostCode.constructor)
+      new window.daum.Postcode({
+        oncomplete: (data) => {
+          console.log(data)
+        }
+      }).open()
+    }
+  }
+}
+</script>
+<style scoped>
+button {
+  border: 2px solid white;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+</style>
