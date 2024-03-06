@@ -15,7 +15,6 @@ export default {
 
   methods: {
     openPostCode() {
-      console.log(window.daum.PostCode.constructor)
       new window.daum.Postcode({
         oncomplete: (data) => {
           console.log(data)
