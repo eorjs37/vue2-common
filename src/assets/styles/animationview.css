@@ -1,0 +1,57 @@
+.btn {
+  background-color: var(--D9D9D9);
+  border: 1px solid transparent;
+  color: var(--black151515);
+  border-radius: 8px;
+  padding: 10px;
+}
+.bottom_sheet {
+  width: 100%;
+  position: fixed;
+  height: 250px;
+  border-radius: 8px;
+  background-color: var(--828282);
+  bottom: 0;
+}
+
+.bottom_sheet_item {
+  color: var(--white);
+  font-size: 25px;
+  margin-top: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.up_down-enter,
+.up_down-enter-to {
+  animation: up 0.4s linear;
+}
+
+.up_down-leave,
+.up_down-leave-to {
+  animation: down 0.3s ease-in;
+}
+
+@keyframes up {
+  0% {
+    bottom: -100%;
+  }
+  50% {
+    bottom: -50%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes down {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: -50%;
+  }
+  100% {
+    bottom: -100%;
+  }
+}

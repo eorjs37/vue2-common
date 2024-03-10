@@ -281,6 +281,11 @@ const routes = [
         path: '/transitionview',
         name: 'transitionView',
         component: () => import('@/views/transitionLayout/transitionView.vue')
+      },
+      {
+        path: '/animation',
+        name: 'animationview',
+        component: () => import(`@/views/mainLayout/animationView.vue`)
       }
     ]
   },
