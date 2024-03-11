@@ -3,9 +3,14 @@ import postcodeView from '@/views/mainLayout/postcodeView.vue'
 
 function Postcode(callback) {
   this.callback = callback
+  this.close = () => {
+    this.callback.oncomplete({
+      address: '주소'
+    })
+  }
 }
 
-Postcode.prototype.open = jest.fn()
+Postcode.prototype.open = jest.fn().mockImplementation(() => {})
 
 describe('Name of the group', () => {
   let wrapper = null
@@ -32,5 +37,8 @@ describe('Name of the group', () => {
     expect(spyPost).toHaveBeenCalled()
   })
 
-  test('주소검색에서 받은 값을 세팅한다 ', () => {})
+  test('주소검색에서 받은 값을 세팅한다 ', async () => {
+    const postBtn = wrapper.findComponent('#postbtn')
+    await postBtn.trigger('click')
+  })
 })
