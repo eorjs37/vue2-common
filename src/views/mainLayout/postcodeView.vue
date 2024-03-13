@@ -20,7 +20,6 @@ export default {
     openPostCode() {
       new window.daum.Postcode({
         oncomplete: (data) => {
-          console.log('data : ', data)
           const { address } = data
           this.address = address
         }

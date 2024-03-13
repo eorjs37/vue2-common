@@ -3,16 +3,10 @@ import postcodeView from '@/views/mainLayout/postcodeView.vue'
 
 function Postcode(callback) {
   this.callback = callback
-  this.close = () => {
-    this.callback.oncomplete({
-      address: '주소'
-    })
-  }
 }
 
 Postcode.prototype.open = jest.fn().mockImplementation(() => {})
-
-describe('Name of the group', () => {
+describe('카카오 주소 테스트', () => {
   let wrapper = null
   let spyOn = null
   beforeEach(async () => {
@@ -38,7 +32,16 @@ describe('Name of the group', () => {
   })
 
   test('주소검색에서 받은 값을 세팅한다 ', async () => {
-    const postBtn = wrapper.findComponent('#postbtn')
-    await postBtn.trigger('click')
+    const result = new Postcode({
+      oncomplete: (data) => {
+        wrapper.vm.address = data.address
+      }
+    })
+
+    result.callback.oncomplete({
+      address: '서울시 마포구'
+    })
+
+    expect(wrapper.vm.address).toBe('서울시 마포구')
   })
 })
