@@ -7,21 +7,12 @@ describe('vuexview test', () => {
   let store = null
   localVue.use(Vuex)
   beforeEach(() => {
-    const userInfo = {
-      state: {
-        count: 0
-      },
-      getters: {
-        doubleCont: () => {
-          return 2
-        }
-      }
-    }
     store = new Vuex.Store({
       state: {},
-      getters: {},
-      modules: {
-        userInfo
+      getters: {
+        'userInfo/doubleCont': () => {
+          return 2
+        }
       }
     })
     wrapper = shallowMount(vuexview, {
@@ -29,7 +20,9 @@ describe('vuexview test', () => {
       localVue
     })
   })
-  test('should ', async () => {
-    expect(1).toBe(1)
+  test('vuex get doubleCount ', async () => {
+    const find = wrapper.findComponent('.test')
+
+    expect(find.text()).toBe('2')
   })
 })
