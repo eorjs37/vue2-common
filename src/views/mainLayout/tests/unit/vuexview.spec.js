@@ -17,12 +17,14 @@ describe('vuexview test', () => {
     })
     wrapper = shallowMount(vuexview, {
       store,
+      stubs: {
+        'alert-comp': true
+      },
       localVue
     })
   })
   test('vuex get doubleCount ', async () => {
     const find = wrapper.findComponent('.test')
-
     expect(find.text()).toBe('2')
   })
 })
