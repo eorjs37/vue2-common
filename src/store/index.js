@@ -22,6 +22,9 @@ const store = new Vuex.Store({
     },
     setBrandActiveIndex(state, val) {
       state.brandActiveIndex = val
+    },
+    setUserName(state, val) {
+      state.userName = val
     }
   },
   getters: {
@@ -45,6 +48,14 @@ const store = new Vuex.Store({
     },
     getterFullName(state) {
       return `${state.userName} ${state.lastName}님`
+    },
+    getterUserName(state) {
+      return state.userName
+    }
+  },
+  actions: {
+    apiGetUserInfo({ commit }) {
+      commit('setUserName', '최대건')
     }
   },
   modules: {
