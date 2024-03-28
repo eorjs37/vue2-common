@@ -5,6 +5,8 @@ import VueCrontab from 'vue-crontab'
 import { router } from './router'
 import VueCookies from 'vue-cookies'
 // Importing the global css file
+import './assets/styles/reset.css'
+import './assets/styles/common.css'
 import 'animate.css'
 
 //carousel-3d
@@ -24,7 +26,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 Vue.use(VueCrontab)
-Vue.use(Plugins)
 Vue.use(router)
 //쿠키를 사용한다.
 Vue.use(VueCookies)

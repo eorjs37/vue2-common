@@ -1,8 +1,0 @@
-root = true
-
-[*]
-indent_style = space # 들여쓰기 설정(space)
-indent_size = 2  # 들여쓰기 사이즈
-trim_trailing_whitespace = true # newline 앞의 공백 문자를 제거하려면
-insert_final_newline = true # insert_final_newline
-end_of_line = lf #개행 표시 방법 제어
