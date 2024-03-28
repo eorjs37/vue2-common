@@ -3,21 +3,9 @@ import App from './App.vue'
 import { store } from './store'
 import VueCrontab from 'vue-crontab'
 import { router } from './router'
-import Plugins from './plugins/Plugins'
 import VueCookies from 'vue-cookies'
 // Importing the global css file
-import '@/assets/styles/_variables.css'
-import '@/assets/styles/reset.css'
-import '@/assets/styles/global.css'
-import '@/assets/styles/common.css'
 import 'animate.css'
-
-//vuetify
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-
-//Sentry
-import '@/utils/sentry/sentry'
 
 //carousel-3d
 import Carousel3d from 'vue-carousel-3d'
@@ -34,9 +22,6 @@ library.add(faUserSecret, faSpinner)
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-//global Component
-import LoadingComponent from '@/components/LoadingComponent.vue'
-
 Vue.config.productionTip = false
 Vue.use(VueCrontab)
 Vue.use(Plugins)
@@ -49,8 +34,7 @@ Vue.$cookies.config('7d')
 Vue.use(Carousel3d)
 
 //globalcomponent
-Vue.component('LoadingComponent', LoadingComponent)
-Vue.use(Vuetify)
+
 new Vue({
   render: (h) => h(App),
   router,
