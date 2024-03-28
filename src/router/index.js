@@ -30,7 +30,6 @@ const routes = [
   {
     path: '/',
     component: () => import('@/layout/mainLayout.vue'),
-    redirect: '/home',
     children: [
       {
         path: '/home',

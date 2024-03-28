@@ -1,7 +1,7 @@
 const userInfo = {
   namespaced: true,
   state: () => ({
-    count: 0
+    count: 1
   }),
   mutations: {
     increment(state) {

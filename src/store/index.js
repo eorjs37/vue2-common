@@ -9,7 +9,7 @@ const store = new Vuex.Store({
     isPlay: false,
     brandPlayList: [],
     brandActiveIndex: -1,
-    userName: '안녕하세요',
+    userName: '',
     lastName: '최대건'
   },
   mutations: {
@@ -55,7 +55,7 @@ const store = new Vuex.Store({
   },
   actions: {
     apiGetUserInfo({ commit }) {
-      commit('setUserName', '최대건')
+      commit('setUserName', '홍길동')
     }
   },
   modules: {

@@ -1,27 +1,12 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import vuexview from '../../vuexview.vue'
 import Vuex from 'vuex'
+import { store } from '@/store'
 const localVue = createLocalVue()
-const actions = {
-  apiGetUserInfo: jest.fn().mockImplementation(() => {
-    return '최대건'
-  })
-}
 describe('vuexview test', () => {
   let wrapper = null
-  let store = null
   localVue.use(Vuex)
   beforeEach(() => {
-    store = new Vuex.Store({
-      state: {},
-      getters: {
-        'userInfo/doubleCont': () => {
-          return 2
-        }
-      },
-      mutations: {},
-      actions
-    })
     wrapper = shallowMount(vuexview, {
       store,
       stubs: {
@@ -36,8 +21,9 @@ describe('vuexview test', () => {
   })
 
   test('vuex dispatch apiUserInfo', async () => {
-    //[data-test="post"]
     const btn = wrapper.find(`#userinfoapi`)
     await btn.trigger('click')
+    const name = wrapper.find('#name')
+    expect(name.text()).toBe('홍길동')
   })
 })

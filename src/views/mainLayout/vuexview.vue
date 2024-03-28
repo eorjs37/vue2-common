@@ -35,7 +35,7 @@ export default {
       return this.$store.getters['userInfo/doubleCont']
     },
     getName() {
-      return this.$store.getters['userInfo/getUserName']
+      return this.$store.getters['getterUserName']
     }
   }
 }
