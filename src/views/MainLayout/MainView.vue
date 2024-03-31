@@ -1,32 +1,52 @@
 <template>
   <div>
     <h1>Main.vue</h1>
-    <p data-userinfo="username">{{ getUserInfo.name
-     }}</p>
-     <p data-userinfo="userage">{{ getUserInfo.age
-     }}</p>
+    <p data-userinfo="username">{{ getUserInfo.name }}</p>
+    <p data-userinfo="userage">{{ getUserInfo.age }}</p>
+    <p data-fake="id">
+      {{ id }}
+    </p>
   </div>
 </template>
 <script>
+import { fakeApi } from '@/api/fakeApi'
 export default {
   name: 'MainView',
 
-  async created(){
-      await this.$store.dispatch("apiSetUserInfo")
+  async created() {
+    await this.$store.dispatch('apiSetUserInfo')
+    fakeApi(0).then((res) => {
+      this.id = res.id
+    })
+
+    this.intervalId = setInterval(this.fakeApiInterval, 5000)
   },
 
   data() {
-    return {}
+    return {
+      id: 0,
+      intervalId: -1
+    }
   },
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    intervalTest() {},
+    fakeApiInterval() {
+      fakeApi(this.id).then((res) => {
+        this.id = res.id
+      })
+    }
+  },
 
-  computed:{
-    getUserInfo(){
+  computed: {
+    getUserInfo() {
       return this.$store.getters.getUserInfo
     }
+  },
+  destroyed() {
+    clearInterval(this.intervalId)
   }
 }
 </script>
