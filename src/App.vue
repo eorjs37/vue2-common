@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <video id="streaming"></video>
     <router-view />
   </div>
 </template>
@@ -9,15 +10,13 @@ export default {
   name: 'App',
   data() {
     return {
+      videoSrc: 'https://test-streams.mux.dev/x36xhzz/url_8/193039199_mp4_h264_aac_fhd_7.m3u8'
     }
   },
 
-  created() {
-  },
-  mounted() {
-  },
-  methods: {
-  }
+  created() {},
+  mounted() {},
+  methods: {}
 }
 </script>
 
