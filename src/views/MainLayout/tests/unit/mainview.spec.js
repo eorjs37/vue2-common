@@ -54,10 +54,10 @@ describe('MainView Testing', () => {
     expect(userInfoAgeEle.text()).toBe('31')
   })
 
-  test('가짜 함수 5초마다 호출', async () => {
+  test('가짜 함수 2초마다 호출', async () => {
     const spy = jest.spyOn(wrapper.vm, 'fakeApiInterval')
 
-    jest.advanceTimersByTime(5000)
+    jest.advanceTimersByTime(2000)
 
     expect(spy).toBeCalled()
   })

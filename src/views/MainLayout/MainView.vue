@@ -6,6 +6,7 @@
     <p data-fake="id">
       {{ id }}
     </p>
+    <button data-btn="btn1" @click="intervalTest">버튼</button>
   </div>
 </template>
 <script>
@@ -19,7 +20,9 @@ export default {
       this.id = res.id
     })
 
-    this.intervalId = setInterval(this.fakeApiInterval, 5000)
+    this.intervalId = setInterval(() => {
+      this.fakeApiInterval()
+    }, 2000)
   },
 
   data() {
@@ -32,7 +35,9 @@ export default {
   mounted() {},
 
   methods: {
-    intervalTest() {},
+    intervalTest() {
+      console.log('2초후')
+    },
     fakeApiInterval() {
       fakeApi(this.id).then((res) => {
         this.id = res.id
