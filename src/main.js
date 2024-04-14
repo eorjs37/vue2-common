@@ -12,6 +12,9 @@ import 'animate.css'
 //carousel-3d
 import Carousel3d from 'vue-carousel-3d'
 
+//Plugins
+import Plugin from './utils/Plugin'
+
 //vue awesome
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,6 +36,7 @@ Vue.use(VueCookies)
 Vue.$cookies.config('7d')
 
 Vue.use(Carousel3d)
+Vue.use(Plugin)
 
 //globalcomponent
 

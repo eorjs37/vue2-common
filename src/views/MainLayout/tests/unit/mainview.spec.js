@@ -7,6 +7,10 @@ localVue.use(Vuex)
 describe('MainView Testing', () => {
   let wrapper = null
   let store = null
+
+  const videoPlayer = {
+    setVideo: jest.fn()
+  }
   beforeEach(() => {
     jest.useFakeTimers()
 
@@ -41,7 +45,10 @@ describe('MainView Testing', () => {
     })
     wrapper = shallowMount(MainView, {
       store,
-      localVue
+      localVue,
+      mocks: {
+        $VideoPlayer: videoPlayer
+      }
     })
   })
   afterEach(() => {
@@ -60,5 +67,13 @@ describe('MainView Testing', () => {
     jest.advanceTimersByTime(2000)
 
     expect(spy).toBeCalled()
+  })
+
+  test('비디오 객체를 세팅한다', async () => {
+    const spySetVideo = jest.spyOn(videoPlayer, 'setVideo')
+
+    expect(spySetVideo).toBeCalled()
+
+    spySetVideo.mockClear()
   })
 })

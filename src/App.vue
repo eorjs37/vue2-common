@@ -15,7 +15,9 @@ export default {
   },
 
   created() {},
-  mounted() {},
+  mounted() {
+    this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
+  },
   methods: {}
 }
 </script>

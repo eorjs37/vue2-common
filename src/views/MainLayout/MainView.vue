@@ -32,9 +32,14 @@ export default {
     }
   },
 
-  mounted() {},
+  mounted() {
+    this.setVideo()
+  },
 
   methods: {
+    setVideo() {
+      this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
+    },
     intervalTest() {
       console.log('2초후')
     },
