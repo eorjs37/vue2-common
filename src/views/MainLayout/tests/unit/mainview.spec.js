@@ -7,30 +7,40 @@ localVue.use(Vuex)
 describe('MainView Testing', () => {
   let wrapper = null
   let store = null
-
+  const state = {
+    userInfo: {
+      name: '',
+      age: 0
+    },
+    counter: 0
+  }
   const videoPlayer = {
     setVideo: jest.fn()
+  }
+  const mutations = {
+    setUserInfo(state, payload) {
+      state.userInfo = payload
+    },
+    setCounter(state, payload) {
+      state.counter = payload
+    }
+  }
+
+  const getters = {
+    getUserInfo(state) {
+      return state.userInfo
+    },
+    getCounter(state) {
+      return state.counter
+    }
   }
   beforeEach(() => {
     jest.useFakeTimers()
 
     store = new Vuex.Store({
-      state: {
-        userInfo: {
-          name: '',
-          age: 0
-        }
-      },
-      getters: {
-        getUserInfo(state) {
-          return state.userInfo
-        }
-      },
-      mutations: {
-        setUserInfo(state, payload) {
-          state.userInfo = payload
-        }
-      },
+      state,
+      getters,
+      mutations,
       actions: {
         apiSetUserInfo({ commit }) {
           new Promise((reslove) => {
@@ -75,5 +85,14 @@ describe('MainView Testing', () => {
     expect(spySetVideo).toBeCalled()
 
     spySetVideo.mockClear()
+  })
+
+  test('버튼2 누르기', async () => {
+    const btn2 = wrapper.find('[data-btn="btn2"]')
+    const spyAddCounter = jest.spyOn(mutations, 'setCounter')
+    await btn2.trigger('click')
+    console.log('before')
+    console.log(spyAddCounter.mock)
+    console.log(getters.getCounter(state))
   })
 })

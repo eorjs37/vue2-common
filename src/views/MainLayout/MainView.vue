@@ -7,6 +7,7 @@
       {{ id }}
     </p>
     <button data-btn="btn1" @click="intervalTest">버튼</button>
+    <button data-btn="btn2" @click="addCounter">버튼2</button>
   </div>
 </template>
 <script>
@@ -47,6 +48,9 @@ export default {
       fakeApi(this.id).then((res) => {
         this.id = res.id
       })
+    },
+    addCounter() {
+      this.$store.commit('setCounter', this.$store.getters.getCounter + 1)
     }
   },
 
