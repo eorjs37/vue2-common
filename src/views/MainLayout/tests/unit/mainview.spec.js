@@ -12,7 +12,7 @@ describe('MainView Testing', () => {
       name: '',
       age: 0
     },
-    counter: 0
+    counter: 1
   }
   const videoPlayer = {
     setVideo: jest.fn()
@@ -67,8 +67,8 @@ describe('MainView Testing', () => {
   test('나의 이름,나이가 세팅이 된다 ', async () => {
     const userInfoEle = wrapper.find('[data-userinfo="username"]')
     const userInfoAgeEle = wrapper.find('[data-userinfo="userage"]')
-    expect(userInfoEle.text()).toBe('홍길동')
-    expect(userInfoAgeEle.text()).toBe('31')
+    expect(userInfoEle.text()).toBe('')
+    expect(userInfoAgeEle.text()).toBe('0')
   })
 
   test('가짜 함수 2초마다 호출', async () => {
@@ -89,10 +89,14 @@ describe('MainView Testing', () => {
 
   test('버튼2 누르기', async () => {
     const btn2 = wrapper.find('[data-btn="btn2"]')
-    const spyAddCounter = jest.spyOn(mutations, 'setCounter')
     await btn2.trigger('click')
-    console.log('before')
-    console.log(spyAddCounter.mock)
-    console.log(getters.getCounter(state))
+    expect(state.counter).toBe(2)
+  })
+
+  test('버튼3 누르기', async () => {
+    const btn3 = wrapper.find('[data-btn="btn3"]')
+    await btn3.trigger('click')
+    expect(state.userInfo.name).toBe('홍길동')
+    expect(state.userInfo.age).toBe(31)
   })
 })

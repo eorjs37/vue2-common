@@ -8,6 +8,7 @@
     </p>
     <button data-btn="btn1" @click="intervalTest">버튼</button>
     <button data-btn="btn2" @click="addCounter">버튼2</button>
+    <button data-btn="btn3" @click="callUserInfo">버튼3</button>
   </div>
 </template>
 <script>
@@ -16,7 +17,6 @@ export default {
   name: 'MainView',
 
   async created() {
-    await this.$store.dispatch('apiSetUserInfo')
     fakeApi(0).then((res) => {
       this.id = res.id
     })
@@ -51,6 +51,10 @@ export default {
     },
     addCounter() {
       this.$store.commit('setCounter', this.$store.getters.getCounter + 1)
+    },
+    callUserInfo() {
+      //
+      this.$store.dispatch('apiSetUserInfo')
     }
   },
 
