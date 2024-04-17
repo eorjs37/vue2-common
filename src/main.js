@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { store } from './store'
-import VueCrontab from 'vue-crontab'
 import { router } from './router'
 import VueCookies from 'vue-cookies'
 // Importing the global css file
@@ -28,7 +27,6 @@ library.add(faUserSecret, faSpinner)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
-Vue.use(VueCrontab)
 Vue.use(router)
 //쿠키를 사용한다.
 Vue.use(VueCookies)
