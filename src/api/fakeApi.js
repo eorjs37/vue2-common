@@ -1,4 +1,4 @@
-const fakeApi = async (value = 112) => {
+const fakeApi = async (value = 0) => {
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve({
