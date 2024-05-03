@@ -4,12 +4,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: () => import(`@/layout/MainLayout.vue`),
+    component: () => import('@/layout/MainLayout.vue'),
     redirect: '/main',
     children: [
       {
         path: '/main',
-        component: () => import(`@/views/MainLayout/MainView.vue`)
+        component: () => import('@/views/MainLayout/MainView.vue')
       }
     ]
   }

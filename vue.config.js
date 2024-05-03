@@ -1,5 +1,5 @@
 const { defineConfig } = require('@vue/cli-service');
-const CopyPlugin = require("copy-webpack-plugin")
+const CopyPlugin = require('copy-webpack-plugin')
 
 // const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 //const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -19,7 +19,7 @@ module.exports = defineConfig({
     target: 'web',
     optimization: {
       splitChunks: {
-        chunks: "all",
+        chunks: 'all',
       },
     },
     plugins: [
@@ -50,7 +50,7 @@ module.exports = defineConfig({
   },
   chainWebpack: (config) => {
     config.plugin('html').tap(args => {
-      args[0].title = "APLAYZ CLONE"
+      args[0].title = 'APLAYZ CLONE'
       return args
     });
   }

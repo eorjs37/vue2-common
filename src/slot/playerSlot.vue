@@ -78,7 +78,7 @@ export default {
       this.asideOpen = 'off'
     },
     outSideClick(e) {
-      if (e.target.id !== "hambuger") {
+      if (e.target.id !== 'hambuger') {
         this.onCloseAside();
       }
     }

@@ -10,7 +10,7 @@ export default {
   name: 'App',
   data() {
     return {
-      videoSrc: "https://test-streams.mux.dev/x36xhzz/url_8/193039199_mp4_h264_aac_fhd_7.m3u8"
+      videoSrc: 'https://test-streams.mux.dev/x36xhzz/url_8/193039199_mp4_h264_aac_fhd_7.m3u8'
     }
   },
 
