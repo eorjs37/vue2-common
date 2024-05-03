@@ -20,7 +20,8 @@ module.exports = {
     "indent": "off",
     "no-nested-ternary": "warn",
     "no-unused-vars": "warn",
-    "vue/comment-directive": 0
+    "vue/comment-directive": 0,
+    "quotes":['error','single']
   },
 
   overrides: [
