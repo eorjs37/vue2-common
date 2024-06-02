@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <video id="streaming"></video>
+    <video id="streaming" hidden></video>
     <router-view />
   </div>
 </template>
