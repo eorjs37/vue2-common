@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import { store } from './store'
+// import { store } from './store'
 import { router } from './router'
 import VueCookies from 'vue-cookies'
 // Importing the global css file
@@ -8,11 +8,13 @@ import './assets/styles/reset.css'
 import './assets/styles/common.css'
 import 'animate.css'
 
+//Plugins
+import { videoplayer } from './utils/videoplayer'
+
 //carousel-3d
 import Carousel3d from 'vue-carousel-3d'
 
 //Plugins
-import Plugin from './utils/Plugin'
 
 //vue awesome
 /* import the fontawesome core */
@@ -24,22 +26,21 @@ import { faUserSecret, faSpinner } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
 library.add(faUserSecret, faSpinner)
 /* add font awesome icon component */
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.config.productionTip = false
-Vue.use(router)
-// 쿠키를 사용한다.
-Vue.use(VueCookies)
-//쿠키의 만료일은 7일이다. (글로벌 세팅)
-Vue.$cookies.config('7d')
-
-Vue.use(Carousel3d)
-Vue.use(Plugin)
 
 //globalcomponent
+const app = createApp(App)
 
-new Vue({
-  render: (h) => h(App),
-  router,
-  store
-}).$mount('#app')
+app.component('font-awesome-icon', FontAwesomeIcon)
+
+app.use(router)
+// 쿠키를 사용한다.
+app.use(VueCookies)
+//쿠키의 만료일은 7일이다. (글로벌 세팅)
+app.$cookies.config('7d')
+
+app.use(Carousel3d)
+
+app.config.globalProperties.$VideoPlayer = videoplayer
+app.mount('#app')
+
+export { app }

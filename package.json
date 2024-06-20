@@ -64,7 +64,7 @@
     "jest-canvas-mock": "^2.5.2",
     "sass": "^1.69.5",
     "vue-jest": "^3.0.7",
-    "vue-router": "^3.6.5",
+    "vue-router": "^4.3.3",
     "webpack-bundle-analyzer": "^4.9.1"
   },
   "browserslist": [

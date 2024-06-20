@@ -1,6 +1,5 @@
-import VueRouter from 'vue-router'
-import Vue from 'vue'
-Vue.use(VueRouter)
+import { createRouter, createMemoryHistory } from 'vue-router'
+
 const routes = [
   {
     path: '/',
@@ -15,8 +14,8 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createMemoryHistory(),
   routes
 })
 
