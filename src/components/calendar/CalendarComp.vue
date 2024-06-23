@@ -7,6 +7,7 @@
       :hideViewSelector="true"
       :locale="'ko'"
       :timeStep="120"
+      :split-days="splitDays"
       :time-from="6 * 60"
       :time-to="30 * 60"
     >
@@ -24,7 +25,9 @@ export default {
     'vue-cal': VueCal
   },
   data() {
-    return {}
+    return {
+      splitDays: [{ id: 0 }]
+    }
   }
 }
 </script>

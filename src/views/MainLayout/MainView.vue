@@ -1,33 +1,26 @@
 <template>
   <div>
-    <calendar-comp/>
+    <calendar-comp />
   </div>
 </template>
 <script>
 import CalendarComp from '@/components/calendar/CalendarComp.vue'
 export default {
   name: 'MainView',
-  components:{
-    'calendar-comp':CalendarComp
+  components: {
+    'calendar-comp': CalendarComp
   },
-  async created() {
-  },
+  async created() {},
 
   data() {
-    return{
-         
-    }
+    return {}
   },
 
-  mounted() {
-  },
+  mounted() {},
 
-  methods: {
-  },
+  methods: {},
 
-  computed: {
-  },
-  destroyed() {
-  }
+  computed: {},
+  unmounted() {}
 }
 </script>
