@@ -14,11 +14,17 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    this.$CronTab.addJob(this.task, '/1 * * * *', 'timeup1')
+  },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
   },
-  methods: {}
+  methods: {
+    task() {
+      console.log(`작업이 실행되었습니다 : ${new Date()}`)
+    }
+  }
 }
 </script>
 

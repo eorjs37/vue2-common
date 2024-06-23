@@ -10,12 +10,9 @@ import 'animate.css'
 
 //Plugins
 import { videoplayer } from './utils/videoplayer'
-
+import { cronTab } from './utils/cronTab'
 //carousel-3d
 import Carousel3d from 'vue-carousel-3d'
-
-//Plugins
-
 //vue awesome
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -29,6 +26,9 @@ library.add(faUserSecret, faSpinner)
 
 //globalcomponent
 const app = createApp(App)
+
+//crontab init
+cronTab.init()
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -45,6 +45,7 @@ app.use(VueCookies, {
 app.use(Carousel3d)
 
 app.config.globalProperties.$VideoPlayer = videoplayer
+app.config.globalProperties.$CronTab = cronTab
 app.mount('#app')
 
 export { app }
