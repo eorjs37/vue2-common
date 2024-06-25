@@ -15,7 +15,8 @@ export default {
   },
 
   created() {
-    this.$CronTab.addJob(this.task, '/1 * * * *', 'timeup1')
+    this.$CronTab.clearAll()
+    this.$CronTab.addJob(this.task, '* 7-11 * * *', 'timeup1')
   },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
