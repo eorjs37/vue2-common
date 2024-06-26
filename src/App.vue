@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { parse, setInterval, date } from '@breejs/later'
+
 export default {
   name: 'App',
   data() {
@@ -15,8 +17,11 @@ export default {
   },
 
   created() {
-    this.$CronTab.clearAll()
-    this.$CronTab.addJob(this.task, '* 7-11 * * *', 'timeup1')
+    date.timezone(new Date())
+    const cron = '0 7,8,9,10,11 * * *'
+    const s = parse.cron(cron)
+    console.log(s)
+    setInterval(this.task, s, 'system')
   },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
