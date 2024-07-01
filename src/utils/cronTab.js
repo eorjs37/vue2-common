@@ -1,5 +1,4 @@
 import later from '@breejs/later'
-
 const cronTab = {
   jobList: [],
   init() {
@@ -35,6 +34,12 @@ const cronTab = {
     this.jobList.forEach((_, index) => {
       this.jobList[index].job.clear()
     })
+  },
+  setLocalTime() {
+    later.date.localTime()
+  },
+  getLater() {
+    return later
   }
 }
 

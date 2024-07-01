@@ -20,7 +20,6 @@ export default {
     date.timezone(new Date())
     const cron = '0 7,8,9,10,11 * * *'
     const s = parse.cron(cron)
-    console.log(s)
     setInterval(this.task, s, 'system')
   },
   mounted() {
