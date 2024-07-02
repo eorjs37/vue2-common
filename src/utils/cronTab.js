@@ -1,20 +1,23 @@
-import later from '@breejs/later'
+import { date, parse, setInterval } from '@breejs/later'
 const cronTab = {
   jobList: [],
   init() {
-    later.date.localTime()
+    date.timezone(new Date())
   },
 
   addJob(task, expression, jobName) {
-    const schedule = later.parse.cron(expression)
-    const job = later.setInterval(task, schedule)
+    const find = this.jobList.find((item) => item.jobName === jobName)
+    if (find) {
+      this.deleteJob(jobName)
+    }
+    const schedule = parse.cron(expression, true)
+    const job = setInterval(task, schedule)
 
     this.jobList.push({
       jobName,
       schedule,
       job
     })
-    console.log(this.jobList)
   },
   getJobList() {
     return this.jobList
@@ -34,12 +37,6 @@ const cronTab = {
     this.jobList.forEach((_, index) => {
       this.jobList[index].job.clear()
     })
-  },
-  setLocalTime() {
-    later.date.localTime()
-  },
-  getLater() {
-    return later
   }
 }
 
