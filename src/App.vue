@@ -16,12 +16,28 @@ export default {
   },
 
   created() {
-    const cron = '0 31 7,8,9,10,11 * * 3,4,5'
-    this.$CronTab.addJob(this.task, cron, 'timecuration1')
-    const cron2 = '0 31 7,8,9,10,11 * * 3,4,5'
-    this.$CronTab.addJob(this.task, cron2, 'timecuration2')
-
-    //
+    this.$crontab.addJob([
+      {
+        name: 'startAutoPlay',
+        interval: {
+          seconds: '0',
+          minutes: '25',
+          hours: '08',
+          week: '4'
+        },
+        job: this.task
+      },
+      {
+        name: 'endAutoPlay',
+        interval: {
+          seconds: '10',
+          minutes: '25',
+          hours: '08',
+          week: '4'
+        },
+        job: this.task
+      }
+    ])
   },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
@@ -35,20 +51,14 @@ export default {
       .catch((err) => {
         console.log(err)
       })
-      .finally(() => {
-        setTimeout(async () => {
-          const result = await this.$VideoPlayer.fadeOut(1).then((res) => {
-            if (res) {
-              this.$VideoPlayer.fadeIn(0)
-            }
-          })
-          console.log(result)
-        }, 5000)
-      })
+      .finally(() => {})
   },
   methods: {
     task() {
-      console.log(`작업이 실행되었습니다 : ${new Date()}`)
+      console.log(`작업이1 실행되었습니다 : ${new Date()}`)
+    },
+    task2() {
+      console.log(`작업이2 실행되었습니다 : ${new Date()}`)
     }
   }
 }

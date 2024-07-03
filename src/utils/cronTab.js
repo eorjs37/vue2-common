@@ -4,18 +4,75 @@ const cronTab = {
   init() {
     date.timezone(new Date())
   },
-
-  addJob(task, expression, jobName) {
-    const find = this.jobList.find((item) => item.jobName === jobName)
-    if (find) {
-      this.deleteJob(jobName)
+  changeExpression(interval = {}) {
+    const keys = Object.keys(interval)
+    let sec = '0'
+    let min = '*'
+    let hour = '*'
+    let week = '*' // 1(Monday) to 7(Sunday)
+    if (keys.includes('seconds')) {
+      const secondslist = interval['seconds']
+        .split(',')
+        .map((item) => parseInt(item))
+        .join(',')
+      sec = secondslist
     }
+
+    if (keys.includes('minutes')) {
+      const minlist = interval['minutes']
+        .split(',')
+        .map((item) => parseInt(item))
+        .join(',')
+      min = minlist
+    }
+
+    if (keys.includes('hours')) {
+      const hourlist = interval['hours']
+        .split(',')
+        .map((item) => parseInt(item))
+        .join(',')
+      hour = hourlist
+    }
+
+    if (keys.includes('week')) {
+      const weeklist = interval['week']
+        .split(',')
+        .map((item) => parseInt(item))
+        .join(',')
+      week = weeklist
+    }
+    return `${sec} ${min} ${hour} * * ${week}`
+  },
+
+  addJob(params) {
+    if (typeof params === 'object') {
+      const isArray = Array.isArray(params)
+
+      if (isArray) {
+        //Array
+        const len = params.length
+        for (let index = 0; index < len; index++) {
+          const { name, interval, job } = params[index]
+          this._addJob(name, interval, job)
+        }
+      } else {
+        //Object
+        const { name, interval, job } = params
+        this._addJob(name, interval, job)
+      }
+    }
+  },
+  _addJob(name, interval, task) {
+    const find = this.jobList.find((item) => item.name === name)
+    if (find) {
+      this.deleteJob(name)
+    }
+    const expression = this.changeExpression(interval)
     const schedule = parse.cron(expression, true)
     const job = setInterval(task, schedule)
-
     this.jobList.push({
-      jobName,
-      schedule,
+      name,
+      intervals: [interval],
       job
     })
   },
@@ -23,7 +80,7 @@ const cronTab = {
     return this.jobList
   },
   getJob(jobName) {
-    const find = this.jobList.findIndex((item) => item.jobName === jobName)
+    const find = this.jobList.findIndex((item) => item.name === jobName)
     return find
   },
   deleteJob(jobName) {
@@ -33,6 +90,8 @@ const cronTab = {
       this.jobList.splice(idx, 1)
     }
   },
+  enableJob() {},
+  disableJob() {},
   clearAll() {
     this.jobList.forEach((_, index) => {
       this.jobList[index].job.clear()

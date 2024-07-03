@@ -45,7 +45,7 @@ app.use(VueCookies, {
 app.use(Carousel3d)
 
 app.config.globalProperties.$VideoPlayer = videoplayer
-app.config.globalProperties.$CronTab = cronTab
+app.config.globalProperties.$crontab = cronTab
 app.mount('#app')
 
 export { app }
