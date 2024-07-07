@@ -1,6 +1,7 @@
 import { date, parse, setInterval } from '@breejs/later'
 const cronTab = {
   jobList: [],
+  tempJobList: [],
   init() {
     date.timezone(new Date())
   },
@@ -73,7 +74,8 @@ const cronTab = {
     this.jobList.push({
       name,
       intervals: [interval],
-      job
+      job,
+      task
     })
   },
   getJobList() {
@@ -90,8 +92,27 @@ const cronTab = {
       this.jobList.splice(idx, 1)
     }
   },
-  enableJob() {},
-  disableJob() {},
+  enableJob(jobName) {
+    const find = this.tempJobList.find((item) => item.name === jobName)
+    const idx = this.tempJobList.findIndex((item) => item.name === jobName)
+    if (find) {
+      const { intervals, task } = find
+      console.log(find)
+      this._addJob(jobName, intervals, task)
+      this.tempJobList.splice(idx, 1)
+    }
+  },
+  disableJob(jobName) {
+    const find = this.jobList.find((item) => item.name === jobName)
+    if (find) {
+      this.tempJobList.push({
+        name: jobName,
+        intervals: find.intervals,
+        task: find.task
+      })
+      this.deleteJob(jobName)
+    }
+  },
   clearAll() {
     this.jobList.forEach((_, index) => {
       this.jobList[index].job.clear()

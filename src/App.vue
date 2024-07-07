@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       //videoSrc: 'https://test-streams.mux.dev/x36xhzz/url_8/193039199_mp4_h264_aac_fhd_7.m3u8'
-      videoSrc: 'https://stream.aplayz.co.kr/broadcast/641f19804a705bb838a83a01bc291d53.m3u8'
+      videoSrc: 'https://stream.aplayz.co.kr/broadcast/b1e2cf68d2bbee7a6bb2d52d07fa60b6.m3u8'
     }
   },
 
@@ -21,9 +21,9 @@ export default {
         name: 'startAutoPlay',
         interval: {
           seconds: '0',
-          minutes: '25',
+          minutes: '00',
           hours: '08',
-          week: '4'
+          week: '*'
         },
         job: this.task
       },
@@ -31,13 +31,28 @@ export default {
         name: 'endAutoPlay',
         interval: {
           seconds: '10',
-          minutes: '25',
+          minutes: '00',
           hours: '08',
-          week: '4'
+          week: '*'
         },
         job: this.task
       }
     ])
+
+    this.$crontab.addJob({
+      name: 'brand001',
+      interval: { seconds: '0', minutes: '10', hours: '08', week: '*' },
+      job: this.task
+    })
+
+    setTimeout(() => {
+      this.$crontab.disableJob('brand001')
+    }, 5000)
+
+    setTimeout(() => {
+      this.$crontab.enableJob('brand001')
+      console.log(this.$crontab.jobList)
+    }, 1000 * 15)
   },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))
