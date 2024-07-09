@@ -50,9 +50,16 @@ module.exports = {
     '!vue.config.js',
     '!**/coverage/**'
   ],
+  coverageReporters: ['html', 'text', 'text-summary', 'cobertura'],
+  coverageThreshold: {
+    './src/': {
+      lines: 0
+    }
+  },
   // '<rootDir>/node_modules/', '/node_modules/(?!@scu/vue)'
   transformIgnorePatterns: [
     '<rootDir>/node_modules/(?!(particles-bg-vue)|(?!@scu/vue)|(?!(vue3-lottie))/)'
   ],
-  setupFiles: ['jest-canvas-mock']
+  setupFiles: ['jest-canvas-mock'],
+  reporters: ['default', ['jest-junit', { suiteName: 'jest tests' }]]
 }

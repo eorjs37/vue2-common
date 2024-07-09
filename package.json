@@ -10,7 +10,8 @@
     "test": "vue-cli-service test:unit --watch",
     "test:coverage": "vue-cli-service test:unit",
     "testAll": "vue-cli-service test:unit --watchAll",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "dependencies": {
     "@breejs/later": "^4.2.0",
@@ -27,6 +28,7 @@
     "core-js": "^3.8.3",
     "editorconfig": "^1.0.2",
     "hls.js": "^1.5.12",
+    "jest-junit": "^16.0.0",
     "lodash": "^4.17.21",
     "particles-bg-vue": "^1.3.5",
     "sinon": "^15.2.0",
