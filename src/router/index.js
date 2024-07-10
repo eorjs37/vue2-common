@@ -1,4 +1,4 @@
-import { createRouter, createMemoryHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -11,11 +11,22 @@ const routes = [
         component: () => import('@/views/MainLayout/MainView.vue')
       }
     ]
+  },
+  {
+    path: '/sub1',
+    component: () => import('@/layout/Sub1Layout.vue'),
+    redirect: '/sub1',
+    children: [
+      {
+        path: '/sub1',
+        component: () => import('@/views/Sub1Layout/Sub1View.vue')
+      }
+    ]
   }
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes
 })
 

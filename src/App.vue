@@ -35,14 +35,14 @@ export default {
           hours: '08',
           week: '*'
         },
-        job: this.task
+        job: this.task2
       }
     ])
 
     this.$crontab.addJob({
       name: 'brand001',
       interval: { seconds: '0', minutes: '10', hours: '08', week: '*' },
-      job: this.task
+      job: this.task3
     })
 
     setTimeout(() => {
@@ -74,6 +74,9 @@ export default {
     },
     task2() {
       console.log(`작업이2 실행되었습니다 : ${new Date()}`)
+    },
+    task3() {
+      console.log(`작업이3 실행되었습니다 : ${new Date()}`)
     }
   }
 }

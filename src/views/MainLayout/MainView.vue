@@ -10,17 +10,19 @@ export default {
   components: {
     'calendar-comp': CalendarComp
   },
-  async created() {},
 
   data() {
     return {}
   },
 
-  mounted() {},
-
-  methods: {},
-
   computed: {},
-  unmounted() {}
+  async created() {},
+
+  mounted() {},
+  unmounted() {
+    //
+  },
+
+  methods: {}
 }
 </script>

@@ -1,35 +1,29 @@
 module.exports = {
-  'root': true,
+  root: true,
 
-  'env': {
-    'node': true
+  env: {
+    node: true
   },
 
-  'parserOptions': {
-    'parser': '@babel/eslint-parser',
-    'sourceType': 'module'
+  parserOptions: {
+    parser: '@babel/eslint-parser',
+    sourceType: 'module'
   },
 
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended',
-  ],
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
 
-  'rules': {
+  rules: {
     'comma-dangle': 'off',
-    'indent': 'off',
+    indent: 'off',
     'no-nested-ternary': 'warn',
     'no-unused-vars': 'warn',
     'vue/comment-directive': 0,
-    'quotes':['error','single']
+    quotes: ['error', 'single']
   },
 
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true
       }
