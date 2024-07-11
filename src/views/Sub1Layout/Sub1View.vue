@@ -1,13 +1,12 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    {{ count }}
-    <button @click="addCount">카운트늘리기</button>
+    <common1_comp />
   </div>
 </template>
 <script setup>
-import { ref, inject } from 'vue'
-const count = inject('count')
-const addCount = inject('addCount')
+import { ref } from 'vue'
 const title = ref('Title')
+
+const common1_comp = () => import('@/components/common/Common1Comp.vue')
 </script>
