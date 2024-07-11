@@ -5,8 +5,8 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
 const title = ref('Title')
 
-const common1_comp = () => import('@/components/common/Common1Comp.vue')
+const common1_comp = defineAsyncComponent(() => import('@/components/common/Common1Comp.vue'))
 </script>

@@ -47,12 +47,11 @@ export default {
 
     setTimeout(() => {
       this.$crontab.disableJob('brand001')
-    }, 5000)
+    }, 2000)
 
     setTimeout(() => {
       this.$crontab.enableJob('brand001')
-      console.log(this.$crontab.jobList)
-    }, 1000 * 15)
+    }, 1000 * 5)
   },
   mounted() {
     this.$VideoPlayer.setVideo(document.querySelector('#streaming'))

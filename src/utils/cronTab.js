@@ -97,8 +97,9 @@ const cronTab = {
     const idx = this.tempJobList.findIndex((item) => item.name === jobName)
     if (find) {
       const { intervals, task } = find
-      console.log(find)
-      this._addJob(jobName, intervals, task)
+
+      this._addJob(jobName, intervals[0], task)
+
       this.tempJobList.splice(idx, 1)
     }
   },
