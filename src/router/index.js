@@ -4,11 +4,15 @@ const routes = [
   {
     path: '/',
     component: () => import('@/layout/MainLayout.vue'),
-    redirect: '/main',
+    redirect: '/main2',
     children: [
       {
         path: '/main',
         component: () => import('@/views/MainLayout/MainView.vue')
+      },
+      {
+        path: '/main2',
+        component: () => import('@/views/MainLayout/AccordionView.vue')
       }
     ]
   },

@@ -1,21 +1,17 @@
 <template>
   <div id="app">
     <video id="streaming" hidden></video>
-    <p>
-      {{ count }}
-    </p>
     <router-view />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: 'App',
   data() {
     return {
-      worker:null,
-      count:0,
+      worker: null,
+      count: 0,
       //videoSrc: 'https://test-streams.mux.dev/x36xhzz/url_8/193039199_mp4_h264_aac_fhd_7.m3u8'
       videoSrc: 'https://stream.aplayz.co.kr/broadcast/b1e2cf68d2bbee7a6bb2d52d07fa60b6.m3u8'
     }
@@ -23,22 +19,21 @@ export default {
 
   created() {
     this.worker = new Worker('/workers/buildingWorker.js')
-    
+
     //onmessage를 통해 결과를 받는다
     this.worker.onmessage = () => {
       // Should output: The sum of the numbers is 15
-      this.interValMethod();
-    };
+      this.interValMethod()
+    }
     //postMessage를 통해 전달
     this.worker.postMessage({
-      'interval': 2000
-    });
+      interval: 2000
+    })
 
     //onerror 이벤트
-    this.worker.onerror = (event) =>{
-      console.error('regularWorker error : ',event);
+    this.worker.onerror = (event) => {
+      console.error('regularWorker error : ', event)
     }
-
 
     this.$crontab.addJob([
       {
@@ -92,7 +87,7 @@ export default {
       .finally(() => {})
   },
   methods: {
-    interValMethod(){
+    interValMethod() {
       //axios.get('http://localhost:8000/fileInput.php')
     },
     task() {
