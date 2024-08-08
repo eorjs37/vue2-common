@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/main2',
     component: () => import('@/layout/MainLayout.vue'),
     redirect: '/main2',
     children: [
@@ -24,6 +24,17 @@ const routes = [
       {
         path: '/sub1',
         component: () => import('@/views/Sub1Layout/Sub1View.vue')
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('@/layout/HocLayout.vue'),
+    redirect: '/hoc',
+    children: [
+      {
+        path: '/hoc',
+        component: () => import('@/views/HocLayout/HocView.vue')
       }
     ]
   }
