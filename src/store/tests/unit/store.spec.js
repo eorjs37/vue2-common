@@ -1,6 +1,19 @@
 import { store } from '@/store'
-
+import axios from 'axios'
 describe('store 테스트 코드 작성', () => {
+  beforeEach(() => {
+    axios.get = jest.fn().mockImplementation((url) => {
+      if (url === '/api/dummy') {
+        return Promise.resolve({
+          status: 200,
+          data: {
+            message: 'TEST'
+          }
+        })
+      }
+    })
+  })
+
   test('카운터(counter) 초기값 확인 ', async () => {
     expect(store.state.counter).toBe(1)
   })
@@ -47,5 +60,10 @@ describe('store 테스트 코드 작성', () => {
     }
     await store.dispatch('apiSetUserInfo')
     expect(store.state.userInfo).toEqual(userInfo)
+  })
+
+  test('actios: apiDummyApi1', async () => {
+    await store.dispatch('apiDummyApi1')
+    expect(store.state.message).toBe('TEST')
   })
 })

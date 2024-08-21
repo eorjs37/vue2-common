@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-// import { store } from './store'
+import { store } from './store'
 import { router } from './router'
 import VueCookies from 'vue3-cookies'
 // Importing the global css file
@@ -43,6 +43,7 @@ app.use(VueCookies, {
   sameSite: 'None'
 })
 app.use(Carousel3d)
+app.use(store)
 
 app.config.globalProperties.$VideoPlayer = videoplayer
 app.config.globalProperties.$crontab = cronTab
