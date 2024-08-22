@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import HocView from '../../HocView.vue'
 import { store } from '@/store'
 import axios from 'axios'
-describe('Name of the group', () => {
+describe('HocView.vue 테스트', () => {
   let wrapper = null
   beforeEach(() => {
     axios.get = jest.fn().mockImplementation((url) => {
@@ -21,10 +21,6 @@ describe('Name of the group', () => {
         plugins: [store]
       }
     })
-  })
-
-  test('should ', async () => {
-    expect(1).toBe(1)
   })
 
   test('버튼 클릭', async () => {
