@@ -26,6 +26,9 @@ const store = createStore({
     },
     getCounter(state) {
       return state.counter
+    },
+    getMessage(state) {
+      return state.message
     }
   },
   actions: {
@@ -39,19 +42,15 @@ const store = createStore({
       })
     },
     async apiDummyApi1({ commit }) {
-      await dummyapi1()
-        .then((res) => {
-          const { data } = res
-          const { message } = data
-
-          commit('setMessage', message)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-        .finally(() => {
-          console.log('finally')
-        })
+      try {
+        const { data } = await dummyapi1()
+        const { message } = data
+        commit('setMessage', message)
+      } catch (error) {
+        console.error('error : ', error)
+      } finally {
+        //
+      }
     }
   },
   modules: {}
