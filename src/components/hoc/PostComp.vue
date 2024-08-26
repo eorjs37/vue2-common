@@ -7,8 +7,9 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { getTextApi } from '@/api/fakeApi'
+// eslint-disable-next-line no-undef
 defineProps({
   title: {
     type: String,

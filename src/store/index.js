@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { module1 } from './modules/module1'
 import { dummyapi1 } from '@/api/dummyapi1'
 const store = createStore({
   state: {
@@ -53,7 +54,9 @@ const store = createStore({
       }
     }
   },
-  modules: {}
+  modules: {
+    module1
+  }
 })
 
 export { store }

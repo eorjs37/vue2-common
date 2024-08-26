@@ -3,6 +3,7 @@
     <TextComp />
     <PostComp />
     <button id="btn1" @click="onBtn1Click">스토어데이터 전환</button>
+    <button id="btn2" @click="onSaveClick">데이터등록</button>
     <p id="message">
       {{ messageComp }}
     </p>
@@ -23,6 +24,10 @@ const messageComp = computed(() => {
 
 const onBtn1Click = () => {
   store.dispatch('apiDummyApi1')
+}
+
+const onSaveClick = () => {
+  store.dispatch('module1/saveDummy')
 }
 
 onMounted(() => {})
