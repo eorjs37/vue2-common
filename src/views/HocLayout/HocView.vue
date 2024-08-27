@@ -7,6 +7,9 @@
     <p id="message">
       {{ messageComp }}
     </p>
+    <p id="doubleCount">
+      {{ doubleCount }}
+    </p>
   </div>
 </template>
 
@@ -20,6 +23,10 @@ const store = useStore()
 
 const messageComp = computed(() => {
   return store.getters['getMessage']
+})
+
+const doubleCount = computed(() => {
+  return store.getters['module1/doubleCount']
 })
 
 const onBtn1Click = () => {
