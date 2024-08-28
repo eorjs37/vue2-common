@@ -37,6 +37,17 @@ const routes = [
         component: () => import('@/views/HocLayout/HocView.vue')
       }
     ]
+  },
+  {
+    path: '/todo',
+    component: () => import('@/layout/TodoLayout.vue'),
+    redirect: '/todolist',
+    children: [
+      {
+        path: '/todolist',
+        component: () => import('@/views/TodoLayout/TodoListView.vue')
+      }
+    ]
   }
 ]
 
