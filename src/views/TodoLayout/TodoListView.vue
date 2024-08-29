@@ -18,8 +18,6 @@ import { reactive } from 'vue';
 const todolist = reactive([])
 
 const onInputText = (value = '') => {
-	console.log(value);
-
 	todolist.push({text:value})
 }
 </script>
