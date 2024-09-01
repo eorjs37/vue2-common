@@ -21,4 +21,5 @@ const getTextApi = async () => {
   })
 }
 
+
 export { fakeApi, getTextApi }

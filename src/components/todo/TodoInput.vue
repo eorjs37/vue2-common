@@ -11,12 +11,12 @@ const emit = defineEmits(['inputtext'])
 
 const inputEnter = ($event) => {
   if ($event.key === 'Enter') {
-		if(!$event) return;
-		const { target } = $event;
-		const { value } = target;
+    if (!$event) return
+    const { target } = $event
+    const { value } = target
     $event.preventDefault()
-    emit('inputtext',value);
-		$event.target.value = '';
+    emit('inputtext', value)
+    $event.target.value = ''
   }
 }
 </script>
