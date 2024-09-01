@@ -20,10 +20,10 @@ const todolist = reactive([])
 
 const onInputText = async (value = '') => {
   try {
-    const { data } = await saveTodo()
-    console.log(data)
-
-    todolist.push({ text: value })
+    const { status } = await saveTodo()
+    if (status === 200) {
+      todolist.push({ text: value })
+    }
   } catch (error) {
     if (error.response) {
       alert('에러가 발생하엿습니다')

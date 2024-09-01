@@ -1,6 +1,6 @@
 <template>
   <div class="w_100 input_wrap">
-    <input class="input" @keypress.enter="inputEnter" type="text" />
+    <input id="input" class="input" @keypress.enter="inputEnter" type="text" />
     <button class="addbtn">추가</button>
   </div>
 </template>
@@ -10,7 +10,7 @@
 const emit = defineEmits(['inputtext'])
 
 const inputEnter = ($event) => {
-  if ($event.key === 'Enter') {
+  if ($event.key.toLowerCase() === 'enter') {
     if (!$event) return
     const { target } = $event
     const { value } = target
