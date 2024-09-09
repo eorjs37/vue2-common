@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { saveTodo } from '@/api/todoapi'
+import { getTodoApi, saveTodo } from '@/api/todoapi'
 import TodoInput from '@/components/todo/TodoInput.vue'
 import TodoItem from '@/components/todo/TodoItem.vue'
 import { reactive } from 'vue'
@@ -30,5 +30,24 @@ const onInputText = async (value = '') => {
     }
   }
 }
+
+const getToDo = async () => {
+  try {
+    const { data } = await getTodoApi()
+    const { result } = data
+    const { todolist: resultTodoList } = result
+    if (Array.isArray(resultTodoList)) {
+      resultTodoList.forEach((item) => {
+        todolist.push({ text: item.todo })
+      })
+    }
+  } catch (error) {
+    if (error.response) {
+      //
+    }
+  }
+}
+
+getToDo()
 </script>
 <style scoped src="@/assets/styles/todo/todolist.css"></style>

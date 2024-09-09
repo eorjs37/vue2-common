@@ -1,3 +1,4 @@
+import instance from '@/api/axios'
 import { response } from './response'
 const saveTodo = () => {
   response.data = {
@@ -8,4 +9,8 @@ const saveTodo = () => {
   return Promise.resolve(response)
 }
 
-export { saveTodo }
+const getTodoApi = async () => {
+  return await instance.get('/api/todo')
+}
+
+export { saveTodo, getTodoApi }
