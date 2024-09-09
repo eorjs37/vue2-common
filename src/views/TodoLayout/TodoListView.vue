@@ -42,6 +42,8 @@ const getToDo = async () => {
       })
     }
   } catch (error) {
+    console.error('getToDo error : ', error)
+
     if (error.response) {
       //
     }
