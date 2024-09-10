@@ -1,19 +1,33 @@
 import { shallowMount } from '@vue/test-utils'
 import TodoListView from '../../TodoListView.vue'
-import axios from 'axios'
-jest.mock('axios')
+import * as todoApi from '@/api/todoapi'
 describe('todolistview unit testing', () => {
   let wrapper = null
 
   beforeAll(() => {
-    axios.get = jest.fn().mockImplementation((url) => {
-      console.log('url : ', url)
+    jest.spyOn(todoApi, 'getTodoApi').mockImplementation(() => {
+      return Promise.resolve({
+        data: {
+          result: {
+            todolist: [
+              {
+                todo: '할일1'
+              },
+              {
+                todo: '할일2'
+              }
+            ]
+          }
+        }
+      })
     })
-  })
-  beforeAll(() => {
     wrapper = shallowMount(TodoListView)
   })
-  test('ex1', async () => {
-    expect(1).toBe(1)
+  test('화면 진입 후 todo리스트를 조회한다', async () => {
+    //given
+    //when
+    //then
+    const findTodoItemList = wrapper.findComponent('todo-item-stub')
+    console.log(findTodoItemList)
   })
 })
