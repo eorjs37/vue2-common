@@ -43,8 +43,8 @@ describe('todolistview unit testing', () => {
 
     //when(실행)
     await todoInput.vm.$emit('inputtext', 'testvalue')
-    //then(검증)
 
+    //then(검증)
     await flushPromises()
     const findTodoItemList = wrapper.findAll('todo-item-stub')
     expect(findTodoItemList[findTodoItemList.length - 1].attributes()['todotext']).toBe('testvalue')
