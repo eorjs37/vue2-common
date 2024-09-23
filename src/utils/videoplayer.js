@@ -91,6 +91,9 @@ const videoplayer = {
   onPlay() {
     return this.video.play()
   },
+  onPause() {
+    return this.video.pause()
+  },
   fadeOut(volumeval) {
     const volume = parseFloat(volumeval) - 0.1
     return new Promise((resolve) => {
@@ -105,6 +108,9 @@ const videoplayer = {
         resolve(true)
       }
     })
+  },
+  registerEventListener(type, fn, option = {}) {
+    this.video.addEventListener(type, fn, option)
   },
   fadeIn(volumeval) {
     const volume = parseFloat(volumeval) + 0.1

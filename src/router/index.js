@@ -48,6 +48,16 @@ const routes = [
         component: () => import('@/views/TodoLayout/TodoListView.vue')
       }
     ]
+  },
+  {
+    path: '/hls',
+    component: () => import('@/layout/HlsLayout.vue'),
+    children: [
+      {
+        path: '/hls',
+        component: () => import('@/views/HlsLayout/HlsView.vue')
+      }
+    ]
   }
 ]
 
