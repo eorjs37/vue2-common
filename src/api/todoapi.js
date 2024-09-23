@@ -1,12 +1,8 @@
 import instance from '@/api/axios'
-import { response } from './response'
-const saveTodo = () => {
-  response.data = {
-    result: {
-      success: true
-    }
-  }
-  return Promise.resolve(response)
+const saveTodo = async (text) => {
+  return await instance.post('/api/todo', {
+    todo: text
+  })
 }
 
 const getTodoApi = async () => {

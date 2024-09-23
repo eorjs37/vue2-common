@@ -20,7 +20,7 @@ const todolist = reactive([])
 
 const onInputText = async (value = '') => {
   try {
-    const { status } = await saveTodo()
+    const { status } = await saveTodo(value)
     if (status === 200) {
       todolist.push({ text: value })
     }
