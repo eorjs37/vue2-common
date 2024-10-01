@@ -11,7 +11,7 @@ const app = getCurrentInstance()
 const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
 
 const m3u8Url = ref(
-  'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/lauv/music.m3u8'
+  'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/attack_on_titan/attack_on_titan.m3u8'
 )
 
 const currentTime = ref(0)
@@ -41,9 +41,9 @@ $VideoPlayer.registerEventListener('pause', pauseEventListener)
 $VideoPlayer.registerEventListener('play', playEventListener)
 $VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
 $VideoPlayer.registerEventListener('ended', endedEventListener)
+$VideoPlayer.playerMusic(m3u8Url.value)
+$VideoPlayer.startLoad(-1)
 const clickPlay = () => {
-  $VideoPlayer.playerMusic(m3u8Url.value)
-  $VideoPlayer.startLoad(-1)
   $VideoPlayer.onPlay()
 }
 

@@ -26,6 +26,8 @@ describe('hlsview unit test', () => {
   })
   afterEach(() => {
     $VideoPlayer.onPlay.mockClear()
+    $VideoPlayer.playerMusic.mockClear()
+    $VideoPlayer.startLoad.mockClear()
     jest.clearAllTimers()
   })
   test('재생을 누르면 노래가 시작된다', async () => {
@@ -34,10 +36,6 @@ describe('hlsview unit test', () => {
     //when(실행)
     await playBtn.trigger('click')
     //then(검증)
-    expect($VideoPlayer.playerMusic).toBeCalledWith(
-      'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/lauv/music.m3u8'
-    )
-    expect($VideoPlayer.startLoad).toBeCalledWith(-1)
     expect($VideoPlayer.onPlay).toBeCalled()
   })
 
