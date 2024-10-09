@@ -3,7 +3,7 @@ function repeat(word, times = 2) {
   for (let i = 0; i < times; i++) {
     words.push(word)
   }
-  return words
+  return words.join()
 }
 
 export default repeat
