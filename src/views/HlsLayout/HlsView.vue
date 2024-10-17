@@ -16,6 +16,7 @@ const m3u8Url = ref(
 
 const currentTime = ref(0)
 const durationTime = ref(0)
+
 const pauseEventListener = () => {
   console.log('pause')
 }
@@ -23,6 +24,10 @@ const playEventListener = () => {
   console.log('play')
 }
 
+/**
+ * @description 시간 업데이트
+ * @param event : 이벤트
+ */
 const timeUpdateEventListener = (event) => {
   currentTime.value = event.target.currentTime
   if (event.target.duration) {
@@ -30,25 +35,41 @@ const timeUpdateEventListener = (event) => {
   }
 }
 
+/**
+ * @description 종료 이벤트
+ */
 const endedEventListener = () => {
   setTimeout(() => {
     $VideoPlayer.onPlay()
   }, 1500)
 }
 
-$VideoPlayer.setVideo(document.querySelector('#streaming'))
-$VideoPlayer.registerEventListener('pause', pauseEventListener)
-$VideoPlayer.registerEventListener('play', playEventListener)
-$VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
-$VideoPlayer.registerEventListener('ended', endedEventListener)
-$VideoPlayer.playerMusic(m3u8Url.value)
-$VideoPlayer.startLoad(-1)
+/**
+ * @description 초기화 설정
+ */
+const init = () => {
+  $VideoPlayer.setVideo(document.querySelector('#streaming'))
+  $VideoPlayer.registerEventListener('pause', pauseEventListener)
+  $VideoPlayer.registerEventListener('play', playEventListener)
+  $VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
+  $VideoPlayer.registerEventListener('ended', endedEventListener)
+  $VideoPlayer.playerMusic(m3u8Url.value)
+  $VideoPlayer.startLoad(-1)
+}
+
+/**
+ * @description 재생
+ */
 const clickPlay = () => {
   $VideoPlayer.onPlay()
 }
-
+/**
+ * @description 중지
+ */
 const clickPause = () => {
   $VideoPlayer.onPause()
 }
+
+init()
 </script>
 <style scoped src="@/assets/styles/hls/hlsview.css"></style>
