@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import HlsView from '../../HlsView.vue'
-
+import * as vuecookies from 'vue3-cookies'
 const $VideoPlayer = {
   setVideo: jest.fn(),
   registerEventListener: jest.fn(),
@@ -10,9 +10,13 @@ const $VideoPlayer = {
   onPause: jest.fn()
 }
 
+jest.spyOn(vuecookies, 'useCookies')
+
 describe('hlsview unit test', () => {
   let wrapper = null
   jest.useFakeTimers()
+  const { cookies } = vuecookies.useCookies()
+  cookies.set = jest.fn()
   beforeEach(() => {
     wrapper = shallowMount(HlsView, {
       global: {
@@ -25,11 +29,48 @@ describe('hlsview unit test', () => {
     })
   })
   afterEach(() => {
-    $VideoPlayer.onPlay.mockClear()
+    $VideoPlayer.setVideo.mockClear()
+    $VideoPlayer.registerEventListener.mockClear()
     $VideoPlayer.playerMusic.mockClear()
     $VideoPlayer.startLoad.mockClear()
+    $VideoPlayer.onPlay.mockClear()
+    $VideoPlayer.onPause.mockClear()
     jest.clearAllTimers()
   })
+
+  test('초기화 테스트', async () => {
+    //given
+
+    //when
+
+    //then
+    expect($VideoPlayer.setVideo).toBeCalled()
+    expect($VideoPlayer.registerEventListener).toHaveBeenNthCalledWith(
+      1,
+      'pause',
+      wrapper.vm.pauseEventListener
+    )
+    expect($VideoPlayer.registerEventListener).toHaveBeenNthCalledWith(
+      2,
+      'play',
+      wrapper.vm.playEventListener
+    )
+    expect($VideoPlayer.registerEventListener).toHaveBeenNthCalledWith(
+      3,
+      'timeupdate',
+      wrapper.vm.timeUpdateEventListener
+    )
+    expect($VideoPlayer.registerEventListener).toHaveBeenNthCalledWith(
+      4,
+      'ended',
+      wrapper.vm.endedEventListener
+    )
+    expect($VideoPlayer.playerMusic).toBeCalled()
+    expect($VideoPlayer.startLoad).toBeCalledWith(-1)
+    //쿠키
+    expect(cookies.set).toBeCalledWith('dummy', 'test@gmail.com')
+  })
+
   test('재생을 누르면 노래가 시작된다', async () => {
     //given(준비)
     const playBtn = wrapper.find('#playbtn')
