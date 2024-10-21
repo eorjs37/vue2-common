@@ -58,6 +58,16 @@ const routes = [
         component: () => import('@/views/HlsLayout/HlsView.vue')
       }
     ]
+  },
+  {
+    path: '/login',
+    component: () => import('@/layout/LoginLayout.vue'),
+    children: [
+      {
+        path: '/login',
+        component: () => import('@/views/LoginLayout/LoginView.vue')
+      }
+    ]
   }
 ]
 

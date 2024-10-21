@@ -1,0 +1,19 @@
+.login_container {
+  margin-top: 25px;
+}
+.login_title {
+  font-size: 35px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.login_form {
+  max-width: 200px;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+}
