@@ -1,3 +1,4 @@
+import instance from './axios'
 const fakeApi = async (value = 0) => {
   return await new Promise((resolve) => {
     setTimeout(() => {
@@ -21,5 +22,9 @@ const getTextApi = async () => {
   })
 }
 
+const getLoginApi =  (params) => {
+	return instance.get('/api/dummy', params)
+}
 
-export { fakeApi, getTextApi }
+
+export { fakeApi, getTextApi,getLoginApi }
