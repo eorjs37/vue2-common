@@ -13,7 +13,7 @@ const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
 const { cookies } = useCookies()
 
 const m3u8Url = ref(
-  'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/attack_on_titan/attack_on_titan.m3u8'
+  'https://www.aplayz.co.kr/stream/getMusic?kGc0A5OWZzRcEeEgTzdO7GZDVReTc9KFcQCpNXqpjuc7QUqqsO6ATYdgSPr7CK9oycyTG3Ns7roTiA3eUINcYC+AFNIWekg='
 )
 
 const currentTime = ref(0)
