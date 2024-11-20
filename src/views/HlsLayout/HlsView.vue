@@ -13,7 +13,7 @@ const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
 const { cookies } = useCookies()
 
 const m3u8Url = ref(
-  'https://www.aplayz.co.kr/stream/getMusic?kGc0A5OWZzRcEeEgTzdO7GZDVReTc9KFcQCpNXqpjuc7QUqqsO6ATYdgSPr7CK9oycyTG3Ns7roTiA3eUINcYC+AFNIWekg='
+  'https://www.aplayz.co.kr/stream/getMusic?vVYLskaaZqEHf0CU+y4u0vU3/tuKy/PGtV7c6n9lifz4nRhp4jpsEUXIBmlYbHuAaHRSV5BKlNpHrFuGz9BQMYA805UEpNuThQ=='
 )
 
 const currentTime = ref(0)

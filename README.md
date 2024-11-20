@@ -55,3 +55,5 @@ Sub1Layout.vue => Sub1View.vue => Common1Comp.vue
   </div>
 </template>
 ```
+
+## 스냅샷 테스트
