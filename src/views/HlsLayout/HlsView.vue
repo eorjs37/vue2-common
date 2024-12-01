@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="playbtn" @click="clickPlay">재생</button>
+    <button id="playbtn" @click="clickPlay">재생1</button>
     <button id="pausebtn" @click="clickPause">중지</button>
     <p>{{ currentTime }} / {{ durationTime }}</p>
   </div>
@@ -13,7 +13,7 @@ const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
 const { cookies } = useCookies()
 
 const m3u8Url = ref(
-  'https://www.aplayz.co.kr/stream/getMusic?vVYLskaaZqEHf0CU+y4u0vU3/tuKy/PGtV7c6n9lifz4nRhp4jpsEUXIBmlYbHuAaHRSV5BKlNpHrFuGz9BQMYA805UEpNuThQ=='
+  'https://www.aplayz.co.kr/stream/getMusic?/dAoIBzlod3B0sYx3qYy1ICgpWm+ypRCq2oD29BwieN68iDXYkvsGNe2Yxmel6+l0mchs/5qTF7ZF8+81XjTILfg3yHzIw=='
 )
 
 const currentTime = ref(0)

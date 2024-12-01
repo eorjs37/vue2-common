@@ -36,7 +36,11 @@ describe('hlsview unit test', () => {
     $VideoPlayer.onPlay.mockClear()
     $VideoPlayer.onPause.mockClear()
     jest.clearAllTimers()
-  })
+	})
+
+	test('snapshot test', async () => {
+		expect(wrapper.vm.$el).toMatchSnapshot()
+	});
 
   test('초기화 테스트', async () => {
     //given
