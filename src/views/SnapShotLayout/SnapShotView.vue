@@ -4,7 +4,7 @@
 			관리자
 		</div>
 		<div id="admin" v-else-if="ROLE === 'MEMBER'">
-			멤버
+			멤버1
 		</div>
 		<div id="admin" v-else-if="ROLE === 'GUEST'">
 			게스트

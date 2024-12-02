@@ -25,7 +25,7 @@ exports[`snapshotview unit testing 멤버일때 화면 테스트 1`] = `
   <div
     id="admin"
   >
-     멤버 
+     멤버1 
   </div>
 </div>
 `;

@@ -15,7 +15,7 @@ describe('snapshotview unit testing', () => {
 		wrapper.vm.ROLE = 'ADMIN'
 
 		//when
-
+		await wrapper.vm.$nextTick();
 		//then
 		expect(wrapper.vm.$el).toMatchSnapshot()
 
