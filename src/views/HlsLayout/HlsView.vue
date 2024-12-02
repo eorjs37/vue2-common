@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="playbtn" @click="clickPlay">재생1</button>
+    <button id="playbtn" @click="clickPlay">재생</button>
     <button id="pausebtn" @click="clickPause">중지</button>
     <p>{{ currentTime }} / {{ durationTime }}</p>
   </div>

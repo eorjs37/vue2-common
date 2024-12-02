@@ -68,7 +68,17 @@ const routes = [
         component: () => import('@/views/LoginLayout/LoginView.vue')
       }
     ]
-  }
+	},
+	{
+		path: '/snapshot',
+		component: () => import('@/layout/SnapShotLayout.vue'),
+		children: [
+			{
+				path: '/snapshot',
+				component:()=> import('@/views/SnapShotLayout/SnapShotView.vue')
+			}
+		]
+	}
 ]
 
 const router = createRouter({

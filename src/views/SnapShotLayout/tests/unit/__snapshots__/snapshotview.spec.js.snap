@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshotview unit testing 게스트일때 화면 테스트 1`] = `
+<div>
+  <div
+    id="admin"
+  >
+     게스트 
+  </div>
+</div>
+`;
+
+exports[`snapshotview unit testing 관리자일때 화면 테스트 1`] = `
+<div>
+  <div
+    id="admin"
+  >
+     관리자 
+  </div>
+</div>
+`;
+
+exports[`snapshotview unit testing 멤버일때 화면 테스트 1`] = `
+<div>
+  <div
+    id="admin"
+  >
+     멤버 
+  </div>
+</div>
+`;
