@@ -1,5 +1,6 @@
 <template>
   <div>
+		<h1>{{ $t('hello') }}</h1>
     <button id="playbtn" @click="clickPlay">재생</button>
     <button id="pausebtn" @click="clickPause">중지</button>
 		<button id="fadeOut" @click="FadeOut">FadeOut</button>

@@ -28,8 +28,11 @@ describe('hlsview unit test', () => {
         config: {
           globalProperties: {
             $VideoPlayer
-          }
-        }
+					}
+				},
+				mocks: {
+					$t: () => {}
+				}
       }
     })
   })
@@ -44,7 +47,9 @@ describe('hlsview unit test', () => {
 	})
 
 
-  test('초기화 테스트', async () => {
+	test('초기화 테스트', async () => {
+		console.log(wrapper.html());
+
     //given
 
     //when

@@ -40,6 +40,7 @@
     "vue-carousel-3d": "^1.0.1",
     "vue-click-outside": "^1.1.0",
     "vue-crontab": "^0.0.4",
+    "vue-i18n": "^10.0.5",
     "vue3-cookies": "^1.0.6",
     "vue3-lottie": "^3.3.0",
     "vuex": "^4.1.0",
