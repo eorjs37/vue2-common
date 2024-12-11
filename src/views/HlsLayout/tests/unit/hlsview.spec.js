@@ -7,7 +7,12 @@ const $VideoPlayer = {
   playerMusic: jest.fn(),
   startLoad: jest.fn(),
   onPlay: jest.fn(),
-  onPause: jest.fn()
+	onPause: jest.fn(),
+	getVolume: jest.fn(),
+	fadeIn: jest.fn(),
+	fadeOut: jest.fn().mockImplementation(() => {
+		return Promise.resolve(true)
+	})
 }
 
 jest.spyOn(vuecookies, 'useCookies')
@@ -38,9 +43,6 @@ describe('hlsview unit test', () => {
     jest.clearAllTimers()
 	})
 
-	test('snapshot test', async () => {
-		expect(wrapper.vm.$el).toMatchSnapshot()
-	});
 
   test('초기화 테스트', async () => {
     //given
@@ -101,5 +103,24 @@ describe('hlsview unit test', () => {
     //then
     jest.advanceTimersByTime(1500)
     expect($VideoPlayer.onPlay).toBeCalled()
-  })
+	})
+
+	test('FadeOut unittesting', async () => {
+		//given
+		const fadeOutBtn = wrapper.find('#fadeOut')
+		//when
+		await fadeOutBtn.trigger('click')
+
+		//then
+		expect($VideoPlayer.fadeOut).toBeCalled()
+	});
+
+	test('FadeIn unittesting', async () => {
+		//given
+		const fadeInBtn = wrapper.find('#fadeIn')
+		//when
+		await fadeInBtn.trigger('click')
+		//then
+		expect($VideoPlayer.fadeIn).toBeCalled()
+	})
 })

@@ -28,9 +28,8 @@ const routes = [
     ]
   },
   {
-    path: '/',
+    path: '/hoc',
     component: () => import('@/layout/HocLayout.vue'),
-    redirect: '/hoc',
     children: [
       {
         path: '/hoc',
@@ -50,8 +49,9 @@ const routes = [
     ]
   },
   {
-    path: '/hls',
-    component: () => import('@/layout/HlsLayout.vue'),
+    path: '/',
+		component: () => import('@/layout/HlsLayout.vue'),
+		redirect: '/hls',
     children: [
       {
         path: '/hls',

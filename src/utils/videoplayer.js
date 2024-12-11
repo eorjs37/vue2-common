@@ -103,7 +103,7 @@ const videoplayer = {
           this.fadeOut(volume).then(() => {
             resolve(true)
           })
-        }, 1000)
+        }, 300)
       } else {
         resolve(true)
       }
@@ -111,8 +111,11 @@ const videoplayer = {
   },
   registerEventListener(type, fn, option = {}) {
     this.video.addEventListener(type, fn, option)
-  },
-  fadeIn(volumeval) {
+	},
+	removeEventListener (type, fn) {
+		this.video.removeEventListener(type,fn)
+	},
+  fadeIn(volumeval = 1) {
     const volume = parseFloat(volumeval) + 0.1
     return new Promise((resolve) => {
       if (parseFloat(volume) < 1) {
@@ -121,7 +124,7 @@ const videoplayer = {
           this.fadeIn(volume).then(() => {
             resolve(true)
           })
-        }, 1000)
+        }, 300)
       } else {
         this.setVolume(1)
         resolve(true)
@@ -130,7 +133,10 @@ const videoplayer = {
   },
   setVolume(val) {
     this.video.volume = parseFloat(val)
-  }
+	},
+	getVolume () {
+		return this.video.volume;
+	}
 }
 
 export { videoplayer }
