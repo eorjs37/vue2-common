@@ -7,7 +7,6 @@ import VueCookies from 'vue3-cookies'
 import './assets/styles/reset.css'
 import './assets/styles/common.css'
 import 'animate.css'
-import { createI18n } from 'vue-i18n'
 //Plugins
 import { videoplayer } from './utils/videoplayer'
 import { cronTab } from './utils/cronTab'
@@ -20,8 +19,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faUserSecret, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import en from './locales/en.json'
-import ko from './locales/ko.json'
+import i18n from './locales/i18n'
 /* add icons to the library */
 library.add(faUserSecret, faSpinner)
 /* add font awesome icon component */
@@ -29,21 +27,6 @@ library.add(faUserSecret, faSpinner)
 //globalcomponent
 const app = createApp(App)
 
-function loadLocaleMessages () {
-	const locales = [{ en: en }, { ko: ko }]
-  const messages = {}
-  locales.forEach(lang => {
-    const key = Object.keys(lang)
-    messages[key] = lang[key]
-  })
-  return messages
-}
-
-const i18n = createI18n({
-	locale: 'ko',
-	fallbackLocale: 'ko',
-	messages: loadLocaleMessages()
-})
 
 //crontab init
 cronTab.init()
