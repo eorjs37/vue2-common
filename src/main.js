@@ -40,7 +40,7 @@ function loadLocaleMessages () {
 }
 
 const i18n = createI18n({
-	locale: 'en',
+	locale: 'ko',
 	fallbackLocale: 'ko',
 	messages: loadLocaleMessages()
 })

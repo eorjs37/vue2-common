@@ -1,6 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
 import HlsView from '../../HlsView.vue'
 import * as vuecookies from 'vue3-cookies'
+import { createI18n } from 'vue-i18n'
+import en from '@/locales/en.json'
+import ko from '@/locales/ko.json'
 const $VideoPlayer = {
   setVideo: jest.fn(),
   registerEventListener: jest.fn(),
@@ -14,6 +17,23 @@ const $VideoPlayer = {
 		return Promise.resolve(true)
 	})
 }
+
+function loadLocaleMessages () {
+	const locales = [{ en: en }, { ko: ko }]
+  const messages = {}
+  locales.forEach(lang => {
+    const key = Object.keys(lang)
+    messages[key] = lang[key]
+  })
+  return messages
+}
+const i18n = createI18n({
+	locale: 'ko',
+	fallbackLocale: 'ko',
+	messages: loadLocaleMessages()
+})
+
+
 
 jest.spyOn(vuecookies, 'useCookies')
 
@@ -30,8 +50,8 @@ describe('hlsview unit test', () => {
             $VideoPlayer
 					}
 				},
+				plugins:[i18n],
 				mocks: {
-					$t: () => {}
 				}
       }
     })
