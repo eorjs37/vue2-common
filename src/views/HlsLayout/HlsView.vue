@@ -5,13 +5,16 @@
     <button id="pausebtn" @click="clickPause">중지</button>
 		<button id="fadeOut" @click="FadeOut">FadeOut</button>
 		<button id="fadeIn" @click="FadeIn">FadeIn</button>
+		<button id="changeLocales" @click="changeLanguage">국문/영문 전환</button>
     <p>{{ currentTime }} / {{ durationTime }}</p>
   </div>
 </template>
 <script setup>
-import { getCurrentInstance, onUnmounted, ref } from 'vue'
+import { getCurrentInstance, onMounted, onUnmounted, ref } from 'vue'
 import { useCookies } from 'vue3-cookies'
+import { useI18n } from 'vue-i18n';
 const app = getCurrentInstance()
+const i18n = useI18n();
 const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
 const { cookies } = useCookies()
 
@@ -54,13 +57,16 @@ const endedEventListener = () => {
  * @description 초기화 설정
  */
 const init = () => {
-  $VideoPlayer.setVideo(document.querySelector('#streaming'))
-  $VideoPlayer.registerEventListener('pause', pauseEventListener)
-  $VideoPlayer.registerEventListener('play', playEventListener)
-  $VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
-  $VideoPlayer.registerEventListener('ended', endedEventListener)
-  $VideoPlayer.playerMusic(m3u8Url.value)
-  $VideoPlayer.startLoad(-1)
+	if ($VideoPlayer) {
+		$VideoPlayer.setVideo(document.querySelector('#streaming'))
+		$VideoPlayer.registerEventListener('pause', pauseEventListener)
+		$VideoPlayer.registerEventListener('play', playEventListener)
+		$VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
+		$VideoPlayer.registerEventListener('ended', endedEventListener)
+		$VideoPlayer.playerMusic(m3u8Url.value)
+		$VideoPlayer.startLoad(-1)
+	}
+
   cookies.set('dummy', 'test@gmail.com')
 }
 
@@ -94,7 +100,18 @@ const FadeIn = () => {
 	$VideoPlayer.fadeIn(0);
 }
 
-init()
+
+const changeLanguage = () => {
+	if (i18n.locale.value === 'en') {
+		i18n.locale.value = 'ko'
+	} else {
+		i18n.locale.value = 'en'
+	}
+}
+onMounted(() => {
+	init()
+})
+//
 onUnmounted(() => {
 	this.$VideoPlayer.removeEventListener('pause', pauseEventListener)
 	this.$VideoPlayer.removeEventListener('play', playEventListener)
