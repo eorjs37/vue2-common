@@ -1,3 +1,6 @@
 {
-	"hello":"hi"
+	"hello":"hi",
+	"play":"play",
+	"pause":"pause",
+	"change_lang":"change language"
 }

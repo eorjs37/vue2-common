@@ -48,6 +48,7 @@ app.use(store)
 app.use(i18n)
 app.config.globalProperties.$VideoPlayer = videoplayer
 app.config.globalProperties.$crontab = cronTab
+app.provide('$VideoPlayer',videoplayer)
 app.mount('#app')
 
 export { app }

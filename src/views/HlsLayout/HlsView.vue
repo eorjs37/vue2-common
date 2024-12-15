@@ -1,33 +1,32 @@
 <template>
   <div>
 		<h1>{{ $t('hello') }}</h1>
-    <button id="playbtn" @click="clickPlay">재생</button>
-    <button id="pausebtn" @click="clickPause">중지</button>
+    <button id="playbtn" @click="clickPlay">{{ $t('play') }}</button>
+    <button id="pausebtn" @click="clickPause">{{ $t('pause') }}</button>
 		<button id="fadeOut" @click="FadeOut">FadeOut</button>
 		<button id="fadeIn" @click="FadeIn">FadeIn</button>
-		<button id="changeLocales" @click="changeLanguage">국문/영문 전환</button>
+		<button id="changeLocales" @click="changeLanguage">{{ $t('change_lang') }}</button>
     <p>{{ currentTime }} / {{ durationTime }}</p>
   </div>
 </template>
 <script setup>
-import { getCurrentInstance, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useCookies } from 'vue3-cookies'
 import { useI18n } from 'vue-i18n';
-const app = getCurrentInstance()
+import { inject } from 'vue';
 const i18n = useI18n();
-const $VideoPlayer = app.appContext.config.globalProperties.$VideoPlayer
+const $VideoPlayer = inject('$VideoPlayer')
 const { cookies } = useCookies()
 
 const m3u8Url = ref(
 	'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/lauv/music.m3u8'
-	//'https://www.aplayz.co.kr/stream/getMusic?/dAoIBzlod3B0sYx3qYy1ICgpWm+ypRCq2oD29BwieN68iDXYkvsGNe2Yxmel6+l0mchs/5qTF7ZF8+81XjTILfg3yHzIw=='
 )
 
 const currentTime = ref(0)
 const durationTime = ref(0)
 
 const pauseEventListener = () => {
-  console.log('pause')
+  console.log('pause111')
 }
 const playEventListener = () => {
   console.log('play')
@@ -113,10 +112,10 @@ onMounted(() => {
 })
 //
 onUnmounted(() => {
-	this.$VideoPlayer.removeEventListener('pause', pauseEventListener)
-	this.$VideoPlayer.removeEventListener('play', playEventListener)
-	this.$VideoPlayer.removeEventListener('timeupdate', timeUpdateEventListener)
-	this.$VideoPlayer.removeEventListener('ended', endedEventListener)
+	$VideoPlayer.removeEventListener('pause', pauseEventListener)
+	$VideoPlayer.removeEventListener('play', playEventListener)
+	$VideoPlayer.removeEventListener('timeupdate', timeUpdateEventListener)
+	$VideoPlayer.removeEventListener('ended', endedEventListener)
 })
 </script>
 <style scoped src="@/assets/styles/hls/hlsview.css"></style>
