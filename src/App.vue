@@ -1,34 +1,14 @@
 <template>
   <div id="app">
-    <video id="streaming" controls></video>
-    <router-view />
+		<HeaderComp/>
+    <video id="streaming" controls hidden></video>
+		<div class="container">
+			<router-view />
+		</div>
+
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      worker: null,
-      count: 0
-    }
-  },
-
-  created() {},
-  mounted() {},
-  methods: {}
-}
+<script setup>
+import HeaderComp from './components/common/header/HeaderComp.vue';
 </script>
-
-<style>
-.container {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-body {
-  background-color: var(--black);
-}
-</style>

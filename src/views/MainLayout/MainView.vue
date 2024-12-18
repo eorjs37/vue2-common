@@ -1,28 +1,17 @@
 <template>
-  <div>
-    <calendar-comp />
-  </div>
+  <ol>
+		<li>
+			<RouterLink to="/hls">HLS</RouterLink>
+		</li>
+		<li>
+			<RouterLink to="/login">LOGIN</RouterLink>
+		</li>
+		<li>
+			<RouterLink to="/todo">TODO</RouterLink>
+		</li>
+	</ol>
 </template>
-<script>
-import CalendarComp from '@/components/calendar/CalendarComp.vue'
-export default {
-  name: 'MainView',
-  components: {
-    'calendar-comp': CalendarComp
-  },
+<script setup>
+import { RouterLink } from 'vue-router';
 
-  data() {
-    return {}
-  },
-
-  computed: {},
-  async created() {},
-
-  mounted() {},
-  unmounted() {
-    //
-  },
-
-  methods: {}
-}
 </script>

@@ -1,8 +1,5 @@
 <template>
   <div>
-		<h1>{{ $t('hello') }}</h1>
-    <button id="playbtn" @click="clickPlay">{{ $t('play') }}</button>
-    <button id="pausebtn" @click="clickPause">{{ $t('pause') }}</button>
 		<button id="fadeOut" @click="FadeOut">FadeOut</button>
 		<button id="fadeIn" @click="FadeIn">FadeIn</button>
 		<button id="changeLocales" @click="changeLanguage">{{ $t('change_lang') }}</button>
@@ -17,10 +14,6 @@ import { inject } from 'vue';
 const i18n = useI18n();
 const $VideoPlayer = inject('$VideoPlayer')
 const { cookies } = useCookies()
-
-const m3u8Url = ref(
-	'https://daegeon-everybody.s3.ap-northeast-2.amazonaws.com/m3u8/lauv/music.m3u8'
-)
 
 const currentTime = ref(0)
 const durationTime = ref(0)
@@ -62,24 +55,11 @@ const init = () => {
 		$VideoPlayer.registerEventListener('play', playEventListener)
 		$VideoPlayer.registerEventListener('timeupdate', timeUpdateEventListener)
 		$VideoPlayer.registerEventListener('ended', endedEventListener)
-		$VideoPlayer.playerMusic(m3u8Url.value)
-		$VideoPlayer.startLoad(-1)
+		// $VideoPlayer.playerMusic(m3u8Url.value)
+		// $VideoPlayer.startLoad(-1)
 	}
 
   cookies.set('dummy', 'test@gmail.com')
-}
-
-/**
- * @description 재생
- */
-const clickPlay = () => {
-  $VideoPlayer.onPlay()
-}
-/**
- * @description 중지
- */
-const clickPause = () => {
-  $VideoPlayer.onPause()
 }
 
 /**
