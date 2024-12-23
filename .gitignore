@@ -26,3 +26,5 @@ pnpm-debug.log*
 *.sw?
 
 .eslintcache
+
+*storybook.log

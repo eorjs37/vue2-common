@@ -11,7 +11,9 @@
     "test:coverage": "vue-cli-service test:unit",
     "testAll": "vue-cli-service test:unit --watchAll",
     "prepare": "husky install",
-    "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false"
+    "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@breejs/later": "^4.2.0",
@@ -49,6 +51,15 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.16",
     "@babel/preset-env": "^7.22.9",
+    "@chromatic-com/storybook": "^3.2.3",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/vue3": "^8.4.7",
+    "@storybook/vue3-webpack5": "^8.4.7",
     "@testing-library/vue": "^7.0.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
@@ -60,12 +71,15 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "eslint": "^7.32.0",
+    "eslint-plugin-storybook": "^0.11.1",
     "eslint-plugin-vue": "^8.0.3",
     "flush-promises": "^1.0.2",
     "husky": "^8.0.0",
     "jest": "^27.0.5",
     "jest-canvas-mock": "^2.5.2",
     "sass": "^1.69.5",
+    "storybook": "^8.4.7",
+    "vue-loader": "^17.4.2",
     "vue-router": "^4.3.3",
     "webpack-bundle-analyzer": "^4.9.1"
   },

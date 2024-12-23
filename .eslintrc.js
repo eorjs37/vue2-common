@@ -10,7 +10,7 @@ module.exports = {
     sourceType: 'module'
   },
 
-  extends: ['plugin:vue/essential', 'eslint:recommended'],
+  extends: ['plugin:vue/essential', 'eslint:recommended', 'plugin:storybook/recommended'],
 
   rules: {
     'comma-dangle': 'off',
