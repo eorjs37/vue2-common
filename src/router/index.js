@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import createHoc from '@/hoc/deleteHoc'
+import Delete1View from '@/views/DeleteLayout/Delete1View.vue'
 const routes = [
   {
     path: '/main2',
@@ -56,6 +57,16 @@ const routes = [
       {
         path: '/hls',
         component: () => import('@/views/HlsLayout/HlsView.vue')
+      }
+    ]
+  },
+  {
+    path:'/delete',
+    component: ()=>import('@/layout/DeleteLayout.vue'),
+    children:[
+      {
+        path:'/delete1',
+        component: createHoc(Delete1View)
       }
     ]
   },
